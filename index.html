@@ -91,16 +91,20 @@
         <!-- Desktop Nav Items -->
         <div class="hidden md:flex space-x-6 items-center">
           <button onclick="navigate('/')" class="nav-link flex items-center gap-1.5 font-semibold text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors" id="nav-home">
-            <i data-lucide="home" class="w-4.5 h-4.5"></i> Home
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4.5 h-4.5"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span class="nav-text">Home</span>
           </button>
           <button onclick="navigate('/gallery')" class="nav-link flex items-center gap-1.5 font-semibold text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors" id="nav-gallery">
-            <i data-lucide="image" class="w-4.5 h-4.5"></i> Gallery
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4.5 h-4.5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+            <span class="nav-text">Gallery</span>
           </button>
           <button onclick="navigate('/services')" class="nav-link flex items-center gap-1.5 font-semibold text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors" id="nav-services">
-            <i data-lucide="info" class="w-4.5 h-4.5"></i> Services
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4.5 h-4.5"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+            <span class="nav-text">Services</span>
           </button>
           <button onclick="navigate('/contact')" class="nav-link flex items-center gap-1.5 font-semibold text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors" id="nav-contact">
-            <i data-lucide="phone" class="w-4.5 h-4.5"></i> Contact
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4.5 h-4.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.79 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span class="nav-text">Contact</span>
           </button>
           
           <span class="h-5 w-px bg-gray-200 dark:bg-gray-800"></span>
@@ -116,8 +120,13 @@
 
           <!-- Theme Toggle -->
           <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors" aria-label="Toggle Theme">
-            <i data-lucide="sun" class="w-5 h-5 text-yellow-400 theme-icon-sun"></i>
-            <i data-lucide="moon" class="w-5 h-5 text-gray-400 theme-icon-moon"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-yellow-400 theme-icon-sun">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-gray-400 theme-icon-moon">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+            </svg>
           </button>
         </div>
 
@@ -131,12 +140,17 @@
           </select>
 
           <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors">
-            <i data-lucide="sun" class="w-5 h-5 text-yellow-400 theme-icon-sun"></i>
-            <i data-lucide="moon" class="w-5 h-5 text-gray-400 theme-icon-moon"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-yellow-400 theme-icon-sun">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-gray-400 theme-icon-moon">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+            </svg>
           </button>
           <button onclick="toggleMobileMenu()" class="text-gray-600 dark:text-gray-300 p-1">
-            <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
-            <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" id="menu-icon-open"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 hidden" id="menu-icon-close"><line x1="18" x2="6" y1="6" y2="18"></line><line x1="6" x2="18" y1="18" y2="6"></line></svg>
           </button>
         </div>
       </div>
@@ -723,15 +737,15 @@
         emptySlateTitle: "ఇంకా చిత్రాలు అప్‌లోడ్ చేయలేదు",
         emptySlateDesc: "మీ కళాఖండాలను నేరుగా అప్‌లోడ్ చేయడానికి, 'Santhosh Art' లోగోపై 3 సార్లు క్లిక్ చేయండి.",
         galleryTitle: "కళాఖండాల గ్యాలరీ",
-        galleryDesc: "చార్కోల్ పోర్ట్రెయిట్ స్కెచ్‌లు, ఖచ్చితమైన పెన్సిల్ డ్రాయింగ్‌లు, కస్టమ్ డెకరేషన్‌లు మరియు వాల్ పెయింటింగ్స్.",
-        searchPlaceholder: "చిత్రాలను వెतకండి...",
+        galleryDesc: "చేతితో గీసిన పెన్సిల్ మరియు చార్కోల్ స్కెచ్‌లు, రంగు రంగుల వాల్ ఆర్ట్, మరియు బ్యూటిఫుల్ గిఫ్ట్ చిత్రాల ప్రదర్శన.",
+        searchPlaceholder: "చిత్రాలను వెతకండి...",
         emptyGallery: "ఈ విభాగంలో ఎటువంటి చిత్రాలు లేవు.",
         servicesTitle: "కళా సేవలు మరియు ఎంపికలు",
         servicesDesc: "సంతోష్ గారు ప్రతి స్కెచ్‌ను ఎంతో శ్రద్ధతో, వాస్తవికతకు దగ్గరగా రూపొందిస్తారు.",
         service1Title: "పెన్సిల్ స్కెచ్‌లు",
         service1Desc: "ముఖ హావభావాలను మరియు చర్మ నైపుణ్యాలను ఖచ్చితంగా ప్రతిబింబించేలా అత్యంత వివరమైన గ్రాఫైట్ పెన్సిల్ స్కెచ్‌లు.",
         service2Title: "పోర్ట్రెయిట్ డ్రాయింగ్స్",
-        service2Desc: "మీకు ఇష్టమైన ఫోటోల ఆధారంగా పునఃసృష్టించబడే అద్भूతమైన మరియు శాశ్వతమైన చార్కోల్ పోర్ట్రెయిట్స్.",
+        service2Desc: "మీకు ఇష్టమైన ఫోటోల ఆధారంగా పునఃసృష్టించబడే అద్భుతమైన మరియు శాశ్వతమైన చార్కోల్ పోర్ట్రెయిట్స్.",
         service3Title: "వాల్ ఆర్ట్",
         service3Desc: "మీ ఇల్లు లేదా ఆఫీస్ గోడల అందాన్ని మరింత పెంచే పెద్ద పరిమాణ వాల్ పెయింటింగ్స్ మరియు చార్కోల్ ఆర్ట్.",
         service4Title: "కస్టమ్ ఆర్ట్‌వర్క్",
@@ -745,7 +759,7 @@
         contactSupportLabel: "లైవ్ సపోర్ట్ చాట్",
         contactSupportSub: "వాట్సాప్ ద్వారా సులభ సంభాషణ",
         contactSupportBtn: "నేరుగా చాట్ చేయండి",
-        formTitle: "ప్రాజెక్ट వివరాల అభ్యర్థన ఫారమ్",
+        formTitle: "ప్రాజెక్ట్ వివరాల అభ్యర్థన ఫారమ్",
         formName: "మీ పేరు *",
         formPhone: "మొబైల్ ఫోన్ నంబర్ *",
         formCategory: "చిత్రం యొక్క విభాగం",
@@ -759,12 +773,12 @@
         detailCommentsPlt: "మీ అభిప్రాయాన్ని రాయండి...",
         detailNoComments: "మీ అభిప్రాయాన్ని పంచుకునే మొదటి వ్యక్తి అవ్వండి!",
         adminTitle: "అడ్మిన్ లాగిన్ ప్యానెల్",
-        adminSub: "సురక్షित వ్యవస్థ ప్రామాణీకరణ ప్రాప్యత",
-        adminPassPlt: "పాస్‌వర్డ్ పిన్ కోడ్",
+        adminSub: "సురక్షిత వ్యవస్థ ప్రామాణీకరణ ప్రాప్యత",
+        adminPassPlt: "పాసవర్డ్ పిన్ కోడ్",
         adminLoginBtn: "ప్రామాణీకరణ లాగిన్",
         adminWelcome: "స్వాగతం, సంతోష్ గారు!",
         adminStatsTab: "డాష్‌బోర్డ్ అవలోకనం",
-        adminArtworksTab: "చిత్రాల జాబितా",
+        adminArtworksTab: "చిత్రాల జాబితా",
         adminUploadTab: "కొత్త చిత్రం అప్‌లోడ్",
         adminInboxTab: "ఆర్డర్ అభ్యర్థనలు",
         adminCommentsTab: "అభిప్రాయాల సమీక్ష",
@@ -790,7 +804,7 @@
         settingsNewLabel: "కొత్త సెక్యూరిటీ పిన్",
         settingsSubmitBtn: "అడ్మిన్ పిన్ నవీకరించు",
         confirmDeleteTitle: "తొలగింపును ధృవీకరించండి",
-        confirmDeleteDesc: "ఈ చర్యను తిరిగి పొందలేము. ఈ ఐటెమ్ శాశ్వతంగా తొलగించబడుతుంది.",
+        confirmDeleteDesc: "ఈ చర్యను తిరిగి పొందలేము. ఈ ఐటెమ్ శాశ్వతంగా తొలగించబడుతుంది.",
         confirmDeleteCancel: "రద్దు చేయి",
         confirmDeleteAction: "తొలగించు",
         copiedToast: "లింక్ విజయవంతంగా కాపీ చేయబడింది!",
@@ -821,7 +835,7 @@
         emptySlateTitle: "अभी तक कोई कलाकृति अपलोड नहीं की गई है",
         emptySlateDesc: "मूल कला कृतियों को सीधे अपलोड करने के लिए, 'Santhosh Art' लोगो पर 3 बार क्लिक करें।",
         galleryTitle: "कलाकृतियों की गैलरी",
-        galleryDesc: "पोर्ट्रेट स्केच, सटीक चित्र, दीवार पेंटिंग और कस्टम कार्यों का अन्वेषण करें।",
+        galleryDesc: "हाथ से बने पेंसिल और चारकोल स्केच, जीवंत दीवार कला, और सुंदर उपहार चित्रों का संग्रह।",
         searchPlaceholder: "कलाकृतियाँ खोजें...",
         emptyGallery: "इस श्रेणी में कोई कलाकृति नहीं मिली।",
         servicesTitle: "कला सेवाएं और विकल्प",
@@ -957,27 +971,27 @@
 
     // TRANSLATE STATIC ELEMENTS IN DOM
     function translateUI() {
-      // Navbars
-      document.getElementById('nav-home').innerHTML = `<i data-lucide="home" class="w-4.5 h-4.5"></i> ` + getText('navHome');
-      document.getElementById('nav-gallery').innerHTML = `<i data-lucide="image" class="w-4.5 h-4.5"></i> ` + getText('navGallery');
-      document.getElementById('nav-services').innerHTML = `<i data-lucide="info" class="w-4.5 h-4.5"></i> ` + getText('navServices');
-      document.getElementById('nav-contact').innerHTML = `<i data-lucide="phone" class="w-4.5 h-4.5"></i> ` + getText('navContact');
+      // Navbars - desktop
+      document.getElementById('nav-home').querySelector('.nav-text').innerText = getText('navHome');
+      document.getElementById('nav-gallery').querySelector('.nav-text').innerText = getText('navGallery');
+      document.getElementById('nav-services').querySelector('.nav-text').innerText = getText('navServices');
+      document.getElementById('nav-contact').querySelector('.nav-text').innerText = getText('navContact');
 
       // Mobile menu reconstruction
       const mobileMenu = document.getElementById('mobile-menu');
       mobileMenu.innerHTML = `
         <div class="px-3 pt-2 pb-4 space-y-1">
           <button onclick="navigate('/'); toggleMobileMenu();" class="flex items-center gap-3 w-full px-4 py-3 rounded-xl font-medium text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900">
-            <i data-lucide="home" class="w-5 h-5"></i> ${getText('navHome')}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> ${getText('navHome')}
           </button>
           <button onclick="navigate('/gallery'); toggleMobileMenu();" class="flex items-center gap-3 w-full px-4 py-3 rounded-xl font-medium text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900">
-            <i data-lucide="image" class="w-5 h-5"></i> ${getText('navGallery')}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg> ${getText('navGallery')}
           </button>
           <button onclick="navigate('/services'); toggleMobileMenu();" class="flex items-center gap-3 w-full px-4 py-3 rounded-xl font-medium text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900">
-            <i data-lucide="info" class="w-5 h-5"></i> ${getText('navServices')}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg> ${getText('navServices')}
           </button>
           <button onclick="navigate('/contact'); toggleMobileMenu();" class="flex items-center gap-3 w-full px-4 py-3 rounded-xl font-medium text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900">
-            <i data-lucide="phone" class="w-5 h-5"></i> ${getText('navContact')}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.79 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> ${getText('navContact')}
           </button>
         </div>
       `;
@@ -1040,7 +1054,7 @@
       document.getElementById('stat-messages-label').innerText = getText('adminStatInbox');
       document.getElementById('stat-comments-label').innerText = getText('adminStatComments');
 
-      document.getElementById('upload-form-title').innerText = getText('adminUploadTitle');
+      document.getElementById('upload-form-title-h2').innerText = getText('adminUploadTitle');
       document.getElementById('admin-cancel-edit-btn').innerText = getText('adminCancelEdit');
       document.getElementById('admin-up-title-label').innerText = getText('adminUpTitleLabel');
       document.getElementById('admin-up-file-label').innerText = getText('adminUpFileLabel');
@@ -1072,7 +1086,13 @@
       document.getElementById('lang-selector').value = db.session.lang;
       document.getElementById('lang-selector-mobile').value = db.session.lang;
 
-      lucide.createIcons();
+      try {
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
+      } catch (e) {
+        console.error("Lucide failed to render:", e);
+      }
     }
   </script>
 
@@ -1177,7 +1197,6 @@
       const select = document.getElementById('upload-category');
       select.innerHTML = '';
       CATEGORIES_LIST.filter(c => c !== "All").forEach(c => {
-        // Categories list has hardcoded matching keys in english to persist consistent DB fields, but let's translate options
         let translatedCat = c;
         if (c === "Pencil Sketches") translatedCat = getText('service1Title');
         else if (c === "Portrait Drawings") translatedCat = getText('service2Title');
@@ -1191,7 +1210,6 @@
   </script>
 
   <script>
-    // Global variable to keep track of item being deleted
     let pendingDeleteConfig = null;
 
     // PREMIUM MODAL OVERRIDES FOR ALERTS/CONFIRMS
@@ -1245,11 +1263,9 @@
     function navigate(route) {
       currentRoute = route;
       
-      // Update UI views
       const sections = document.querySelectorAll('.view-section');
       sections.forEach(s => s.classList.add('hidden'));
 
-      // Navbar links highlighting reset
       const links = document.querySelectorAll('.nav-link');
       links.forEach(l => l.classList.remove('text-amber-500', 'dark:text-amber-400'));
 
@@ -1321,13 +1337,14 @@
           grid.appendChild(item);
         });
       }
-      lucide.createIcons();
+      try {
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      } catch(e) {}
     }
   </script>
 
   <script>
     function renderGallery() {
-      // Category Buttons Rendering
       const filterBox = document.getElementById('gallery-category-filters');
       filterBox.innerHTML = '';
       
@@ -1354,7 +1371,6 @@
         filterBox.appendChild(btn);
       });
 
-      // Filter and Search logic
       const filtered = db.artworks.filter(art => {
         const matchesCategory = currentSelectedCategory === 'All' || art.category === currentSelectedCategory;
         const matchesSearch = art.title.toLowerCase().includes(searchQueryString.toLowerCase()) || 
@@ -1407,7 +1423,9 @@
           masonry.appendChild(mItem);
         });
       }
-      lucide.createIcons();
+      try {
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      } catch(e) {}
     }
 
     function handleSearch(val) {
@@ -1415,7 +1433,6 @@
       renderGallery();
     }
 
-    // IMAGE FULLSCREEN MODAL CONTROLS
     function openZoomModal(imgSrc) {
       const modal = document.getElementById('zoom-modal');
       const img = document.getElementById('zoom-modal-img');
@@ -1427,7 +1444,6 @@
       document.getElementById('zoom-modal').classList.add('hidden');
     }
 
-    // COMMISSION SERVICES TRIGGER
     function requestService(serviceName) {
       navigate('/contact');
       document.getElementById('form-category').value = serviceName;
@@ -1444,7 +1460,6 @@
         return;
       }
 
-      // Update back button language text
       document.getElementById('artwork-detail-back-btn').innerHTML = `<i data-lucide="chevron-left" class="w-5 h-5"></i> ` + getText('detailBack');
 
       const hasLiked = art.likes.includes(db.session.userId);
@@ -1533,10 +1548,11 @@
           </div>
         </div>
       `;
-      lucide.createIcons();
+      try {
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      } catch(e) {}
     }
 
-    // COMMENT POST LOGIC
     function handleCommentPost(e, artId) {
       e.preventDefault();
       const text = document.getElementById('comment-input').value;
@@ -1561,7 +1577,6 @@
       renderArtworkDetail(artId);
     }
 
-    // LIKE TOGGLER
     function toggleLike(artId) {
       const art = db.artworks.find(a => a.id === artId);
       if (!art) return;
@@ -1578,7 +1593,6 @@
       renderArtworkDetail(artId);
     }
 
-    // CLIPBOARD SYSTEM
     function copyArtLink() {
       try {
         const dummy = document.createElement('input');
@@ -1607,7 +1621,6 @@
         return;
       }
 
-      // Save locally to database
       const newMsg = {
         id: 'msg-' + Date.now(),
         name,
@@ -1623,7 +1636,6 @@
       
       showNotification(getText('saveSuccessToast'), "success");
 
-      // Language adapted WhatsApp format construct
       let formattedMessage = "";
       if (db.session.lang === 'te') {
         formattedMessage = `*🎨 కొత్త ఆర్ట్‌వర్క్ ఆర్డర్ అభ్యర్థన*\n\n` +
@@ -1654,7 +1666,6 @@
       }, 1500);
     }
 
-    // Dynamic detail artwork page WhatsApp link order generator
     function orderArtworkWhatsApp(title, category, url) {
       let formattedMessage = "";
       if (db.session.lang === 'te') {
@@ -1662,7 +1673,7 @@
                            `నమస్తే సంతోష్ గారు, నేను మీ వెబ్‌సైట్‌లో ఈ అద్భుతమైన స్కెచ్‌ని చూశాను. నాకు ఇలాంటి ఆర్ట్ కావాలి:\n\n` +
                            `📌 *చిత్రం పేరు:* ${title}\n` +
                            `🏷️ *విభాగం:* ${category}\n` +
-                           `🔗 *ఆర్ట్ लिంక్:* ${window.location.origin}/#artwork/${encodeURIComponent(title)}`;
+                           `🔗 *ఆర్ట్ లింక్:* ${window.location.origin}/#artwork/${encodeURIComponent(title)}`;
       } else if (db.session.lang === 'hi') {
         formattedMessage = `*🎨 स्केच ऑर्डर अनुरोध*\n\n` +
                            `नमस्ते संतोष जी, मैंने आपकी वेबसाइट पर यह अद्भुत स्केच देखा। मुझे ऐसी ही एक कलाकृति चाहिए:\n\n` +
@@ -1683,11 +1694,9 @@
   </script>
 
   <script>
-    // --- VIEW: ADMIN CORE ENGINE ---
     function renderAdminPortal() {
       const loginBox = document.getElementById('admin-login-box');
       const dashBox = document.getElementById('admin-dashboard-box');
-      const savedPin = localStorage.getItem('art_db_password') || 'santhosh123';
 
       if (db.session.isAdmin) {
         loginBox.classList.add('hidden');
@@ -1720,7 +1729,6 @@
       renderAdminPortal();
     }
 
-    // ADMIN TABS NAVIGATION
     let activeAdminTab = 'stats';
     function setAdminTab(tabId) {
       activeAdminTab = tabId;
@@ -1796,10 +1804,11 @@
         `;
         grid.appendChild(item);
       });
-      lucide.createIcons();
+      try {
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      } catch(e) {}
     }
 
-    // BASE64 FILE CONVERSION & DRAG DROP
     function handleImageFileSelect(e) {
       const file = e.target.files[0];
       if (file) {
@@ -1825,7 +1834,6 @@
       reader.readAsDataURL(file);
     }
 
-    // ARTWORK CREATE & UPDATE CONTROLLER
     function handleArtworkUploadOrUpdate(e) {
       e.preventDefault();
       const id = document.getElementById('upload-art-id').value;
@@ -1840,7 +1848,6 @@
       }
 
       if (id) {
-        // Edit Action Mode
         const art = db.artworks.find(a => a.id === id);
         if (art) {
           art.title = title;
@@ -1850,7 +1857,6 @@
           showNotification(getText('saveSuccessToast'), "success");
         }
       } else {
-        // Publish Mode
         const newArt = {
           id: 'art-' + Date.now(),
           title,
@@ -1870,7 +1876,6 @@
       setAdminTab('artworks');
     }
 
-    // START EDIT MODE TRIGGER
     function startArtworkEdit(artId) {
       const art = db.artworks.find(a => a.id === artId);
       if (!art) return;
@@ -1889,7 +1894,9 @@
       document.getElementById('btn-submit-artwork').innerHTML = `<i data-lucide="check" class="w-5 h-5"></i> ` + getText('adminUpBtnUpdate');
 
       setAdminTab('upload');
-      lucide.createIcons();
+      try {
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      } catch(e) {}
     }
 
     function cancelArtworkEdit() {
@@ -1902,7 +1909,9 @@
       document.getElementById('upload-form-title-h2').innerText = getText('adminUploadTitle');
       document.getElementById('admin-cancel-edit-btn').classList.add('hidden');
       document.getElementById('btn-submit-artwork').innerHTML = `<i data-lucide="plus" class="w-5 h-5"></i> ` + getText('adminUpBtnPublish');
-      lucide.createIcons();
+      try {
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      } catch(e) {}
     }
 
     function toggleArtworkVisibility(artId) {
@@ -1920,7 +1929,6 @@
     function deleteArtwork(artId) {
       showCustomConfirm(() => {
         db.artworks = db.artworks.filter(a => a.id !== artId);
-        // Clean related reviews
         db.comments = db.comments.filter(c => c.artworkId !== artId);
         saveStateToLocal();
         showNotification(getText('deletedToast'), "success");
@@ -1928,7 +1936,6 @@
       });
     }
 
-    // VIEW: ADMIN MESSAGES / COMMISSIONS LIST
     function renderAdminMessages() {
       const container = document.getElementById('admin-messages-list');
       container.innerHTML = '';
@@ -1974,7 +1981,6 @@
       });
     }
 
-    // VIEW: ADMIN COMMENTS CONTROL
     function renderAdminComments() {
       const container = document.getElementById('admin-comments-list');
       container.innerHTML = '';
@@ -2017,7 +2023,9 @@
         `;
         container.appendChild(item);
       });
-      lucide.createIcons();
+      try {
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      } catch(e) {}
     }
 
     function postAdminReply(commentId) {
@@ -2046,7 +2054,6 @@
       });
     }
 
-    // DYNAMIC SECURITY ADMIN PASSWORD CHANGER
     function handlePINChange(e) {
       e.preventDefault();
       const oldPin = document.getElementById('settings-old-pin').value;
@@ -2065,22 +2072,21 @@
   </script>
 
   <script>
-    // THEME CHECK INITIALIZATION
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-
-    // APP GLOBAL STARTUP ROUTINES
+    // INITIALIZATION PASS (Executes instantly, protected from asset delays)
     function initApp() {
-      // Direct pass to translate dynamic values instantly on DOM load
+      // Setup Theme Instantly from local cache
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+
       translateUI();
       navigate('/');
     }
 
-    // Execute immediately without waiting for heavy background images to finish loading
+    // Dynamic execution listener
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', initApp);
     } else {
