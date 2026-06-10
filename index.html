@@ -951,31 +951,38 @@
     };
 
     // SYSTEM STATE DB MANAGEMENT
-    let db = {
-      artworks: JSON.parse(localStorage.getItem('art_db_artworks')) || INITIAL_ARTWORKS,
-      comments: JSON.parse(localStorage.getItem('art_db_comments')) || INITIAL_COMMENTS,
-      messages: JSON.parse(localStorage.getItem('art_db_messages')) || [],
-      likes: JSON.parse(localStorage.getItem('art_db_likes')) || {},
-      session: {
-        userId: localStorage.getItem('art_db_userId') || 'guest-' + Math.random().toString(36).substr(2, 9),
-        isAdmin: JSON.parse(localStorage.getItem('art_db_isAdmin')) || false,
-        lang: localStorage.getItem('art_db_lang') || 'en' // Default set to professional English
-      }
-    };
+    // SYSTEM STATE DB MANAGEMENT (Firebase)
+let db = {
+    artworks: [],
+    comments: [],
+    messages: [],
+    likes: {},
+    session: {
+        userId: 'guest-' + Math.random().toString(36).substr(2, 9),
+        isAdmin: false,
+        lang: 'en'
+    }
+};
 
+// Firebase నుండి డేటాను తెచ్చే ఫంక్షన్
+async function syncFromFirebase() {
+    // Artworks తెచ్చుకోవడం
+    const artSnap = await getDocs(collection(db_fs, "artworks"));
+    db.artworks = artSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    
+    // Messages తెచ్చుకోవడం
+    const msgSnap = await getDocs(collection(db_fs, "messages"));
+    db.messages = msgSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    
+    // గ్యాలరీని రిఫ్రెష్ చేయడం
+    renderGallery();
+    renderHomeFeatured();
+}
+}
     // GLOBAL DECLARED SPA STATE VARIABLES
     let currentRoute = '/';
     let currentSelectedCategory = 'All';
     let searchQueryString = '';
-
-    function saveStateToLocal() {
-      localStorage.setItem('art_db_artworks', JSON.stringify(db.artworks));
-      localStorage.setItem('art_db_comments', JSON.stringify(db.comments));
-      localStorage.setItem('art_db_messages', JSON.stringify(db.messages));
-      localStorage.setItem('art_db_likes', JSON.stringify(db.likes));
-      localStorage.setItem('art_db_userId', db.session.userId);
-      localStorage.setItem('art_db_isAdmin', JSON.stringify(db.session.isAdmin));
-      localStorage.setItem('art_db_lang', db.session.lang);
     }
 
     // MULTI-LANGUAGE DYNAMIC HELPER
@@ -987,11 +994,9 @@
     // LANGUAGE SWITCH ENGINE
     function changeLanguage(lang) {
       db.session.lang = lang;
-      saveStateToLocal();
       
       // Perform complete UI translation pass
       translateUI();
-      
       // Refresh current page context dynamic values
       if (currentRoute === '/') {
         renderHomeFeatured();
@@ -2145,16 +2150,28 @@
     }
 
     // INITIALIZATION PASS & ROUTING MANAGEMENT
-    function initApp() {
-      // Setup Theme Instantly from local cache
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+   function initApp() {
+    // 1. Theme Setup
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
-      } else {
+    } else {
         document.documentElement.classList.remove('dark');
-      }
+    }
 
-      translateUI();
+    // 2. Firebase నుండి డేటా తెచ్చుకుని, తర్వాతే వెబ్‌సైట్ చూపించడం
+    syncFromFirebase()
+        .then(() => {
+            translateUI();
+            const initialRoute = window.location.hash.slice(1) || '/';
+            navigate(initialRoute, false);
+        })
+        .catch((error) => {
+            console.error("Firebase డేటా లోడ్ అవ్వలేదు:", error);
+            // ఒకవేళ ఎర్రర్ వస్తే కనీసం UI Translate అవ్వాలి
+            translateUI();
+        });
+}
 
       // Hash routing for link sharing connectivity
       const initialRoute = window.location.hash.slice(1) || '/';
