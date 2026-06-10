@@ -2074,11 +2074,18 @@
     }
 
     // APP GLOBAL STARTUP ROUTINES
-    window.onload = function() {
-      // Direct pass to translate dynamic values
+    function initApp() {
+      // Direct pass to translate dynamic values instantly on DOM load
       translateUI();
       navigate('/');
-    };
+    }
+
+    // Execute immediately without waiting for heavy background images to finish loading
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initApp);
+    } else {
+      initApp();
+    }
   </script>
 </body>
 </html>
