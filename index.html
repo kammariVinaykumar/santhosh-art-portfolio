@@ -9,7 +9,7 @@
   <!-- Google Fonts for Premium Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;800&family=Playfair+Display:ital,wght=0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
   
@@ -616,8 +616,39 @@
 
   <!-- 7. APPLICATION LOGIC ENGINE -->
   <script>
-    // CLEAN PRODUCTION INITIAL STATE
-    const INITIAL_ARTWORKS = [];
+    // CLEAN PRODUCTION INITIAL STATE - Added starter premium artworks to avoid empty page
+    const INITIAL_ARTWORKS = [
+      {
+        id: 'art-1',
+        title: 'Mystic Charcoal Portrait',
+        imageUrl: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800&auto=format&fit=crop',
+        category: 'Portrait Drawings',
+        description: 'A deep expressive charcoal study focusing on play of light and shadow, highlighting facial emotions.',
+        isHidden: false,
+        likes: ['guest-xyz'],
+        createdAt: Date.now() - 86400000 * 2
+      },
+      {
+        id: 'art-2',
+        title: 'The Silent Wanderer',
+        imageUrl: 'https://images.unsplash.com/photo-1580136608260-4eb11f4b24fe?w=800',
+        category: 'Pencil Sketches',
+        description: 'Fine-grained graphite pencil sketch capturing dynamic hair movement and highly realistic skin textures.',
+        isHidden: false,
+        likes: [],
+        createdAt: Date.now() - 86400000
+      },
+      {
+        id: 'art-3',
+        title: 'Divine Ganesha Mural',
+        imageUrl: 'https://images.unsplash.com/photo-1506806732259-39c2d0268443?w=800',
+        category: 'Wall Art',
+        description: 'A large scale customized living room charcoal wall illustration of Lord Ganesha, completed with premium protection coats.',
+        isHidden: false,
+        likes: ['guest-abc'],
+        createdAt: Date.now()
+      }
+    ];
     const INITIAL_COMMENTS = [];
     const CATEGORIES_LIST = ["All", "Pencil Sketches", "Portrait Drawings", "Wall Art", "Custom Artwork", "Gift Sketches"];
 
@@ -766,9 +797,9 @@
         formSpecs: "చిత్రం యొక్క ప్రత్యేక వివరాలు *",
         formSpecsPlt: "వివరాలను వివరించండి (సైజు, రకం, కస్టమ్ ఫ్రేమింగ్, మరియు బోర్డర్ వివరాలు)",
         formSubmit: "ఆర్డర్ వివరాలను సమర్పించండి",
-        detailBack: "తిరిగి గ్యాలరీకి",
+        detailBack: "back to Gallery",
         detailOrderBtn: "దీనిని ఆర్డర్ చేయండి (WhatsApp)",
-        detailShareBtn: "లింక్ కాピー చేయండి",
+        detailShareBtn: "లింక్ కాపీ చేయండి",
         detailCommentsTitle: "అభిప్రాయాలు మరియు సమీక్షలు",
         detailCommentsPlt: "మీ అభిప్రాయాన్ని రాయండి...",
         detailNoComments: "మీ అభిప్రాయాన్ని పంచుకునే మొదటి వ్యక్తి అవ్వండి!",
@@ -826,11 +857,11 @@
         navContact: "संपर्क",
         heroBadge: "🎨 पेशेवर कलाकार पोर्टफोलियो",
         heroTitle: "संतोष <br><span class='text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-yellow-600'>स्केच क्रिएशंस</span>",
-        heroDesc: "ग्रेफाइट, चारकोल और गतिशील रेखाचित्रों में विशेषज्ञता। कैनवास पर एक जीवंत चित्र के साथ अपनी यादों को जीवंत बनाएं।",
+        heroDesc: "ग्रेफाइट, चारकोल और व्यक्तिगत रेखाचित्रों में विशेषज्ञता। कैनवास पर एक जीवंत चित्र के साथ अपनी यादों को जीवंत बनाएं।",
         heroBtnGallery: "गैलरी देखें",
         heroBtnContact: "कलाकृति ऑर्डर करें",
         specialWorks: "संतोष की विशेष कृतियाँ",
-        specialWorksDesc: "मूल ग्रेफाइट अध्ययन और सटीक पेंसिल चित्रों को ब्राउज़ करें।",
+        specialWorksDesc: "मूल ग्रेफाइट अध्ययन और सटीक पेंसिल चित्रों को ब्राउज़ करें.",
         viewAll: "सभी देखें",
         emptySlateTitle: "अभी तक कोई कलाकृति अपलोड नहीं की गई है",
         emptySlateDesc: "मूल कला कृतियों को सीधे अपलोड करने के लिए, 'Santhosh Art' लोगो पर 3 बार क्लिक करें।",
@@ -931,6 +962,11 @@
         lang: localStorage.getItem('art_db_lang') || 'en' // Default set to professional English
       }
     };
+
+    // GLOBAL DECLARED SPA STATE VARIABLES
+    let currentRoute = '/';
+    let currentSelectedCategory = 'All';
+    let searchQueryString = '';
 
     function saveStateToLocal() {
       localStorage.setItem('art_db_artworks', JSON.stringify(db.artworks));
@@ -1240,6 +1276,23 @@
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     }
 
+    // MOBILE hamburger MENU TOGGLE
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const openIcon = document.getElementById('menu-icon-open');
+      const closeIcon = document.getElementById('menu-icon-close');
+      
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        openIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      } else {
+        menu.classList.add('hidden');
+        openIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }
+    }
+
     // Logo Hidden Trigger Event Tracker (Triple-click)
     let logoClickCount = 0;
     let logoClickTimer;
@@ -1260,8 +1313,11 @@
   </script>
 
   <script>
-    function navigate(route) {
+    function navigate(route, updateHash = true) {
       currentRoute = route;
+      if (updateHash) {
+        window.location.hash = route;
+      }
       
       const sections = document.querySelectorAll('.view-section');
       sections.forEach(s => s.classList.add('hidden'));
@@ -1487,7 +1543,7 @@
           </div>
 
           <!-- Real Order on WhatsApp button -->
-          <button onclick="orderArtworkWhatsApp('${art.title.replace(/'/g, "\\'")}', '${displayCategory}', '${art.imageUrl}')" class="w-full mb-6 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold rounded-2xl shadow-lg transition-transform hover:scale-105 flex justify-center items-center gap-2">
+          <button onclick="orderArtworkWhatsApp('${art.id}', '${art.title.replace(/'/g, "\\'")}', '${displayCategory}', '${art.imageUrl}')" class="w-full mb-6 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold rounded-2xl shadow-lg transition-transform hover:scale-105 flex justify-center items-center gap-2">
             <i data-lucide="shopping-cart" class="w-5 h-5"></i> ${getText('detailOrderBtn')}
           </button>
 
@@ -1666,26 +1722,27 @@
       }, 1500);
     }
 
-    function orderArtworkWhatsApp(title, category, url) {
+    function orderArtworkWhatsApp(artId, title, category, url) {
       let formattedMessage = "";
+      const artDetailLink = window.location.origin + window.location.pathname + '#/artwork/' + artId;
       if (db.session.lang === 'te') {
         formattedMessage = `*🎨 చిత్ర ఆర్డర్ అభ్యర్థన*\n\n` +
                            `నమస్తే సంతోష్ గారు, నేను మీ వెబ్‌సైట్‌లో ఈ అద్భుతమైన స్కెచ్‌ని చూశాను. నాకు ఇలాంటి ఆర్ట్ కావాలి:\n\n` +
                            `📌 *చిత్రం పేరు:* ${title}\n` +
                            `🏷️ *విభాగం:* ${category}\n` +
-                           `🔗 *ఆర్ట్ లింక్:* ${window.location.origin}/#artwork/${encodeURIComponent(title)}`;
+                           `🔗 *ఆర్ట్ లింక్:* ${artDetailLink}`;
       } else if (db.session.lang === 'hi') {
         formattedMessage = `*🎨 स्केच ऑर्डर अनुरोध*\n\n` +
                            `नमस्ते संतोष जी, मैंने आपकी वेबसाइट पर यह अद्भुत स्केच देखा। मुझे ऐसी ही एक कलाकृति चाहिए:\n\n` +
                            `📌 *शीर्षक:* ${title}\n` +
                            `🏷️ *श्रेणी:* ${category}\n` +
-                           `🔗 *लिंक:* ${window.location.origin}/#artwork/${encodeURIComponent(title)}`;
+                           `🔗 *लिंक:* ${artDetailLink}`;
       } else {
         formattedMessage = `*🎨 SKETCH COMMISSION INQUIRY*\n\n` +
                            `Hi Santhosh, I loved this sketch artwork from your live portfolio. I'd like to commission a similar work:\n\n` +
                            `📌 *Artwork Title:* ${title}\n` +
                            `🏷️ *Category:* ${category}\n` +
-                           `🔗 *Portfolio Link:* ${window.location.origin}/#artwork/${encodeURIComponent(title)}`;
+                           `🔗 *Portfolio Link:* ${artDetailLink}`;
       }
       
       const encodedMessage = encodeURIComponent(formattedMessage);
@@ -2008,7 +2065,7 @@
             <button onclick="deleteComment('${c.id}')" class="p-2.5 text-red-500 hover:bg-red-500/10 rounded-xl"><i data-lucide="trash-2" class="w-4.5 h-4.5"></i></button>
           </div>
 
-          <!-- Secure Response Reply Form -->
+          <!-- Response Reply Form -->
           <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-900 flex gap-3">
             <input 
               type="text" 
@@ -2072,7 +2129,22 @@
   </script>
 
   <script>
-    // INITIALIZATION PASS (Executes instantly, protected from asset delays)
+    // TOAST SYSTEM
+    function showNotification(text, type = "info") {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = `px-6 py-3.5 rounded-2xl shadow-2xl font-bold text-sm text-white transition-all flex items-center gap-2 animate-bounce ${
+        type === 'success' ? 'bg-amber-500 text-black' : 'bg-red-600'
+      }`;
+      toast.innerText = text;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.classList.add('opacity-0');
+        setTimeout(() => toast.remove(), 400);
+      }, 3000);
+    }
+
+    // INITIALIZATION PASS & ROUTING MANAGEMENT
     function initApp() {
       // Setup Theme Instantly from local cache
       const savedTheme = localStorage.getItem('theme');
@@ -2083,8 +2155,19 @@
       }
 
       translateUI();
-      navigate('/');
+
+      // Hash routing for link sharing connectivity
+      const initialRoute = window.location.hash.slice(1) || '/';
+      navigate(initialRoute, false);
     }
+
+    // Hash change dynamic listener
+    window.addEventListener('hashchange', () => {
+      const hashRoute = window.location.hash.slice(1) || '/';
+      if (currentRoute !== hashRoute) {
+        navigate(hashRoute, false);
+      }
+    });
 
     // Dynamic execution listener
     if (document.readyState === 'loading') {
