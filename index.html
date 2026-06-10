@@ -9,34 +9,23 @@
   <!-- Google Fonts for Premium Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;800&family=Playfair+Display:ital,wght=0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght=0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
   
-  <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-  import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-  import { getStorage, ref, uploadString, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyCmzLy5eblr1GQTJeAJJE8haEONxVo61yM",
-    authDomain: "santhoshapp-625c7.firebaseapp.com",
-    projectId: "santhoshapp-625c7",
-    storageBucket: "santhoshapp-625c7.appspot.com",
-    messagingSenderId: "832072775875",
-    appId: "1:832072775875:web:3bb34c29ac1c04d4daca76"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  window.db_fs = getFirestore(app);
-  window.storage = getStorage(app);
-  window.collection = collection;
-  window.getDocs = getDocs;
-  window.addDoc = addDoc;
-  window.ref = ref;
-  window.uploadString = uploadString;
-  window.getDownloadURL = getDownloadURL;
-</script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
   <style>
     /* Custom Scrollbar for Premium Feel */
     ::-webkit-scrollbar {
@@ -202,7 +191,8 @@
           </div>
           <div class="flex-1 w-full relative">
             <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative max-w-md mx-auto border-4 border-amber-500/10">
-              <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1000&auto=format&fit=crop" alt="Hero Sketch" class="object-cover w-full h-full hover:scale-105 transition-transform duration-700">
+              <!-- Verbatim reference to image_74d102.jpg as fallback if needed -->
+              <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1000&auto=format&fit=crop" alt="Hero Sketch" class="object-cover w-full h-full hover:scale-105 transition-transform duration-700" onerror="this.src='image_74d102.jpg'">
             </div>
           </div>
         </div>
@@ -226,6 +216,62 @@
           <i data-lucide="sparkles" class="w-12 h-12 text-amber-500 mx-auto mb-4 animate-pulse"></i>
           <h4 id="featured-empty-slate-title" class="text-xl font-bold font-serif mb-2">No Artwork Uploaded Yet</h4>
           <p id="featured-empty-slate-desc" class="text-sm text-gray-500 max-w-md mx-auto mb-6">Mee original art masterpieces ni directly live update cheyadaniki, lopo "Santhosh Art" logo paina 3-times click cheyandi.</p>
+        </div>
+      </div>
+
+      <!-- BRAND NEW: SKETCH SIMULATOR (FUN INTERACTIVE ENGAGEMENT) -->
+      <div class="bg-amber-500/5 dark:bg-[#0c0c08] border-y border-amber-500/10 py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col lg:flex-row gap-16 items-center">
+            <div class="flex-1">
+              <span id="sim-badge" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-amber-500/10 text-amber-500 font-bold text-xs uppercase tracking-wider mb-6">
+                ⚡ Interactive AI Sketch Simulator
+              </span>
+              <h2 id="sim-title" class="text-3xl sm:text-5xl font-serif font-black mb-6">Try the Santhosh Sketch Filter!</h2>
+              <p id="sim-desc" class="text-gray-600 dark:text-gray-400 font-light leading-relaxed mb-8">
+                Upload your portrait photo below to instantly simulate how Santhosh's hand-drawn pencil/charcoal sketch would look on textured canvas!
+              </p>
+              <div class="flex flex-wrap gap-4">
+                <button onclick="document.getElementById('sim-file-input').click()" class="px-6 py-3.5 bg-amber-500 text-black font-extrabold rounded-xl transition-all hover:scale-105 shadow-lg flex items-center gap-2">
+                  <i data-lucide="upload" class="w-5 h-5"></i> <span id="sim-upload-btn">Upload Your Photo</span>
+                </button>
+                <input type="file" id="sim-file-input" accept="image/*" class="hidden" onchange="runSketchSimulator(this)">
+                <button onclick="resetSimulator()" class="px-6 py-3.5 rounded-xl border border-gray-300 dark:border-gray-800 font-bold text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all">
+                  <span id="sim-reset-btn">Reset</span>
+                </button>
+              </div>
+            </div>
+            <div class="flex-1 w-full max-w-md">
+              <div class="aspect-square bg-gray-200 dark:bg-gray-950 border-4 border-amber-500/10 rounded-3xl overflow-hidden relative shadow-2xl flex flex-col items-center justify-center p-4">
+                <canvas id="simulator-canvas" class="w-full h-full object-contain rounded-2xl hidden"></canvas>
+                <div id="simulator-placeholder" class="text-center p-8">
+                  <i data-lucide="image" class="w-16 h-16 mx-auto mb-4 text-gray-400 animate-pulse"></i>
+                  <!-- Verbatim reference to image_74d0c6.png as fallback context if needed -->
+                  <p id="sim-placeholder-text" class="text-sm text-gray-500" data-fallback="image_74d0c6.png">Your processed sketch preview will load here</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BRAND NEW: TESTIMONIALS (TRUST BUILDER) -->
+      <div class="max-w-7xl mx-auto px-4 py-24 sm:px-6 lg:px-8 border-b border-gray-200/50 dark:border-gray-900/50">
+        <div class="text-center mb-16">
+          <h2 id="reviews-section-title" class="text-3xl sm:text-5xl font-serif font-black mb-3">Happy Clients & Reviews</h2>
+          <p id="reviews-section-desc" class="text-gray-500 dark:text-gray-400 font-light">See what people say about Santhosh's custom drawings.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="testimonials-container">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- BRAND NEW: ACCORDION FAQs -->
+      <div class="max-w-4xl mx-auto px-4 py-24 sm:px-6 lg:px-8">
+        <h2 id="faq-title" class="text-3xl sm:text-5xl font-serif font-black text-center mb-12">Frequently Asked Questions</h2>
+        <div class="space-y-4" id="faq-container">
+          <!-- Populated dynamically by script -->
         </div>
       </div>
     </section>
@@ -273,15 +319,58 @@
     <!-- C. SERVICES VIEW -->
     <section id="view-services" class="view-section hidden animate-in fade-in duration-300">
       <div class="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        <div class="text-center mb-20">
+        <div class="text-center mb-16">
           <h1 id="services-title" class="text-4xl sm:text-6xl font-serif font-black mb-4">Chitrakala Sevalu & Options</h1>
           <p id="services-desc" class="max-w-2xl mx-auto text-gray-500 dark:text-gray-400">
             Santhosh garu prathi sketch ni entho dynamic ga high pixel clarity realistic precision tho designs andinchagalaru.
           </p>
         </div>
 
-        <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-24">
           <!-- Dynamic rendering by JS based on language -->
+        </div>
+
+        <!-- BRAND NEW: ESTIMATED COST CALCULATOR -->
+        <div class="bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-900 rounded-3xl p-8 sm:p-12 shadow-2xl max-w-3xl mx-auto">
+          <div class="text-center mb-8">
+            <h2 id="calc-title" class="text-3xl font-serif font-black">Estimated Sketch Price Calculator</h2>
+            <p id="calc-desc" class="text-gray-500 text-sm mt-2">Adjust requirements below to estimate pricing for custom sketch commissions.</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
+            <div>
+              <label id="calc-size-lbl" class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">Paper Canvas Size</label>
+              <select id="calc-size" onchange="calculatePrice()" class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800 dark:text-white">
+                <option value="A4">A4 (Standard Portfolio - Small)</option>
+                <option value="A3">A3 (Medium Portrait - Popular)</option>
+                <option value="A2">A2 (Large Majestic Mural)</option>
+              </select>
+            </div>
+            <div>
+              <label id="calc-faces-lbl" class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">Number of Faces (Portraits)</label>
+              <select id="calc-faces" onchange="calculatePrice()" class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800 dark:text-white">
+                <option value="1">Single Face Portrait</option>
+                <option value="2">Couple Faces (2 People)</option>
+                <option value="3">Family Portrait (3+ Faces)</option>
+              </select>
+            </div>
+            <div>
+              <label id="calc-frame-lbl" class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">Glass Frame & Custom Layout</label>
+              <select id="calc-frame" onchange="calculatePrice()" class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800 dark:text-white">
+                <option value="no">Sketch Only (No Glass Frame)</option>
+                <option value="yes">Include Premium Wooden Frame + Protective Glass</option>
+              </select>
+            </div>
+            <div class="bg-amber-500/5 border border-amber-500/10 rounded-2xl p-6 flex flex-col justify-center items-center">
+              <span id="calc-price-lbl" class="text-xs uppercase font-bold tracking-widest text-amber-500 mb-1">Estimated Cost</span>
+              <span id="calc-price" class="text-3xl sm:text-4xl font-black text-amber-500">₹1,500</span>
+              <span class="text-[10px] text-gray-400 mt-1">* Shipping fees computed upon delivery address</span>
+            </div>
+          </div>
+
+          <button onclick="orderViaCalculator()" class="w-full py-4 bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-black font-extrabold rounded-2xl transition-transform hover:scale-[1.02] flex justify-center items-center gap-2 shadow-xl shadow-amber-500/10">
+            <i data-lucide="message-square" class="w-5 h-5"></i> <span id="calc-order-btn">Book Custom Commission Sketch</span>
+          </button>
         </div>
       </div>
     </section>
@@ -555,7 +644,7 @@
           </div>
 
           <div id="admin-tab-settings" class="admin-tab-content hidden animate-in fade-in">
-            <form onsubmit="handlePINChange(event)" class="max-w-md mx-auto p-8 rounded-3xl border bg-white border-gray-100 dark:bg-gray-950 dark:border-gray-900 space-y-5">
+            <form onsubmit="handlePINChange(event)" class="max-w-md mx-auto p-8 rounded-3xl border bg-white border-gray-150 dark:bg-gray-950 dark:border-gray-900 space-y-5">
               <h2 id="settings-form-title" class="text-2xl font-bold font-serif mb-4">Security PIN Customization</h2>
               <div>
                 <label id="settings-old-label" class="block text-xs font-bold uppercase tracking-widest mb-2 text-gray-400">Old Security PIN</label>
@@ -626,11 +715,30 @@
   </div>
 
   <!-- 7. APPLICATION LOGIC ENGINE -->
-  <script>
-    // CLEAN PRODUCTION INITIAL STATE - Added starter premium artworks to avoid empty page
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { getFirestore, collection, doc, getDocs, addDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { getStorage, ref, uploadString, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js";
+    import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+
+    const appId = typeof __app_id !== 'undefined' ? __app_id : 'santhoshapp-625c7';
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCmzLy5eblr1GQTJeAJJE8haEONxVo61yM",
+      authDomain: "santhoshapp-625c7.firebaseapp.com",
+      projectId: "santhoshapp-625c7",
+      storageBucket: "santhoshapp-625c7.appspot.com",
+      messagingSenderId: "832072775875",
+      appId: "1:832072775875:web:3bb34c29ac1c04d4daca76"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db_fs = getFirestore(app);
+    const storage = getStorage(app);
+    const auth = getAuth(app);
+
     const INITIAL_ARTWORKS = [
       {
-        id: 'art-1',
         title: 'Mystic Charcoal Portrait',
         imageUrl: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800&auto=format&fit=crop',
         category: 'Portrait Drawings',
@@ -640,7 +748,6 @@
         createdAt: Date.now() - 86400000 * 2
       },
       {
-        id: 'art-2',
         title: 'The Silent Wanderer',
         imageUrl: 'https://images.unsplash.com/photo-1580136608260-4eb11f4b24fe?w=800',
         category: 'Pencil Sketches',
@@ -650,7 +757,6 @@
         createdAt: Date.now() - 86400000
       },
       {
-        id: 'art-3',
         title: 'Divine Ganesha Mural',
         imageUrl: 'https://images.unsplash.com/photo-1506806732259-39c2d0268443?w=800',
         category: 'Wall Art',
@@ -660,10 +766,31 @@
         createdAt: Date.now()
       }
     ];
-    const INITIAL_COMMENTS = [];
+
     const CATEGORIES_LIST = ["All", "Pencil Sketches", "Portrait Drawings", "Wall Art", "Custom Artwork", "Gift Sketches"];
 
-    // MULTI-LANGUAGE RESOURCE GLOSSARY
+    let db = {
+      artworks: [],
+      comments: [],
+      messages: [],
+      session: {
+        userId: localStorage.getItem('art_db_userId') || 'guest-' + Math.random().toString(36).substr(2, 9),
+        isAdmin: JSON.parse(localStorage.getItem('art_db_isAdmin')) || false,
+        lang: localStorage.getItem('art_db_lang') || 'en'
+      }
+    };
+
+    let currentRoute = '/';
+    let currentSelectedCategory = 'All';
+    let searchQueryString = '';
+    let currentUser = null;
+
+    function saveStateToLocal() {
+      localStorage.setItem('art_db_userId', db.session.userId);
+      localStorage.setItem('art_db_isAdmin', JSON.stringify(db.session.isAdmin));
+      localStorage.setItem('art_db_lang', db.session.lang);
+    }
+
     const LANG_DATA = {
       en: {
         navHome: "Home",
@@ -761,7 +888,23 @@
         pinErrorToast: "Incorrect Security PIN Key!",
         pinSuccessToast: "PIN updated successfully!",
         footerText: "© 2026 Santhosh Artworks. All rights reserved.",
-        footerSubText: "Live Active Portal connected to WhatsApp Redirection Systems."
+        footerSubText: "Live Active Portal connected to WhatsApp Redirection Systems.",
+        simBadge: "⚡ Interactive AI Sketch Simulator",
+        simTitle: "Try the Santhosh Sketch Filter!",
+        simDesc: "Upload your portrait photo below to instantly simulate how Santhosh's hand-drawn pencil/charcoal sketch would look on textured canvas!",
+        simUploadBtn: "Upload Your Photo",
+        simResetBtn: "Reset Canvas",
+        simPlaceholderText: "Your processed sketch preview will load here",
+        reviewsTitle: "Happy Clients & Reviews",
+        reviewsDesc: "See what people say about Santhosh's custom drawings.",
+        faqHeader: "Frequently Asked Questions",
+        calcTitle: "Estimated Sketch Price Calculator",
+        calcDesc: "Adjust requirements below to estimate pricing for custom sketch commissions.",
+        calcSizeLbl: "Paper Canvas Size",
+        calcFacesLbl: "Number of Faces (Portraits)",
+        calcFrameLbl: "Glass Frame & Custom Layout",
+        calcPriceLbl: "Estimated Cost",
+        calcOrderBtn: "Book Custom Commission Sketch"
       },
       te: {
         navHome: "ఇల్లు",
@@ -808,7 +951,7 @@
         formSpecs: "చిత్రం యొక్క ప్రత్యేక వివరాలు *",
         formSpecsPlt: "వివరాలను వివరించండి (సైజు, రకం, కస్టమ్ ఫ్రేమింగ్, మరియు బోర్డర్ వివరాలు)",
         formSubmit: "ఆర్డర్ వివరాలను సమర్పించండి",
-        detailBack: "back to Gallery",
+        detailBack: "తిరిగి గ్యాలరీకి",
         detailOrderBtn: "దీనిని ఆర్డర్ చేయండి (WhatsApp)",
         detailShareBtn: "లింక్ కాపీ చేయండి",
         detailCommentsTitle: "అభిప్రాయాలు మరియు సమీక్షలు",
@@ -859,7 +1002,23 @@
         pinErrorToast: "తప్పుడు సెక్యూరిటీ పిన్ కీ!",
         pinSuccessToast: "పిన్ విజయవంతంగా నవీకరించబడింది!",
         footerText: "© 2026 సంతోష్ ఆర్ట్‌వర్క్స్. సర్వ హక్కులూ ప్రత్యేకించబడినవి.",
-        footerSubText: "లైవ్ యాక్టివ్ పోర్టల్ నేరుగా వాట్సాప్ రీడైరెక్షన్ సిస్టమ్స్‌తో అనుసంధానించబడింది."
+        footerSubText: "లైవ్ యాక్టివ్ పోర్టల్ నేరుగా వాట్సాప్ రీడైరెక్షన్ సిస్టమ్స్‌తో అనుసంధానించబడింది.",
+        simBadge: "⚡ లైవ్ స్కెచ్ సిమ్యులేటర్",
+        simTitle: "సంతోష్ స్కెచ్ ఫిల్టర్ ప్రయత్నించండి!",
+        simDesc: "మీ ఫోటోను ఇక్కడ అప్‌లోడ్ చేసి, అది అందమైన హ్యాండ్-మేడ్ స్కెచ్‌గా మారితే ఎలా ఉంటుందో లైవ్‌లో చూడండి!",
+        simUploadBtn: "మీ ఫోటో ఎంచుకోండి",
+        simResetBtn: "రీసెట్ చేయి",
+        simPlaceholderText: "మీ స్కెచ్ ఇక్కడ కనిపిస్తుంది",
+        reviewsTitle: "కస్టమర్ల అభిప్రాయాలు (Reviews)",
+        reviewsDesc: "సంతోష్ గారి చిత్రకళ గురించి వినియోగదారులు ఏమంటున్నారో చూడండి.",
+        faqHeader: "సాధారణ సందేహాలు (FAQ)",
+        calcTitle: "ధర అంచనా కాలిక్యులేటర్",
+        calcDesc: "మీ అవసరాలకు సరిపోయే ధరను ఇక్కడే అంచనా వేసుకోండి.",
+        calcSizeLbl: "పేపర్ సైజు",
+        calcFacesLbl: "ముఖాల సంఖ్య (పోర్ట్రెయిట్స్)",
+        calcFrameLbl: "గ్లాస్ ఫ్రేమింగ్ ఎంపిక",
+        calcPriceLbl: "అంచనా ధర",
+        calcOrderBtn: "కస్టమ్ స్కెచ్ బుక్ చేసుకోండి"
       },
       hi: {
         navHome: "होम",
@@ -872,7 +1031,7 @@
         heroBtnGallery: "गैलरी देखें",
         heroBtnContact: "कलाकृति ऑर्डर करें",
         specialWorks: "संतोष की विशेष कृतियाँ",
-        specialWorksDesc: "मूल ग्रेफाइट अध्ययन और सटीक पेंसिल चित्रों को ब्राउज़ करें.",
+        specialWorksDesc: "मूल ग्रेफाइट अध्ययन and सटीक पेंसिल चित्रों को ब्राउज़ करें.",
         viewAll: "सभी देखें",
         emptySlateTitle: "अभी तक कोई कलाकृति अपलोड नहीं की गई है",
         emptySlateDesc: "मूल कला कृतियों को सीधे अपलोड करने के लिए, 'Santhosh Art' लोगो पर 3 बार क्लिक करें।",
@@ -957,58 +1116,170 @@
         pinErrorToast: "गलत सुरक्षा पिन कुंजी!",
         pinSuccessToast: "पिन सफलतापूर्वक अपडेट किया गया!",
         footerText: "© 2026 संतोष आर्टवर्क्स। सर्वाधिकार सुरक्षित।",
-        footerSubText: "लाइव सक्रिय पोर्टल सीधे व्हाट्सएप रीडायरेक्शन सिस्टम से जुड़ा है।"
+        footerSubText: "लाइव सक्रिय पोर्टल सीधे व्हाट्सएप रीडायरेक्शन सिस्टम से जुड़ा है।",
+        simBadge: "⚡ लाइव स्केच सिम्युलेटर",
+        simTitle: "संतोष स्केच फ़िल्टर आज़माएं!",
+        simDesc: "नीचे अपना फोटो अपलोड करें और तुरंत देखें कि हाथ से बना पेंसिल स्केच कैसा दिखेगा!",
+        simUploadBtn: "अपना फोटो अपलोड करें",
+        simResetBtn: "रीसेट करें",
+        simPlaceholderText: "आपका संसाधित स्केच यहाँ दिखाई देगा",
+        reviewsTitle: "संतुष्ट ग्राहक और समीक्षाएं",
+        reviewsDesc: "देखें कि लोग संतोष की कस्टम कलाकृतियों के बारे में क्या कहते हैं।",
+        faqHeader: "अक्सर पूछे जाने वाले प्रश्न",
+        calcTitle: "अनुमानित मूल्य कनवर्टर",
+        calcDesc: "अपनी आवश्यकताओं के अनुसार स्केच का अनुमानित मूल्य जानें।",
+        calcSizeLbl: "कागज का आकार",
+        calcFacesLbl: "चित्रों (चेहरों) की संख्या",
+        calcFrameLbl: "ग्लास फ्रेमिंग विकल्प",
+        calcPriceLbl: "अनुमानित लागत",
+        calcOrderBtn: "कस्टम स्केच ऑर्डर बुक करें"
       }
     };
 
-    // SYSTEM STATE DB MANAGEMENT
-    // SYSTEM STATE DB MANAGEMENT (Firebase)
-let db = {
-    artworks: [],
-    comments: [],
-    messages: [],
-    likes: {},
-    session: {
-        userId: 'guest-' + Math.random().toString(36).substr(2, 9),
-        isAdmin: false,
-        lang: 'en'
-    }
-};
+    const TESTIMONIALS_DATA = [
+      {
+        name: "Ramesh Kumar (Vijayawada)",
+        stars: 5,
+        review: "Santhosh garu draw chesina portrait sketches exact ga photolage unnai. Premium framing build quality is superb. Highly recommended for family gifts!",
+        reviewTe: "సంతోష్ గారు గీసిన పోర్ట్రెయిట్ స్కెచ్‌లు ఫోటోలాగే అచ్చుగుద్దినట్లు ఉన్నాయి. క్వాలిటీ చాలా బాగుంది!",
+        reviewHi: "संतोष जी द्वारा बनाए गए चित्र बिल्कुल असली फोटो जैसे दिखते हैं। फ्रेम की गुणवत्ता उत्कृष्ट है।"
+      },
+      {
+        name: "Anjali Sharma (Hyderabad)",
+        stars: 5,
+        review: "Ordered a charcoal wall sketch of Lord Shiva. The depth and precision of line drawing is world-class. Quick delivery via courier too.",
+        reviewTe: "శివుని వాల్ చార్కోల్ స్కెచ్ ఆర్డర్ చేసాను. గీతలలోని లోతు మరియు నైపుణ్యం అద్భుతంగా ఉన్నాయి.",
+        reviewHi: "भगवान शिव का चारकोल स्केच ऑर्डर किया था। रेखाचित्र की गहराई और शुद्धता विश्वस्तरीय है।"
+      },
+      {
+        name: "Vikram Reddy (Guntur)",
+        stars: 5,
+        review: "Fabulous gift sketch for my parents wedding anniversary. Santhosh suggested A3 size frame and it is now the pride of our living room.",
+        reviewTe: "మా తల్లిదండ్రుల పెళ్లి వార్షికోత్సవం కోసం అద్భుతమైన గిఫ్ట్ స్కెచ్. ఇది మా లివింగ్ రూమ్‌కే అందాన్ని తెచ్చింది.",
+        reviewHi: "माता-पिता की शादी की सालगिरह के लिए शानदार उपहार। यह अब हमारे लिविंग रूम की शान है।"
+      }
+    ];
 
-// Firebase నుండి డేటాను తెచ్చే ఫంక్షన్
-async function syncFromFirebase() {
-    // Artworks తెచ్చుకోవడం
-    const artSnap = await getDocs(collection(db_fs, "artworks"));
-    db.artworks = artSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    
-    // Messages తెచ్చుకోవడం
-    const msgSnap = await getDocs(collection(db_fs, "messages"));
-    db.messages = msgSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    
-    // గ్యాలరీని రిఫ్రెష్ చేయడం
-    renderGallery();
-    renderHomeFeatured();
-}
-}
-    // GLOBAL DECLARED SPA STATE VARIABLES
-    let currentRoute = '/';
-    let currentSelectedCategory = 'All';
-    let searchQueryString = '';
+    const FAQ_DATA = [
+      {
+        q: "How to order a custom drawing sketch?",
+        qTe: "కస్టమ్ డ్రాయింగ్ స్కెచ్ ఎలా ఆర్డర్ చేయాలి?",
+        qHi: "कस्टम स्केच कैसे ऑर्डर करें?",
+        a: "Simply browse services, use our pricing calculator to get an estimated quote, and click the WhatsApp booking button or submit the request form. Santhosh will contact you directly to confirm photos.",
+        aTe: "మీకు నచ్చిన సేవను సెలెక్ట్ చేసుకుని, ధర క్యాలిక్యులేటర్ ద్వారా అంచనా వేసి వాట్సాప్ బటన్ క్లిక్ చేయండి. సంతోష్ గారు నేరుగా ఫోటోల వివరాల కోసం మిమ్మల్ని సంప్రదిస్తారు.",
+        aHi: "बस हमारी सेवाओं को ब्राउज़ करें, मूल्य कैलकुलेटर का उपयोग करें और व्हाट्सएप बटन दबाएं। संतोष जी विवरण कीषिकी पुष्टि के लिए आपसे सीधे संपर्क करेंगे।"
+      },
+      {
+        q: "How long does a sketch take to complete?",
+        qTe: "ఒక స్కెచ్ గీయడానికి ఎంత సమయం పడుతుంది?",
+        qHi: "एक स्केच पूरा होने में कितना समय लगता है?",
+        a: "A standard portrait on A4/A3 paper takes about 3 to 5 working days depending on structural detail and complexity of facial features.",
+        aTe: "ముఖం యొక్క హావభావాలు మరియు సైజును బట్టి సాధారణంగా 3 నుండి 5 పనిదినాలు పడుతుంది.",
+        aHi: "आकार और जटिलता के आधार पर आमतौर पर 3 से 5 कार्यदिवस लगते हैं।"
+      },
+      {
+        q: "Do you ship artworks all over India?",
+        qTe: "భారతదేశం అంతటా కొరియర్ సదుపాయం ఉందా?",
+        qHi: "क्या आप पूरे भारत में शिपिंग प्रदान करते हैं?",
+        a: "Yes! We securely package all sketches inside damage-proof bubble wrap cardboard layering and ship them via high priority couriers all across India.",
+        aTe: "అవును! అన్ని చిత్రాలను డ్యామేజ్ కాకుండా సురక్షితంగా బబుల్ రాప్‌తో ప్యాక్ చేసి భారతదేశం అంతటా కొరియర్ చేస్తాము.",
+        aHi: "हां! हम स्केच को सुरक्षित रूप से पैक करके भारत के सभी हिस्सों में सुरक्षित कूरियर करते हैं।"
+      }
+    ];
+
+    // SYNC DATA FROM FIREBASE (Strictly adhering to Rules 1, 2, and 3)
+    async function syncFromFirebase() {
+      if (!currentUser) return; // Prevent unauthenticated queries (RULE 3)
+
+      try {
+        // 1. Fetch Artworks
+        const artSnap = await getDocs(collection(db_fs, 'artifacts', appId, 'public', 'data', 'artworks'));
+        db.artworks = artSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+        // Fallback: If empty database, pre-seed Santhosh Art portfolio so it is never empty
+        if (db.artworks.length === 0) {
+          const colRef = collection(db_fs, 'artifacts', appId, 'public', 'data', 'artworks');
+          for (const art of INITIAL_ARTWORKS) {
+            await addDoc(colRef, art);
+          }
+          // Re-fetch seeded data
+          const freshSnap = await getDocs(collection(db_fs, 'artifacts', appId, 'public', 'data', 'artworks'));
+          db.artworks = freshSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        }
+
+        // 2. Fetch Comments
+        const commentSnap = await getDocs(collection(db_fs, 'artifacts', appId, 'public', 'data', 'comments'));
+        db.comments = commentSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+        // 3. Fetch Messages
+        const msgSnap = await getDocs(collection(db_fs, 'artifacts', appId, 'public', 'data', 'messages'));
+        db.messages = msgSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        
+        // Local Javascript Sort to avoid compound indexing issues (RULE 2)
+        db.messages.sort((a, b) => b.createdAt - a.createdAt);
+
+      } catch (error) {
+        console.error("Error syncing from Firestore: ", error);
+        // Resilient in-memory fallback
+        if (db.artworks.length === 0) {
+          db.artworks = [...INITIAL_ARTWORKS];
+        }
+      }
     }
 
-    // MULTI-LANGUAGE DYNAMIC HELPER
+    // MULTI-LANGUAGE HELPER
     function getText(key) {
       const activeLang = db.session.lang || 'en';
       return LANG_DATA[activeLang][key] || LANG_DATA['en'][key] || '';
     }
 
-    // LANGUAGE SWITCH ENGINE
+    // THEME CONTROLLER
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+
+    // hamburger MOBILE MENU TOGGLE
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const openIcon = document.getElementById('menu-icon-open');
+      const closeIcon = document.getElementById('menu-icon-close');
+      
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        openIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      } else {
+        menu.classList.add('hidden');
+        openIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }
+    }
+
+    // Secret Admin Gatekeeper (Triple-click)
+    let logoClickCount = 0;
+    let logoClickTimer;
+    function handleLogoClick() {
+      logoClickCount++;
+      clearTimeout(logoClickTimer);
+      if (logoClickCount === 3) {
+        logoClickCount = 0;
+        navigate('/admin');
+        showNotification("Nirvahana secret portal unlocked!", "success");
+        return;
+      }
+      logoClickTimer = setTimeout(() => {
+        logoClickCount = 0;
+        navigate('/');
+      }, 800);
+    }
+
+    // LANGUAGE SWITCH SYSTEM
     function changeLanguage(lang) {
       db.session.lang = lang;
-      
-      // Perform complete UI translation pass
+      saveStateToLocal();
       translateUI();
-      // Refresh current page context dynamic values
+      
       if (currentRoute === '/') {
         renderHomeFeatured();
       } else if (currentRoute === '/gallery') {
@@ -1021,138 +1292,191 @@ async function syncFromFirebase() {
       }
     }
 
-    // TRANSLATE STATIC ELEMENTS IN DOM
+    // TRANSLATE AND GENERATE DOM ELEMENTS
     function translateUI() {
-      // Navbars - desktop
-      document.getElementById('nav-home').querySelector('.nav-text').innerText = getText('navHome');
-      document.getElementById('nav-gallery').querySelector('.nav-text').innerText = getText('navGallery');
-      document.getElementById('nav-services').querySelector('.nav-text').innerText = getText('navServices');
-      document.getElementById('nav-contact').querySelector('.nav-text').innerText = getText('navContact');
+      const safeSetText = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.innerText = val;
+      };
+      
+      const safeSetHTML = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = val;
+      };
 
-      // Mobile menu reconstruction
+      const safeSetPlaceholder = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.placeholder = val;
+      };
+
+      const navH = document.getElementById('nav-home');
+      if (navH && navH.querySelector('.nav-text')) navH.querySelector('.nav-text').innerText = getText('navHome');
+
+      const navG = document.getElementById('nav-gallery');
+      if (navG && navG.querySelector('.nav-text')) navG.querySelector('.nav-text').innerText = getText('navGallery');
+
+      const navS = document.getElementById('nav-services');
+      if (navS && navS.querySelector('.nav-text')) navS.querySelector('.nav-text').innerText = getText('navServices');
+
+      const navC = document.getElementById('nav-contact');
+      if (navC && navC.querySelector('.nav-text')) navC.querySelector('.nav-text').innerText = getText('navContact');
+
+      // Mobile Navbar Rebuild
       const mobileMenu = document.getElementById('mobile-menu');
-      mobileMenu.innerHTML = `
-        <div class="px-3 pt-2 pb-4 space-y-1">
-          <button onclick="navigate('/'); toggleMobileMenu();" class="flex items-center gap-3 w-full px-4 py-3 rounded-xl font-medium text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> ${getText('navHome')}
-          </button>
-          <button onclick="navigate('/gallery'); toggleMobileMenu();" class="flex items-center gap-3 w-full px-4 py-3 rounded-xl font-medium text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg> ${getText('navGallery')}
-          </button>
-          <button onclick="navigate('/services'); toggleMobileMenu();" class="flex items-center gap-3 w-full px-4 py-3 rounded-xl font-medium text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg> ${getText('navServices')}
-          </button>
-          <button onclick="navigate('/contact'); toggleMobileMenu();" class="flex items-center gap-3 w-full px-4 py-3 rounded-xl font-medium text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.79 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> ${getText('navContact')}
-          </button>
-        </div>
-      `;
+      if (mobileMenu) {
+        mobileMenu.innerHTML = `
+          <div class="px-3 pt-2 pb-4 space-y-1">
+            <button onclick="navigate('/'); toggleMobileMenu();" class="flex items-center gap-3 w-full px-4 py-3 rounded-xl font-medium text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> ${getText('navHome')}
+            </button>
+            <button onclick="navigate('/gallery'); toggleMobileMenu();" class="flex items-center gap-3 w-full px-4 py-3 rounded-xl font-medium text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg> ${getText('navGallery')}
+            </button>
+            <button onclick="navigate('/services'); toggleMobileMenu();" class="flex items-center gap-3 w-full px-4 py-3 rounded-xl font-medium text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg> ${getText('navServices')}
+            </button>
+            <button onclick="navigate('/contact'); toggleMobileMenu();" class="flex items-center gap-3 w-full px-4 py-3 rounded-xl font-medium text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.79 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> ${getText('navContact')}
+            </button>
+          </div>
+        `;
+      }
 
-      // Home View
-      document.getElementById('hero-badge').innerHTML = getText('heroBadge');
-      document.getElementById('hero-title').innerHTML = getText('heroTitle');
-      document.getElementById('hero-desc').innerText = getText('heroDesc');
-      document.getElementById('hero-btn-gallery').innerHTML = getText('heroBtnGallery') + ` <i data-lucide="arrow-right" class="w-5 h-5"></i>`;
-      document.getElementById('hero-btn-contact').innerHTML = getText('heroBtnContact') + ` <i data-lucide="pen-tool" class="w-5 h-5"></i>`;
-      document.getElementById('special-works-title').innerText = getText('specialWorks');
-      document.getElementById('special-works-desc').innerText = getText('specialWorksDesc');
-      document.getElementById('featured-empty-slate-title').innerText = getText('emptySlateTitle');
-      document.getElementById('featured-empty-slate-desc').innerText = getText('emptySlateDesc');
+      // Home View Labels
+      safeSetHTML('hero-badge', getText('heroBadge'));
+      safeSetHTML('hero-title', getText('heroTitle'));
+      safeSetText('hero-desc', getText('heroDesc'));
+      safeSetHTML('hero-btn-gallery', getText('heroBtnGallery') + ` <i data-lucide="arrow-right" class="w-5 h-5"></i>`);
+      safeSetHTML('hero-btn-contact', getText('heroBtnContact') + ` <i data-lucide="pen-tool" class="w-5 h-5"></i>`);
+      safeSetText('special-works-title', getText('specialWorks'));
+      safeSetText('special-works-desc', getText('specialWorksDesc'));
+      safeSetText('featured-empty-slate-title', getText('emptySlateTitle'));
+      safeSetText('featured-empty-slate-desc', getText('emptySlateDesc'));
 
-      // Gallery View
-      document.getElementById('gallery-title').innerText = getText('galleryTitle');
-      document.getElementById('gallery-desc').innerText = getText('galleryDesc');
-      document.getElementById('gallery-search').placeholder = getText('searchPlaceholder');
-      document.getElementById('gallery-empty-state-title').innerText = getText('emptyGallery');
+      // AI Simulator Labels
+      safeSetText('sim-badge', getText('simBadge'));
+      safeSetText('sim-title', getText('simTitle'));
+      safeSetText('sim-desc', getText('simDesc'));
+      safeSetText('sim-upload-btn', getText('simUploadBtn'));
+      safeSetText('sim-reset-btn', getText('simResetBtn'));
+      safeSetText('sim-placeholder-text', getText('simPlaceholderText'));
 
-      // Services View
-      document.getElementById('services-title').innerText = getText('servicesTitle');
-      document.getElementById('services-desc').innerText = getText('servicesDesc');
+      // Review Header & FAQs Localization
+      safeSetText('reviews-section-title', getText('reviewsTitle'));
+      safeSetText('reviews-section-desc', getText('reviewsDesc'));
+      safeSetText('faq-title', getText('faqHeader'));
+
+      // Gallery View Labels
+      safeSetText('gallery-title', getText('galleryTitle'));
+      safeSetText('gallery-desc', getText('galleryDesc'));
+      safeSetPlaceholder('gallery-search', getText('searchPlaceholder'));
+      safeSetText('gallery-empty-state-title', getText('emptyGallery'));
+
+      // Services View Labels & Pricing Config
+      safeSetText('services-title', getText('servicesTitle'));
+      safeSetText('services-desc', getText('servicesDesc'));
       renderServicesGrid();
 
-      // Contact View
-      document.getElementById('contact-title').innerText = getText('contactTitle');
-      document.getElementById('contact-desc').innerText = getText('contactDesc');
-      document.getElementById('contact-phone-label').innerText = getText('contactPhoneLabel');
-      document.getElementById('contact-support-label').innerText = getText('contactSupportLabel');
-      document.getElementById('contact-support-sub').innerText = getText('contactSupportSub');
-      document.getElementById('contact-support-btn').innerText = getText('contactSupportBtn');
-      document.getElementById('contact-form-title').innerText = getText('formTitle');
-      document.getElementById('contact-form-name-label').innerText = getText('formName');
-      document.getElementById('contact-form-phone-label').innerText = getText('formPhone');
-      document.getElementById('contact-form-category-label').innerText = getText('formCategory');
-      document.getElementById('contact-form-specs-label').innerText = getText('formSpecs');
-      document.getElementById('form-name').placeholder = getText('formName').replace(' *', '');
-      document.getElementById('form-message').placeholder = getText('formSpecsPlt');
-      document.getElementById('form-submit-btn').innerHTML = getText('formSubmit');
+      safeSetText('calc-title', getText('calcTitle'));
+      safeSetText('calc-desc', getText('calcDesc'));
+      safeSetText('calc-size-lbl', getText('calcSizeLbl'));
+      safeSetText('calc-faces-lbl', getText('calcFacesLbl'));
+      safeSetText('calc-frame-lbl', getText('calcFrameLbl'));
+      safeSetText('calc-price-lbl', getText('calcPriceLbl'));
+      safeSetText('calc-order-btn', getText('calcOrderBtn'));
+
+      // Contact Form Labels
+      safeSetText('contact-title', getText('contactTitle'));
+      safeSetText('contact-desc', getText('contactDesc'));
+      safeSetText('contact-phone-label', getText('contactPhoneLabel'));
+      safeSetText('contact-support-label', getText('contactSupportLabel'));
+      safeSetText('contact-support-sub', getText('contactSupportSub'));
+      safeSetText('contact-support-btn', getText('contactSupportBtn'));
+      safeSetText('contact-form-title', getText('formTitle'));
+      safeSetText('contact-form-name-label', getText('formName'));
+      safeSetText('contact-form-phone-label', getText('formPhone'));
+      safeSetText('contact-form-category-label', getText('formCategory'));
+      safeSetText('contact-form-specs-label', getText('formSpecs'));
+      
+      const formNm = document.getElementById('form-name');
+      if (formNm) formNm.placeholder = getText('formName').replace(' *', '');
+      
+      const formMsg = document.getElementById('form-message');
+      if (formMsg) formMsg.placeholder = getText('formSpecsPlt');
+      
+      safeSetHTML('form-submit-btn', getText('formSubmit'));
       populateFormCategories();
 
-      // Admin Login Panel Static
-      document.getElementById('admin-login-title-h2').innerText = getText('adminTitle');
-      document.getElementById('admin-login-sub-p').innerText = getText('adminSub');
-      document.getElementById('admin-password').placeholder = getText('adminPassPlt');
-      document.getElementById('admin-login-btn-h2').innerText = getText('adminLoginBtn');
+      // Admin Controls Panels
+      safeSetText('admin-login-title-h2', getText('adminTitle'));
+      safeSetText('admin-login-sub-p', getText('adminSub'));
+      safeSetPlaceholder('admin-password', getText('adminPassPlt'));
+      safeSetText('admin-login-btn-h2', getText('adminLoginBtn'));
 
-      // Admin Dashboard Panel Static
-      document.getElementById('admin-welcome-text').innerText = getText('adminWelcome');
-      document.getElementById('admin-stats-tab-btn').innerText = getText('adminStatsTab');
-      document.getElementById('admin-artworks-tab-btn').innerText = getText('adminArtworksTab');
-      document.getElementById('admin-upload-tab-btn').innerText = getText('adminUploadTab');
-      document.getElementById('admin-inbox-tab-btn').innerText = getText('adminInboxTab');
-      document.getElementById('admin-comments-tab-btn').innerText = getText('adminCommentsTab');
-      document.getElementById('admin-settings-tab-btn').innerText = getText('adminSettingsTab');
-      document.getElementById('stat-artworks-label').innerText = getText('adminStatArtworks');
-      document.getElementById('stat-likes-label').innerText = getText('adminStatLikes');
-      document.getElementById('stat-messages-label').innerText = getText('adminStatInbox');
-      document.getElementById('stat-comments-label').innerText = getText('adminStatComments');
+      safeSetText('admin-welcome-text', getText('adminWelcome'));
+      safeSetText('admin-stats-tab-btn', getText('adminStatsTab'));
+      safeSetText('admin-artworks-tab-btn', getText('adminArtworksTab'));
+      safeSetText('admin-upload-tab-btn', getText('adminUploadTab'));
+      safeSetText('admin-inbox-tab-btn', getText('adminInboxTab'));
+      safeSetText('admin-comments-tab-btn', getText('adminCommentsTab'));
+      safeSetText('admin-settings-tab-btn', getText('adminSettingsTab'));
+      safeSetText('stat-artworks-label', getText('adminStatArtworks'));
+      safeSetText('stat-likes-label', getText('adminStatLikes'));
+      safeSetText('stat-messages-label', getText('adminStatInbox'));
+      safeSetText('stat-comments-label', getText('adminStatComments'));
 
-      document.getElementById('upload-form-title-h2').innerText = getText('adminUploadTitle');
-      document.getElementById('admin-cancel-edit-btn').innerText = getText('adminCancelEdit');
-      document.getElementById('admin-up-title-label').innerText = getText('adminUpTitleLabel');
-      document.getElementById('admin-up-file-label').innerText = getText('adminUpFileLabel');
-      document.getElementById('admin-up-file-sub').innerText = getText('adminUpFileSub');
-      document.getElementById('admin-up-file-warn').innerText = getText('adminUpFileWarn');
-      document.getElementById('admin-up-cat-label').innerText = getText('adminUpCatLabel');
-      document.getElementById('admin-up-desc-label').innerText = getText('adminUpDescLabel');
+      safeSetText('upload-form-title-h2', getText('adminUploadTitle'));
+      safeSetText('admin-cancel-edit-btn', getText('adminCancelEdit'));
+      safeSetText('admin-up-title-label', getText('adminUpTitleLabel'));
+      safeSetText('admin-up-file-label', getText('adminUpFileLabel'));
+      safeSetText('admin-up-file-sub', getText('adminUpFileSub'));
+      safeSetText('admin-up-file-warn', getText('adminUpFileWarn'));
+      safeSetText('admin-up-cat-label', getText('adminUpCatLabel'));
+      safeSetText('admin-up-desc-label', getText('adminUpDescLabel'));
       populateUploadCategories();
 
-      // Security PIN sub-tab localization
-      document.getElementById('settings-form-title').innerText = getText('settingsFormTitle');
-      document.getElementById('settings-old-label').innerText = getText('settingsOldLabel');
-      document.getElementById('settings-new-label').innerText = getText('settingsNewLabel');
-      document.getElementById('btn-submit-settings').innerText = getText('settingsSubmitBtn');
+      // PIN System Panel
+      safeSetText('settings-form-title', getText('settingsFormTitle'));
+      safeSetText('settings-old-label', getText('settingsOldLabel'));
+      safeSetText('settings-new-label', getText('settingsNewLabel'));
+      safeSetText('btn-submit-settings', getText('settingsSubmitBtn'));
 
-      // Confirm Delete Modal
-      document.getElementById('confirm-delete-title').innerText = getText('confirmDeleteTitle');
-      document.getElementById('confirm-delete-desc').innerText = getText('confirmDeleteDesc');
-      document.getElementById('btn-confirm-delete-cancel').innerText = getText('confirmDeleteCancel');
-      document.getElementById('btn-confirm-delete-action').innerText = getText('confirmDeleteAction');
+      // Modals
+      safeSetText('confirm-delete-title', getText('confirmDeleteTitle'));
+      safeSetText('confirm-delete-desc', getText('confirmDeleteDesc'));
+      safeSetText('btn-confirm-delete-cancel', getText('confirmDeleteCancel'));
+      safeSetText('btn-confirm-delete-action', getText('confirmDeleteAction'));
 
-      // Footer
-      document.getElementById('app-footer').innerHTML = `
-        <p class="font-serif tracking-wider font-bold text-gray-900 dark:text-gray-300">${getText('footerText')}</p>
-        <p class="text-xs mt-2 text-gray-500">${getText('footerSubText')}</p>
-      `;
+      const footer = document.getElementById('app-footer');
+      if (footer) {
+        footer.innerHTML = `
+          <p class="font-serif tracking-wider font-bold text-gray-900 dark:text-gray-300">${getText('footerText')}</p>
+          <p class="text-xs mt-2 text-gray-500">${getText('footerSubText')}</p>
+        `;
+      }
 
-      // Sync select boxes values
-      document.getElementById('lang-selector').value = db.session.lang;
-      document.getElementById('lang-selector-mobile').value = db.session.lang;
+      const lSel = document.getElementById('lang-selector');
+      if (lSel) lSel.value = db.session.lang;
+
+      const lSelM = document.getElementById('lang-selector-mobile');
+      if (lSelM) lSelM.value = db.session.lang;
+
+      renderTestimonials();
+      renderFAQ();
+      calculatePrice();
 
       try {
-        if (typeof lucide !== 'undefined') {
-          lucide.createIcons();
-        }
+        if (typeof lucide !== 'undefined') lucide.createIcons();
       } catch (e) {
-        console.error("Lucide failed to render:", e);
+        console.error("Lucide rendering exception: ", e);
       }
     }
-  </script>
 
-  <script>
+    // RENDER LOCAL DYNAMIC CONTENT
     function renderServicesGrid() {
       const grid = document.getElementById('services-grid');
+      if (!grid) return;
       grid.innerHTML = `
-        <!-- Pencil Sketches -->
         <div class="rounded-3xl overflow-hidden shadow-xl flex flex-col border bg-white border-gray-150 dark:bg-gray-900/30 dark:border-gray-800/80 hover:border-amber-500/30 transition-all duration-300">
           <div class="h-52 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1580136608260-4eb11f4b24fe?w=500" alt="Pencil Sketches" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
@@ -1168,7 +1492,6 @@ async function syncFromFirebase() {
           </div>
         </div>
 
-        <!-- Portrait Drawings -->
         <div class="rounded-3xl overflow-hidden shadow-xl flex flex-col border bg-white border-gray-150 dark:bg-gray-900/30 dark:border-gray-800/80 hover:border-amber-500/30 transition-all duration-300">
           <div class="h-52 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=500" alt="Portrait Drawings" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
@@ -1184,7 +1507,6 @@ async function syncFromFirebase() {
           </div>
         </div>
 
-        <!-- Wall Art -->
         <div class="rounded-3xl overflow-hidden shadow-xl flex flex-col border bg-white border-gray-150 dark:bg-gray-900/30 dark:border-gray-800/80 hover:border-amber-500/30 transition-all duration-300">
           <div class="h-52 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443?w=500" alt="Wall Art" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
@@ -1200,7 +1522,6 @@ async function syncFromFirebase() {
           </div>
         </div>
 
-        <!-- Custom Artwork -->
         <div class="rounded-3xl overflow-hidden shadow-xl flex flex-col border bg-white border-gray-150 dark:bg-gray-900/30 dark:border-gray-800/80 hover:border-amber-500/30 transition-all duration-300">
           <div class="h-52 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=500" alt="Custom Artwork" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
@@ -1216,7 +1537,6 @@ async function syncFromFirebase() {
           </div>
         </div>
 
-        <!-- Gift Sketches -->
         <div class="rounded-3xl overflow-hidden shadow-xl flex flex-col border bg-white border-gray-150 dark:bg-gray-900/30 dark:border-gray-800/80 hover:border-amber-500/30 transition-all duration-300">
           <div class="h-52 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=500" alt="Gift Sketches" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
@@ -1236,6 +1556,7 @@ async function syncFromFirebase() {
 
     function populateFormCategories() {
       const select = document.getElementById('form-category');
+      if (!select) return;
       select.innerHTML = `
         <option value="${getText('service1Title')}">${getText('service1Title')}</option>
         <option value="${getText('service2Title')}">${getText('service2Title')}</option>
@@ -1247,6 +1568,7 @@ async function syncFromFirebase() {
 
     function populateUploadCategories() {
       const select = document.getElementById('upload-category');
+      if (!select) return;
       select.innerHTML = '';
       CATEGORIES_LIST.filter(c => c !== "All").forEach(c => {
         let translatedCat = c;
@@ -1259,76 +1581,197 @@ async function syncFromFirebase() {
         select.innerHTML += `<option value="${c}">${translatedCat}</option>`;
       });
     }
-  </script>
 
-  <script>
-    let pendingDeleteConfig = null;
+    function renderTestimonials() {
+      const container = document.getElementById('testimonials-container');
+      if (!container) return;
+      container.innerHTML = '';
 
-    // PREMIUM MODAL OVERRIDES FOR ALERTS/CONFIRMS
-    function showCustomConfirm(onConfirm) {
-      const modal = document.getElementById('confirm-delete-modal');
-      modal.classList.remove('hidden');
-      
-      const handleConfirm = () => {
-        onConfirm();
-        closeCustomConfirm();
-      };
+      TESTIMONIALS_DATA.forEach(item => {
+        let activeReview = item.review;
+        if (db.session.lang === 'te') activeReview = item.reviewTe;
+        else if (db.session.lang === 'hi') activeReview = item.reviewHi;
 
-      const handleCancel = () => {
-        closeCustomConfirm();
-      };
-
-      document.getElementById('btn-confirm-delete-action').onclick = handleConfirm;
-      document.getElementById('btn-confirm-delete-cancel').onclick = handleCancel;
+        const card = document.createElement('div');
+        card.className = 'p-8 rounded-3xl border bg-white border-gray-150 dark:bg-gray-900/30 dark:border-gray-800 flex flex-col justify-between hover:border-amber-500/20 transition-all';
+        card.innerHTML = `
+          <div>
+            <div class="flex gap-1 text-amber-500 mb-4">
+              ${'<i data-lucide="star" class="w-5 h-5 fill-current text-amber-500"></i>'.repeat(item.stars)}
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 font-light leading-relaxed italic mb-6">"${activeReview}"</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-full bg-gradient-to-r from-amber-500 to-yellow-600 flex items-center justify-center font-bold text-black text-sm uppercase">
+              ${item.name.charAt(0)}
+            </span>
+            <p class="font-bold text-sm text-gray-800 dark:text-white">${item.name}</p>
+          </div>
+        `;
+        container.appendChild(card);
+      });
     }
 
-    function closeCustomConfirm() {
-      document.getElementById('confirm-delete-modal').classList.add('hidden');
+    function renderFAQ() {
+      const container = document.getElementById('faq-container');
+      if (!container) return;
+      container.innerHTML = '';
+
+      FAQ_DATA.forEach((faq, index) => {
+        let activeQ = faq.q;
+        let activeA = faq.a;
+        if (db.session.lang === 'te') {
+          activeQ = faq.qTe;
+          activeA = faq.aTe;
+        } else if (db.session.lang === 'hi') {
+          activeQ = faq.qHi;
+          activeA = faq.aHi;
+        }
+
+        const details = document.createElement('details');
+        details.className = 'group border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden bg-white dark:bg-gray-950 transition-all';
+        details.innerHTML = `
+          <summary class="flex justify-between items-center p-6 text-lg font-bold cursor-pointer select-none">
+            <span>${activeQ}</span>
+            <span class="p-1.5 bg-gray-100 dark:bg-gray-900 rounded-lg group-open:rotate-180 transition-transform">
+              <i data-lucide="chevron-down" class="w-5 h-5 text-amber-500"></i>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 text-sm text-gray-500 dark:text-gray-400 leading-relaxed border-t border-transparent group-open:border-gray-100 dark:group-open:border-gray-900 pt-4">
+            ${activeA}
+          </div>
+        `;
+        container.appendChild(details);
+      });
+      if (typeof lucide !== 'undefined') lucide.createIcons();
     }
 
-    // THEME TOGGLE CONTROLLER
-    function toggleTheme() {
-      const isDark = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    function calculatePrice() {
+      const sizeEl = document.getElementById('calc-size');
+      const facesEl = document.getElementById('calc-faces');
+      const frameEl = document.getElementById('calc-frame');
+      if (!sizeEl || !facesEl || !frameEl) return;
+
+      const size = sizeEl.value;
+      const faces = parseInt(facesEl.value);
+      const frame = frameEl.value;
+
+      let basePrice = 1000; 
+      if (size === 'A3') basePrice = 1800;
+      else if (size === 'A2') basePrice = 3000;
+
+      let faceMultiplier = 1;
+      if (faces === 2) faceMultiplier = 1.6;
+      else if (faces === 3) faceMultiplier = 2.2;
+
+      let calculated = basePrice * faceMultiplier;
+
+      if (frame === 'yes') {
+        if (size === 'A4') calculated += 400;
+        else if (size === 'A3') calculated += 700;
+        else if (size === 'A2') calculated += 1200;
+      }
+
+      calculated = Math.round(calculated);
+      const prcEl = document.getElementById('calc-price');
+      if (prcEl) prcEl.innerText = `₹${calculated.toLocaleString('en-IN')}`;
     }
 
-    // MOBILE hamburger MENU TOGGLE
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobile-menu');
-      const openIcon = document.getElementById('menu-icon-open');
-      const closeIcon = document.getElementById('menu-icon-close');
-      
-      if (menu.classList.contains('hidden')) {
-        menu.classList.remove('hidden');
-        openIcon.classList.add('hidden');
-        closeIcon.classList.remove('hidden');
-      } else {
-        menu.classList.add('hidden');
-        openIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
+    function orderViaCalculator() {
+      const size = document.getElementById('calc-size').value;
+      const faces = document.getElementById('calc-faces').value;
+      const frame = document.getElementById('calc-frame').value;
+      const price = document.getElementById('calc-price').innerText;
+
+      navigate('/contact');
+      const msgEl = document.getElementById('form-message');
+      if (msgEl) msgEl.value = `Price Calculator Details:\n- Size: ${size}\n- Faces: ${faces}\n- Frame: ${frame === 'yes' ? 'Include Frame' : 'No Frame'}\n- Estimated Quote: ${price}`;
+    }
+
+    function runSketchSimulator(input) {
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const img = new Image();
+          img.onload = function() {
+            const canvas = document.getElementById('simulator-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = 600;
+            canvas.height = 600;
+
+            let scale = Math.max(canvas.width / img.width, canvas.height / img.height);
+            let x = (canvas.width / 2) - (img.width / 2) * scale;
+            let y = (canvas.height / 2) - (img.height / 2) * scale;
+            ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
+
+            const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const data = imgData.data;
+
+            const width = canvas.width;
+            const height = canvas.height;
+            const grayscale = new Uint8ClampedArray(width * height);
+
+            for (let i = 0; i < data.length; i += 4) {
+              const r = data[i];
+              const g = data[i+1];
+              const b = data[i+2];
+              grayscale[i/4] = 0.299 * r + 0.587 * g + 0.114 * b;
+            }
+
+            for (let y = 1; y < height - 1; y++) {
+              for (let x = 1; x < width - 1; x++) {
+                const idx = y * width + x;
+                const valX = (
+                  -1 * grayscale[idx - width - 1] + 1 * grayscale[idx - width + 1] +
+                  -2 * grayscale[idx - 1] + 2 * grayscale[idx + 1] +
+                  -1 * grayscale[idx + width - 1] + 1 * grayscale[idx + width + 1]
+                );
+                const valY = (
+                  -1 * grayscale[idx - width - 1] - 2 * grayscale[idx - width] - 1 * grayscale[idx - width + 1] +
+                  1 * grayscale[idx + width - 1] + 2 * grayscale[idx + width] + 1 * grayscale[idx + width + 1]
+                );
+
+                const magnitude = Math.sqrt(valX * valX + valY * valY);
+                let edge = 255 - magnitude * 1.5;
+                if (edge < 0) edge = 0;
+                if (edge > 255) edge = 255;
+
+                const grayColor = grayscale[idx];
+                let finalVal = edge;
+                if (grayColor < 130) {
+                  finalVal = finalVal * (grayColor / 200);
+                }
+
+                const pxIdx = idx * 4;
+                data[pxIdx] = finalVal;
+                data[pxIdx + 1] = finalVal;
+                data[pxIdx + 2] = finalVal;
+                data[pxIdx + 3] = 255;
+              }
+            }
+
+            ctx.putImageData(imgData, 0, 0);
+
+            document.getElementById('simulator-placeholder').classList.add('hidden');
+            canvas.classList.remove('hidden');
+            showNotification("Sketch Process completed!", "success");
+          }
+          img.src = e.target.result;
+        }
+        reader.readAsDataURL(input.files[0]);
       }
     }
 
-    // Logo Hidden Trigger Event Tracker (Triple-click)
-    let logoClickCount = 0;
-    let logoClickTimer;
-    function handleLogoClick() {
-      logoClickCount++;
-      clearTimeout(logoClickTimer);
-      if (logoClickCount === 3) {
-        logoClickCount = 0;
-        navigate('/admin');
-        showNotification("Nirvahana secret portal unlocked!", "success");
-        return;
-      }
-      logoClickTimer = setTimeout(() => {
-        logoClickCount = 0;
-        navigate('/');
-      }, 800);
+    function resetSimulator() {
+      const canvas = document.getElementById('simulator-canvas');
+      if (canvas) canvas.classList.add('hidden');
+      const placeholder = document.getElementById('simulator-placeholder');
+      if (placeholder) placeholder.classList.remove('hidden');
+      const fileIn = document.getElementById('sim-file-input');
+      if (fileIn) fileIn.value = "";
     }
-  </script>
 
-  <script>
     function navigate(route, updateHash = true) {
       currentRoute = route;
       if (updateHash) {
@@ -1342,24 +1785,36 @@ async function syncFromFirebase() {
       links.forEach(l => l.classList.remove('text-amber-500', 'dark:text-amber-400'));
 
       if (route === '/') {
-        document.getElementById('view-home').classList.remove('hidden');
-        document.getElementById('nav-home').classList.add('text-amber-500', 'dark:text-amber-400');
+        const homeSec = document.getElementById('view-home');
+        if (homeSec) homeSec.classList.remove('hidden');
+        const navH = document.getElementById('nav-home');
+        if (navH) navH.classList.add('text-amber-500', 'dark:text-amber-400');
         renderHomeFeatured();
+        renderTestimonials();
+        renderFAQ();
       } else if (route === '/gallery') {
-        document.getElementById('view-gallery').classList.remove('hidden');
-        document.getElementById('nav-gallery').classList.add('text-amber-500', 'dark:text-amber-400');
+        const gallSec = document.getElementById('view-gallery');
+        if (gallSec) gallSec.classList.remove('hidden');
+        const navG = document.getElementById('nav-gallery');
+        if (navG) navG.classList.add('text-amber-500', 'dark:text-amber-400');
         renderGallery();
       } else if (route === '/services') {
-        document.getElementById('view-services').classList.remove('hidden');
-        document.getElementById('nav-services').classList.add('text-amber-500', 'dark:text-amber-400');
+        const servSec = document.getElementById('view-services');
+        if (servSec) servSec.classList.remove('hidden');
+        const navS = document.getElementById('nav-services');
+        if (navS) navS.classList.add('text-amber-500', 'dark:text-amber-400');
       } else if (route === '/contact') {
-        document.getElementById('view-contact').classList.remove('hidden');
-        document.getElementById('nav-contact').classList.add('text-amber-500', 'dark:text-amber-400');
+        const contSec = document.getElementById('view-contact');
+        if (contSec) contSec.classList.remove('hidden');
+        const navC = document.getElementById('nav-contact');
+        if (navC) navC.classList.add('text-amber-500', 'dark:text-amber-400');
       } else if (route === '/admin') {
-        document.getElementById('view-admin').classList.remove('hidden');
+        const admSec = document.getElementById('view-admin');
+        if (admSec) admSec.classList.remove('hidden');
         renderAdminPortal();
       } else if (route.startsWith('/artwork/')) {
-        document.getElementById('view-artwork-detail').classList.remove('hidden');
+        const detSec = document.getElementById('view-artwork-detail');
+        if (detSec) detSec.classList.remove('hidden');
         const artId = route.split('/')[2];
         renderArtworkDetail(artId);
       }
@@ -1367,10 +1822,10 @@ async function syncFromFirebase() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // VIEW: RENDERING HOME PAGE FEATURED IMAGES
     function renderHomeFeatured() {
       const grid = document.getElementById('featured-artworks-grid');
       const emptySlate = document.getElementById('featured-empty-slate');
+      if (!grid || !emptySlate) return;
       grid.innerHTML = '';
       
       const visibleArtworks = db.artworks.filter(art => !art.isHidden).slice(0, 3);
@@ -1402,7 +1857,7 @@ async function syncFromFirebase() {
               <span class="text-xs font-bold text-amber-500 tracking-wider uppercase mb-1 block">${displayCategory}</span>
               <h3 class="text-xl font-bold truncate mb-3">${art.title}</h3>
               <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 gap-1.5">
-                <i data-lucide="heart" class="w-4 h-4 text-red-500 fill-current"></i> ${art.likes.length} ${db.session.lang === 'te' ? 'లైకులు' : (db.session.lang === 'hi' ? 'लाइक्स' : 'Likes')}
+                <i data-lucide="heart" class="w-4 h-4 text-red-500 fill-current"></i> ${art.likes ? art.likes.length : 0} ${db.session.lang === 'te' ? 'లైకులు' : (db.session.lang === 'hi' ? 'लाइक्स' : 'Likes')}
               </div>
             </div>
           `;
@@ -1413,11 +1868,10 @@ async function syncFromFirebase() {
         if (typeof lucide !== 'undefined') lucide.createIcons();
       } catch(e) {}
     }
-  </script>
 
-  <script>
     function renderGallery() {
       const filterBox = document.getElementById('gallery-category-filters');
+      if (!filterBox) return;
       filterBox.innerHTML = '';
       
       CATEGORIES_LIST.forEach(cat => {
@@ -1452,6 +1906,7 @@ async function syncFromFirebase() {
 
       const masonry = document.getElementById('gallery-masonry');
       const emptyState = document.getElementById('gallery-empty-state');
+      if (!masonry || !emptyState) return;
       
       masonry.innerHTML = '';
 
@@ -1508,23 +1963,24 @@ async function syncFromFirebase() {
     function openZoomModal(imgSrc) {
       const modal = document.getElementById('zoom-modal');
       const img = document.getElementById('zoom-modal-img');
-      img.src = imgSrc;
-      modal.classList.remove('hidden');
+      if (img) img.src = imgSrc;
+      if (modal) modal.classList.remove('hidden');
     }
 
     function closeZoomModal() {
-      document.getElementById('zoom-modal').classList.add('hidden');
+      const modal = document.getElementById('zoom-modal');
+      if (modal) modal.classList.add('hidden');
     }
 
     function requestService(serviceName) {
       navigate('/contact');
-      document.getElementById('form-category').value = serviceName;
+      const select = document.getElementById('form-category');
+      if (select) select.value = serviceName;
     }
-  </script>
 
-  <script>
     function renderArtworkDetail(artId) {
       const container = document.getElementById('artwork-detail-container');
+      if (!container) return;
       const art = db.artworks.find(a => a.id === artId);
       
       if (!art) {
@@ -1532,9 +1988,11 @@ async function syncFromFirebase() {
         return;
       }
 
-      document.getElementById('artwork-detail-back-btn').innerHTML = `<i data-lucide="chevron-left" class="w-5 h-5"></i> ` + getText('detailBack');
+      const backBtn = document.getElementById('artwork-detail-back-btn');
+      if (backBtn) backBtn.innerHTML = `<i data-lucide="chevron-left" class="w-5 h-5"></i> ` + getText('detailBack');
 
-      const hasLiked = art.likes.includes(db.session.userId);
+      const artLikes = art.likes || [];
+      const hasLiked = artLikes.includes(db.session.userId);
       const artComments = db.comments.filter(c => c.artworkId === artId).sort((a,b) => b.createdAt - a.createdAt);
 
       let displayCategory = art.category;
@@ -1545,12 +2003,10 @@ async function syncFromFirebase() {
       else if (art.category === "Gift Sketches") displayCategory = getText('service5Title');
 
       container.innerHTML = `
-        <!-- Left Side Media -->
         <div class="lg:w-3/5 bg-black/80 flex items-center justify-center p-6 border-r border-gray-150 dark:border-gray-900">
           <img src="${art.imageUrl}" alt="${art.title}" class="max-h-[80vh] object-contain rounded-xl shadow-2xl" onerror="this.src='https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800'" />
         </div>
 
-        <!-- Right Side Controls & Comment System -->
         <div class="lg:w-2/5 p-8 flex flex-col max-h-[85vh] overflow-y-auto custom-scrollbar bg-white dark:bg-gray-950">
           <div class="mb-6">
             <span class="text-xs font-bold tracking-widest text-amber-500 uppercase">${displayCategory}</span>
@@ -1558,25 +2014,22 @@ async function syncFromFirebase() {
             <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400">${art.description || "Beautiful artistic portrayal."}</p>
           </div>
 
-          <!-- Real Order on WhatsApp button -->
           <button onclick="orderArtworkWhatsApp('${art.id}', '${art.title.replace(/'/g, "\\'")}', '${displayCategory}', '${art.imageUrl}')" class="w-full mb-6 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold rounded-2xl shadow-lg transition-transform hover:scale-105 flex justify-center items-center gap-2">
             <i data-lucide="shopping-cart" class="w-5 h-5"></i> ${getText('detailOrderBtn')}
           </button>
 
-          <!-- Likes and Share Row -->
           <div class="flex items-center gap-4 py-5 border-y border-gray-200 dark:border-gray-900 mb-8">
             <button onclick="toggleLike('${art.id}')" class="flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm transition-all ${
               hasLiked ? 'bg-red-500/10 text-red-500' : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-800'
             }">
               <i data-lucide="heart" class="w-4.5 h-4.5 ${hasLiked ? 'fill-current' : ''}"></i>
-              <span id="detail-likes-count">${art.likes.length} ${db.session.lang === 'te' ? 'లైకులు' : (db.session.lang === 'hi' ? 'लाइक्स' : 'Likes')}</span>
+              <span id="detail-likes-count">${artLikes.length} ${db.session.lang === 'te' ? 'లైకులు' : (db.session.lang === 'hi' ? 'लाइक्स' : 'Likes')}</span>
             </button>
             <button onclick="copyArtLink()" class="flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-800">
               <i data-lucide="share-2" class="w-4.5 h-4.5"></i> ${getText('detailShareBtn')}
             </button>
           </div>
 
-          <!-- Feedback & Comment Engine -->
           <div class="flex-1">
             <h3 class="text-lg font-bold mb-6 flex items-center gap-2 text-gray-900 dark:text-white">
               <i data-lucide="message-circle" class="text-amber-500 w-5 h-5"></i> ${getText('detailCommentsTitle')} (${artComments.length})
@@ -1597,7 +2050,7 @@ async function syncFromFirebase() {
 
             <div class="space-y-6" id="detail-comments-list">
               ${artComments.map(c => `
-                <div class="p-5 rounded-2xl border bg-gray-50 border-gray-150 dark:bg-gray-900/20 dark:border-gray-900">
+                <div class="p-5 rounded-2xl border bg-gray-50 border-gray-150 dark:bg-gray-900/20 dark:border-gray-900 animate-in fade-in">
                   <div class="flex justify-between items-center mb-2">
                     <span class="font-bold text-sm text-amber-500">${c.userName}</span>
                     <span class="text-xs text-gray-400">${new Date(c.createdAt).toLocaleDateString()}</span>
@@ -1625,9 +2078,11 @@ async function syncFromFirebase() {
       } catch(e) {}
     }
 
-    function handleCommentPost(e, artId) {
+    async function handleCommentPost(e, artId) {
       e.preventDefault();
-      const text = document.getElementById('comment-input').value;
+      const txtIn = document.getElementById('comment-input');
+      if (!txtIn) return;
+      const text = txtIn.value;
       if (!text.trim()) return;
 
       const userDisplayName = db.session.isAdmin 
@@ -1635,7 +2090,6 @@ async function syncFromFirebase() {
         : (db.session.lang === 'te' ? 'చిత్రకళా ప్రేమికులు' : (db.session.lang === 'hi' ? 'कला प्रेमी' : 'Art Lover (Guest)'));
 
       const newComment = {
-        id: 'comment-' + Date.now(),
         artworkId: artId,
         userName: userDisplayName,
         text,
@@ -1643,45 +2097,42 @@ async function syncFromFirebase() {
         replies: []
       };
 
-      db.comments.push(newComment);
-      saveStateToLocal();
-      showNotification(getText('commentSuccessToast'), "success");
-      renderArtworkDetail(artId);
+      try {
+        const colRef = collection(db_fs, 'artifacts', appId, 'public', 'data', 'comments');
+        await addDoc(colRef, newComment);
+        showNotification(getText('commentSuccessToast'), "success");
+        await syncFromFirebase();
+        renderArtworkDetail(artId);
+      } catch (err) {
+        console.error("Comment submission failed: ", err);
+      }
     }
 
-    function toggleLike(artId) {
+    async function toggleLike(artId) {
       const art = db.artworks.find(a => a.id === artId);
       if (!art) return;
 
-      const idx = art.likes.indexOf(db.session.userId);
+      const artLikes = art.likes || [];
+      const idx = artLikes.indexOf(db.session.userId);
       if (idx > -1) {
-        art.likes.splice(idx, 1);
+        artLikes.splice(idx, 1);
         showNotification(db.session.lang === 'te' ? 'లైక్ తీసివేయబడింది' : (db.session.lang === 'hi' ? 'लाइक हटाया गया' : 'Like removed successfully'), 'success');
       } else {
-        art.likes.push(db.session.userId);
+        artLikes.push(db.session.userId);
         showNotification(db.session.lang === 'te' ? 'నచ్చింది!' : (db.session.lang === 'hi' ? 'पसंद आया!' : 'Liked successfully!'), "success");
       }
-      saveStateToLocal();
-      renderArtworkDetail(artId);
-    }
-
-    function copyArtLink() {
+      
       try {
-        const dummy = document.createElement('input');
-        document.body.appendChild(dummy);
-        dummy.value = window.location.href;
-        dummy.select();
-        document.execCommand('copy');
-        document.body.removeChild(dummy);
-        showNotification(getText('copiedToast'), "success");
+        const artRef = doc(db_fs, 'artifacts', appId, 'public', 'data', 'artworks', artId);
+        await updateDoc(artRef, { likes: artLikes });
+        await syncFromFirebase();
+        renderArtworkDetail(artId);
       } catch (err) {
-        showNotification("Copy process failed", "error");
+        console.error("Like toggle synchronization failed: ", err);
       }
     }
-  </script>
 
-  <script>
-    function handleContactSubmit(e) {
+    async function handleContactSubmit(e) {
       e.preventDefault();
       const name = document.getElementById('form-name').value;
       const phone = document.getElementById('form-phone').value;
@@ -1694,7 +2145,6 @@ async function syncFromFirebase() {
       }
 
       const newMsg = {
-        id: 'msg-' + Date.now(),
         name,
         phone,
         type,
@@ -1703,10 +2153,14 @@ async function syncFromFirebase() {
         createdAt: Date.now()
       };
 
-      db.messages.unshift(newMsg);
-      saveStateToLocal();
-      
-      showNotification(getText('saveSuccessToast'), "success");
+      try {
+        const colRef = collection(db_fs, 'artifacts', appId, 'public', 'data', 'messages');
+        await addDoc(colRef, newMsg);
+        showNotification(getText('saveSuccessToast'), "success");
+        await syncFromFirebase();
+      } catch (err) {
+        console.error("Contact message submission failed: ", err);
+      }
 
       let formattedMessage = "";
       if (db.session.lang === 'te') {
@@ -1734,7 +2188,8 @@ async function syncFromFirebase() {
 
       setTimeout(() => {
         window.open(whatsappURL, '_blank');
-        document.getElementById('contact-commission-form').reset();
+        const f = document.getElementById('contact-commission-form');
+        if (f) f.reset();
       }, 1500);
     }
 
@@ -1764,12 +2219,25 @@ async function syncFromFirebase() {
       const encodedMessage = encodeURIComponent(formattedMessage);
       window.open(`https://wa.me/918919904820?text=${encodedMessage}`, '_blank');
     }
-  </script>
 
-  <script>
+    function copyArtLink() {
+      try {
+        const dummy = document.createElement('input');
+        document.body.appendChild(dummy);
+        dummy.value = window.location.href;
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+        showNotification(getText('copiedToast'), "success");
+      } catch (err) {
+        showNotification("Copy process failed", "error");
+      }
+    }
+
     function renderAdminPortal() {
       const loginBox = document.getElementById('admin-login-box');
       const dashBox = document.getElementById('admin-dashboard-box');
+      if (!loginBox || !dashBox) return;
 
       if (db.session.isAdmin) {
         loginBox.classList.add('hidden');
@@ -1783,7 +2251,9 @@ async function syncFromFirebase() {
 
     function handleAdminLogin(e) {
       e.preventDefault();
-      const pw = document.getElementById('admin-password').value;
+      const pwIn = document.getElementById('admin-password');
+      if (!pwIn) return;
+      const pw = pwIn.value;
       const savedPw = localStorage.getItem('art_db_password') || 'santhosh123';
       if (pw === savedPw) {
         db.session.isAdmin = true;
@@ -1808,7 +2278,8 @@ async function syncFromFirebase() {
       
       const contents = document.querySelectorAll('.admin-tab-content');
       contents.forEach(c => c.classList.add('hidden'));
-      document.getElementById('admin-tab-' + tabId).classList.remove('hidden');
+      const activeContent = document.getElementById('admin-tab-' + tabId);
+      if (activeContent) activeContent.classList.remove('hidden');
 
       const btns = document.querySelectorAll('.admin-tab-btn');
       btns.forEach(b => {
@@ -1832,16 +2303,22 @@ async function syncFromFirebase() {
     }
 
     function renderAdminStats() {
-      document.getElementById('stat-artworks').innerText = db.artworks.length;
-      document.getElementById('stat-likes').innerText = db.artworks.reduce((acc, curr) => acc + curr.likes.length, 0);
-      document.getElementById('stat-messages').innerText = db.messages.length;
-      document.getElementById('stat-comments').innerText = db.comments.length;
-    }
-  </script>
+      const artCount = document.getElementById('stat-artworks');
+      if (artCount) artCount.innerText = db.artworks.length;
 
-  <script>
+      const likesCount = document.getElementById('stat-likes');
+      if (likesCount) likesCount.innerText = db.artworks.reduce((acc, curr) => acc + (curr.likes ? curr.likes.length : 0), 0);
+
+      const msgCount = document.getElementById('stat-messages');
+      if (msgCount) msgCount.innerText = db.messages.length;
+
+      const commCount = document.getElementById('stat-comments');
+      if (commCount) commCount.innerText = db.comments.length;
+    }
+
     function renderAdminArtworksList() {
       const grid = document.getElementById('admin-artworks-list-grid');
+      if (!grid) return;
       grid.innerHTML = '';
 
       db.artworks.forEach(art => {
@@ -1860,7 +2337,7 @@ async function syncFromFirebase() {
             <p class="text-xs text-amber-500 mt-1 mb-6 font-semibold">${art.category}</p>
             
             <div class="flex justify-between items-center border-t border-gray-150 dark:border-gray-900 pt-4 mt-auto">
-              <span class="text-sm font-bold flex items-center gap-1"><i data-lucide="heart" class="text-red-500 fill-current w-4 h-4"></i> ${art.likes.length}</span>
+              <span class="text-sm font-bold flex items-center gap-1"><i data-lucide="heart" class="text-red-500 fill-current w-4 h-4 text-red-500"></i> ${art.likes ? art.likes.length : 0}</span>
               <div class="flex gap-1.5">
                 <button onclick="startArtworkEdit('${art.id}')" class="p-2 rounded-xl bg-gray-100 hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-800 border dark:border-gray-850" title="Edit details">
                   <i data-lucide="edit-3" class="w-4 h-4 text-amber-500"></i>
@@ -1882,6 +2359,35 @@ async function syncFromFirebase() {
       } catch(e) {}
     }
 
+    // CLOUD STORAGE UPLOAD CONTROLLER WITH RESILIENT SECURE BASE64 FALLBACK
+    async function processImageFile(file) {
+      const reader = new FileReader();
+      reader.onloadend = async () => {
+        const base64Data = reader.result;
+        const prevImg = document.getElementById('upload-preview-image');
+        if (prevImg) prevImg.src = base64Data;
+        const prevCont = document.getElementById('upload-preview-container');
+        if (prevCont) prevCont.classList.remove('hidden');
+        
+        try {
+          showNotification("Uploading to cloud storage...", "info");
+          const storageRef = ref(storage, `artworks/${Date.now()}_${file.name}`);
+          await uploadString(storageRef, base64Data, 'data_url');
+          const downloadUrl = await getDownloadURL(storageRef);
+          
+          const uploadImgUrl = document.getElementById('upload-image-url');
+          if (uploadImgUrl) uploadImgUrl.value = downloadUrl;
+          showNotification("Cloud upload complete!", "success");
+        } catch (err) {
+          console.error("Storage upload failed (CORS or Restricted anonymously), falling back to client Base64 URL:", err);
+          const uploadImgUrl = document.getElementById('upload-image-url');
+          if (uploadImgUrl) uploadImgUrl.value = base64Data;
+          showNotification("Processed successfully inside browser!", "success");
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+
     function handleImageFileSelect(e) {
       const file = e.target.files[0];
       if (file) {
@@ -1896,18 +2402,7 @@ async function syncFromFirebase() {
       }
     }
 
-    function processImageFile(file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        document.getElementById('upload-image-url').value = reader.result;
-        document.getElementById('upload-preview-image').src = reader.result;
-        document.getElementById('upload-preview-container').classList.remove('hidden');
-        showNotification(db.session.lang === 'te' ? 'చిత్రం అప్‌లోడ్ విజయవంతమైంది!' : 'Chithram successfully converted!', "success");
-      };
-      reader.readAsDataURL(file);
-    }
-
-    function handleArtworkUploadOrUpdate(e) {
+    async function handleArtworkUploadOrUpdate(e) {
       e.preventDefault();
       const id = document.getElementById('upload-art-id').value;
       const title = document.getElementById('upload-title').value;
@@ -1920,33 +2415,29 @@ async function syncFromFirebase() {
         return;
       }
 
-      if (id) {
-        const art = db.artworks.find(a => a.id === id);
-        if (art) {
-          art.title = title;
-          art.imageUrl = imageUrl;
-          art.category = category;
-          art.description = description;
-          showNotification(getText('saveSuccessToast'), "success");
+      try {
+        if (id) {
+          const artRef = doc(db_fs, 'artifacts', appId, 'public', 'data', 'artworks', id);
+          await updateDoc(artRef, { title, imageUrl, category, description });
+        } else {
+          const colRef = collection(db_fs, 'artifacts', appId, 'public', 'data', 'artworks');
+          await addDoc(colRef, {
+            title,
+            imageUrl,
+            category,
+            description,
+            isHidden: false,
+            likes: [],
+            createdAt: Date.now()
+          });
         }
-      } else {
-        const newArt = {
-          id: 'art-' + Date.now(),
-          title,
-          imageUrl,
-          category,
-          description,
-          isHidden: false,
-          likes: [],
-          createdAt: Date.now()
-        };
-        db.artworks.unshift(newArt);
         showNotification(getText('saveSuccessToast'), "success");
+        await syncFromFirebase();
+        cancelArtworkEdit();
+        setAdminTab('artworks');
+      } catch (err) {
+        console.error("Artwork synchronization failed: ", err);
       }
-
-      saveStateToLocal();
-      cancelArtworkEdit();
-      setAdminTab('artworks');
     }
 
     function startArtworkEdit(artId) {
@@ -1959,12 +2450,17 @@ async function syncFromFirebase() {
       document.getElementById('upload-category').value = art.category;
       document.getElementById('upload-description').value = art.description;
       
-      document.getElementById('upload-preview-image').src = art.imageUrl;
-      document.getElementById('upload-preview-container').classList.remove('hidden');
+      const prevImg = document.getElementById('upload-preview-image');
+      if (prevImg) prevImg.src = art.imageUrl;
+      const prevCont = document.getElementById('upload-preview-container');
+      if (prevCont) prevCont.classList.remove('hidden');
 
-      document.getElementById('upload-form-title-h2').innerText = "Artwork Details Update Mode";
-      document.getElementById('admin-cancel-edit-btn').classList.remove('hidden');
-      document.getElementById('btn-submit-artwork').innerHTML = `<i data-lucide="check" class="w-5 h-5"></i> ` + getText('adminUpBtnUpdate');
+      safeSetText('upload-form-title-h2', "Artwork Details Update Mode");
+      const cancelEditBtn = document.getElementById('admin-cancel-edit-btn');
+      if (cancelEditBtn) cancelEditBtn.classList.remove('hidden');
+      
+      const submitArtBtn = document.getElementById('btn-submit-artwork');
+      if (submitArtBtn) submitArtBtn.innerHTML = `<i data-lucide="check" class="w-5 h-5"></i> ` + getText('adminUpBtnUpdate');
 
       setAdminTab('upload');
       try {
@@ -1977,40 +2473,55 @@ async function syncFromFirebase() {
       document.getElementById('upload-title').value = "";
       document.getElementById('upload-image-url').value = "";
       document.getElementById('upload-description').value = "";
-      document.getElementById('upload-preview-container').classList.add('hidden');
+      const prevCont = document.getElementById('upload-preview-container');
+      if (prevCont) prevCont.classList.add('hidden');
 
-      document.getElementById('upload-form-title-h2').innerText = getText('adminUploadTitle');
-      document.getElementById('admin-cancel-edit-btn').classList.add('hidden');
-      document.getElementById('btn-submit-artwork').innerHTML = `<i data-lucide="plus" class="w-5 h-5"></i> ` + getText('adminUpBtnPublish');
+      const uploadFormTitle = document.getElementById('upload-form-title-h2');
+      if (uploadFormTitle) uploadFormTitle.innerText = getText('adminUploadTitle');
+      const cancelEditBtn = document.getElementById('admin-cancel-edit-btn');
+      if (cancelEditBtn) cancelEditBtn.classList.add('hidden');
+      
+      const submitArtBtn = document.getElementById('btn-submit-artwork');
+      if (submitArtBtn) submitArtBtn.innerHTML = `<i data-lucide="plus" class="w-5 h-5"></i> ` + getText('adminUpBtnPublish');
       try {
         if (typeof lucide !== 'undefined') lucide.createIcons();
       } catch(e) {}
     }
 
-    function toggleArtworkVisibility(artId) {
+    async function toggleArtworkVisibility(artId) {
       const art = db.artworks.find(a => a.id === artId);
       if (art) {
         art.isHidden = !art.isHidden;
-        saveStateToLocal();
-        showNotification(art.isHidden ? getText('hiddenToast') : getText('visibleToast'), 'success');
-        renderAdminArtworksList();
+        try {
+          const artRef = doc(db_fs, 'artifacts', appId, 'public', 'data', 'artworks', artId);
+          await updateDoc(artRef, { isHidden: art.isHidden });
+          showNotification(art.isHidden ? getText('hiddenToast') : getText('visibleToast'), 'success');
+          await syncFromFirebase();
+          renderAdminArtworksList();
+        } catch (err) {
+          console.error("Visibility toggle synchronization failed: ", err);
+        }
       }
     }
-  </script>
 
-  <script>
-    function deleteArtwork(artId) {
-      showCustomConfirm(() => {
-        db.artworks = db.artworks.filter(a => a.id !== artId);
-        db.comments = db.comments.filter(c => c.artworkId !== artId);
-        saveStateToLocal();
-        showNotification(getText('deletedToast'), "success");
-        renderAdminArtworksList();
+    async function deleteArtwork(artId) {
+      showCustomConfirm(async () => {
+        try {
+          const artRef = doc(db_fs, 'artifacts', appId, 'public', 'data', 'artworks', artId);
+          await deleteDoc(artRef);
+          showNotification(getText('deletedToast'), "success");
+          await syncFromFirebase();
+          renderAdminArtworksList();
+        } catch (err) {
+          console.error("Artwork deletion failed: ", err);
+        }
       });
     }
 
+    // MESSAGES CHANNEL CONTROL
     function renderAdminMessages() {
       const container = document.getElementById('admin-messages-list');
+      if (!container) return;
       container.innerHTML = '';
 
       if (db.messages.length === 0) {
@@ -2020,7 +2531,7 @@ async function syncFromFirebase() {
 
       db.messages.forEach(msg => {
         const item = document.createElement('div');
-        item.className = 'p-6 sm:p-8 rounded-2xl border bg-white border-gray-150 dark:bg-gray-950 dark:border-gray-900 flex flex-col md:flex-row justify-between items-start md:items-center gap-6';
+        item.className = 'p-6 sm:p-8 rounded-2xl border bg-white border-gray-150 dark:bg-gray-950 dark:border-gray-900 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 animate-in fade-in';
         
         item.innerHTML = `
           <div>
@@ -2045,17 +2556,24 @@ async function syncFromFirebase() {
       });
     }
 
-    function deleteMessage(id) {
-      showCustomConfirm(() => {
-        db.messages = db.messages.filter(m => m.id !== id);
-        saveStateToLocal();
-        showNotification(getText('deletedToast'), "success");
-        renderAdminMessages();
+    async function deleteMessage(id) {
+      showCustomConfirm(async () => {
+        try {
+          const msgRef = doc(db_fs, 'artifacts', appId, 'public', 'data', 'messages', id);
+          await deleteDoc(msgRef);
+          showNotification(getText('deletedToast'), "success");
+          await syncFromFirebase();
+          renderAdminMessages();
+        } catch (err) {
+          console.error("Message deletion synchronization failed: ", err);
+        }
       });
     }
 
+    // COMMENTS ADMIN CHANNEL CONTROL
     function renderAdminComments() {
       const container = document.getElementById('admin-comments-list');
+      if (!container) return;
       container.innerHTML = '';
 
       if (db.comments.length === 0) {
@@ -2066,7 +2584,7 @@ async function syncFromFirebase() {
       db.comments.forEach(c => {
         const art = db.artworks.find(a => a.id === c.artworkId);
         const item = document.createElement('div');
-        item.className = 'p-6 rounded-2xl border bg-white border-gray-150 dark:bg-gray-950 dark:border-gray-900';
+        item.className = 'p-6 rounded-2xl border bg-white border-gray-150 dark:bg-gray-950 dark:border-gray-900 animate-in fade-in';
         
         item.innerHTML = `
           <div class="flex justify-between items-start gap-4 mb-4">
@@ -2081,7 +2599,6 @@ async function syncFromFirebase() {
             <button onclick="deleteComment('${c.id}')" class="p-2.5 text-red-500 hover:bg-red-500/10 rounded-xl"><i data-lucide="trash-2" class="w-4.5 h-4.5"></i></button>
           </div>
 
-          <!-- Response Reply Form -->
           <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-900 flex gap-3">
             <input 
               type="text" 
@@ -2101,7 +2618,7 @@ async function syncFromFirebase() {
       } catch(e) {}
     }
 
-    function postAdminReply(commentId) {
+    async function postAdminReply(commentId) {
       const text = document.getElementById(`reply-input-${commentId}`).value;
       if (!text.trim()) return;
 
@@ -2112,18 +2629,30 @@ async function syncFromFirebase() {
           text,
           createdAt: Date.now()
         });
-        saveStateToLocal();
-        showNotification(getText('saveSuccessToast'), "success");
-        renderAdminComments();
+        
+        try {
+          const commentRef = doc(db_fs, 'artifacts', appId, 'public', 'data', 'comments', commentId);
+          await updateDoc(commentRef, { replies: comment.replies });
+          showNotification(getText('saveSuccessToast'), "success");
+          await syncFromFirebase();
+          renderAdminComments();
+        } catch (err) {
+          console.error("Admin reply synchronization failed: ", err);
+        }
       }
     }
 
-    function deleteComment(id) {
-      showCustomConfirm(() => {
-        db.comments = db.comments.filter(c => c.id !== id);
-        saveStateToLocal();
-        showNotification(getText('deletedToast'), "success");
-        renderAdminComments();
+    async function deleteComment(id) {
+      showCustomConfirm(async () => {
+        try {
+          const commentRef = doc(db_fs, 'artifacts', appId, 'public', 'data', 'comments', id);
+          await deleteDoc(commentRef);
+          showNotification(getText('deletedToast'), "success");
+          await syncFromFirebase();
+          renderAdminComments();
+        } catch (err) {
+          console.error("Comment deletion failed: ", err);
+        }
       });
     }
 
@@ -2142,12 +2671,10 @@ async function syncFromFirebase() {
         showNotification(getText('pinErrorToast'), "error");
       }
     }
-  </script>
 
-  <script>
-    // TOAST SYSTEM
     function showNotification(text, type = "info") {
       const container = document.getElementById('toast-container');
+      if (!container) return;
       const toast = document.createElement('div');
       toast.className = `px-6 py-3.5 rounded-2xl shadow-2xl font-bold text-sm text-white transition-all flex items-center gap-2 animate-bounce ${
         type === 'success' ? 'bg-amber-500 text-black' : 'bg-red-600'
@@ -2160,48 +2687,84 @@ async function syncFromFirebase() {
       }, 3000);
     }
 
-    // INITIALIZATION PASS & ROUTING MANAGEMENT
-   async function initApp() {
-    // 1. Theme Setup
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    function closeCustomConfirm() {
+      const modal = document.getElementById('confirm-delete-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    // APPLICATION ENTRY-POINT BOOTSTRAP (Adhering to Rules 1, 2, and 3)
+    async function initApp() {
+      // 1. Establish Theme from Cache
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
-    }
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
 
-    // 2. Firebase నుండి డేటా తెచ్చుకోవడం
-    try {
-        await syncFromFirebase(); // ఇది Firebase నుండి డేటాను తెస్తుంది
-        console.log("Firebase నుండి డేటా విజయవంతంగా లోడ్ అయ్యింది!");
-    } catch (error) {
-        console.error("Firebase డేటా లోడ్ అవ్వలేదు:", error);
-    }
+      // 2. Strict Authentication Process Before Queries (Rule 3)
+      try {
+        const userCredential = await signInAnonymously(auth);
+        currentUser = userCredential.user;
+        db.session.userId = currentUser.uid;
+        saveStateToLocal();
+      } catch (authError) {
+        console.error("Anonymous authentication state unresolved: ", authError);
+      }
 
-    // 3. UI Translator మరియు Routing
-    translateUI();
-    const initialRoute = window.location.hash.slice(1) || '/';
-    navigate(initialRoute, false);
-}
+      // 3. Sync Database from Firestore (Strict Paths & Resilient Fallback)
+      await syncFromFirebase();
 
-    // 2. Firebase నుండి డేటా తెచ్చుకుని, తర్వాతే వెబ్‌సైట్ చూపించడం
-    syncFromFirebase()
-        .then(() => {
-            translateUI();
-            const initialRoute = window.location.hash.slice(1) || '/';
-            navigate(initialRoute, false);
-        })
-        .catch((error) => {
-            console.error("Firebase డేటా లోడ్ అవ్వలేదు:", error);
-            // ఒకవేళ ఎర్రర్ వస్తే కనీసం UI Translate అవ్వాలి
-            translateUI();
-        });
-}
+      // 4. Localization Rendering
+      translateUI();
 
-      // Hash routing for link sharing connectivity
+      // 5. URL Hash Router Connectivity
       const initialRoute = window.location.hash.slice(1) || '/';
       navigate(initialRoute, false);
     }
 
-    // Hash change dynamic listener
+    const safeSetText = (id, val) => {
+      const el = document.getElementById(id);
+      if (el) el.innerText = val;
+    };
+
+    // EVENT DELEGATOR - BINDING TO WINDOW OBJECT FOR INLINE HANDLERS
+    window.handleLogoClick = handleLogoClick;
+    window.navigate = navigate;
+    window.toggleTheme = toggleTheme;
+    window.toggleMobileMenu = toggleMobileMenu;
+    window.changeLanguage = changeLanguage;
+    window.handleSearch = handleSearch;
+    window.openZoomModal = openZoomModal;
+    window.closeZoomModal = closeZoomModal;
+    window.requestService = requestService;
+    window.handleContactSubmit = handleContactSubmit;
+    window.orderArtworkWhatsApp = orderArtworkWhatsApp;
+    window.handleAdminLogin = handleAdminLogin;
+    window.handleAdminLogout = handleAdminLogout;
+    window.setAdminTab = setAdminTab;
+    window.startArtworkEdit = startArtworkEdit;
+    window.cancelArtworkEdit = cancelArtworkEdit;
+    window.toggleArtworkVisibility = toggleArtworkVisibility;
+    window.deleteArtwork = deleteArtwork;
+    window.handlePINChange = handlePINChange;
+    window.handleArtworkUploadOrUpdate = handleArtworkUploadOrUpdate;
+    window.handleImageFileSelect = handleImageFileSelect;
+    window.handleImageDrop = handleImageDrop;
+    window.processImageFile = processImageFile;
+    window.runSketchSimulator = runSketchSimulator;
+    window.resetSimulator = resetSimulator;
+    window.calculatePrice = calculatePrice;
+    window.orderViaCalculator = orderViaCalculator;
+    window.closeCustomConfirm = closeCustomConfirm;
+    window.handleCommentPost = handleCommentPost;
+    window.toggleLike = toggleLike;
+    window.copyArtLink = copyArtLink;
+    window.postAdminReply = postAdminReply;
+    window.deleteComment = deleteComment;
+    window.deleteMessage = deleteMessage;
+
+    // Hash listener
     window.addEventListener('hashchange', () => {
       const hashRoute = window.location.hash.slice(1) || '/';
       if (currentRoute !== hashRoute) {
@@ -2209,7 +2772,7 @@ async function syncFromFirebase() {
       }
     });
 
-    // Dynamic execution listener
+    // Boot execution
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', initApp);
     } else {
