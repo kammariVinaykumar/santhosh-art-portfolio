@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="te" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santhosh Sketch Art Portfolio</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts for Premium Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbar for Premium Feel */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .dark ::-webkit-scrollbar-thumb {
+      background: rgba(245, 158, 11, 0.2);
+      border-radius: 99px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(156, 163, 175, 0.4);
+      border-radius: 99px;
+    }
+    /* Masonry grid system */
+    .masonry-grid {
+      column-count: 1;
+      column-gap: 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .masonry-grid {
+        column-count: 2;
+      }
+    }
+    @media (min-width: 1024px) {
+      .masonry-grid {
+        column-count: 3;
+      }
+    }
+    @media (min-width: 1280px) {
+      .masonry-grid {
+        column-count: 4;
+      }
+    }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-[#060606] dark:text-gray-100 min-h-screen transition-colors duration-300 font-sans">
+
+  <!-- 1. HEADER & NAVBAR -->
+  <nav class="sticky top-0 z-40 backdrop-blur-md border-b transition-colors duration-300 bg-white/90 border-gray-200 dark:bg-gray-950/90 dark:border-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Logo (Secret Admin Portal Trigger) -->
+        <div class="flex-shrink-0 flex items-center cursor-pointer select-none" onclick="handleLogoClick()" title="Illu (Home)">
+          <span class="font-serif text-2xl font-black bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-600 bg-clip-text text-transparent">
+            Santhosh Art
+          </span>
+        </div>
+        
+        <!-- Desktop Nav Items (Completely Hidden Admin Button) -->
+        <div class="hidden md:flex space-x-6 items-center">
+          <button onclick="navigate('/')" class="nav-link flex items-center gap-1.5 font-medium text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors" id="nav-home">
+            <i data-lucide="home" class="w-4.5 h-4.5"></i> Illu (Home)
+          </button>
+          <button onclick="navigate('/gallery')" class="nav-link flex items-center gap-1.5 font-medium text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors" id="nav-gallery">
+            <i data-lucide="image" class="w-4.5 h-4.5"></i> Pradarsana (Gallery)
+          </button>
+          <button onclick="navigate('/services')" class="nav-link flex items-center gap-1.5 font-medium text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors" id="nav-services">
+            <i data-lucide="info" class="w-4.5 h-4.5"></i> Sevalu (Services)
+          </button>
+          <button onclick="navigate('/contact')" class="nav-link flex items-center gap-1.5 font-medium text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors" id="nav-contact">
+            <i data-lucide="phone" class="w-4.5 h-4.5"></i> Sanketika (Contact)
+          </button>
+          
+          <span class="h-5 w-px bg-gray-200 dark:bg-gray-800"></span>
+
+          <!-- Theme Toggle -->
+          <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors" aria-label="Toggle Theme">
+            <i data-lucide="sun" class="w-5 h-5 text-yellow-400 dark:hidden"></i>
+            <i data-lucide="moon" class="w-5 h-5 text-gray-400 hidden dark:block"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Buttons -->
+        <div class="md:hidden flex items-center gap-3">
+          <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors">
+            <i data-lucide="sun" class="w-5 h-5 text-yellow-400 dark:hidden"></i>
+            <i data-lucide="moon" class="w-5 h-5 text-gray-400 hidden dark:block"></i>
+          </button>
+          <button onclick="toggleMobileMenu()" class="text-gray-600 dark:text-gray-300 p-1">
+            <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+            <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Nav List (Completely Hidden Admin Button) -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-950 border-t border-gray-100 dark:border-gray-900 transition-all shadow-xl">
+      <div class="px-3 pt-2 pb-4 space-y-1">
+        <button onclick="navigate('/'); toggleMobileMenu();" class="flex items-center gap-3 w-full px-4 py-3 rounded-xl font-medium text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900">
+          <i data-lucide="home" class="w-5 h-5"></i> Illu (Home)
+        </button>
+        <button onclick="navigate('/gallery'); toggleMobileMenu();" class="flex items-center gap-3 w-full px-4 py-3 rounded-xl font-medium text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900">
+          <i data-lucide="image" class="w-5 h-5"></i> Pradarsana (Gallery)
+        </button>
+        <button onclick="navigate('/services'); toggleMobileMenu();" class="flex items-center gap-3 w-full px-4 py-3 rounded-xl font-medium text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900">
+          <i data-lucide="info" class="w-5 h-5"></i> Sevalu (Services)
+        </button>
+        <button onclick="navigate('/contact'); toggleMobileMenu();" class="flex items-center gap-3 w-full px-4 py-3 rounded-xl font-medium text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900">
+          <i data-lucide="phone" class="w-5 h-5"></i> Sanketika (Contact)
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 2. MAIN VIEWS (SPA Container) -->
+  <main id="app-container" class="min-h-[calc(100vh-140px)]">
+    
+    <!-- A. HOME VIEW -->
+    <section id="view-home" class="view-section animate-in fade-in duration-300">
+      <!-- Hero Section -->
+      <div class="relative overflow-hidden py-20 lg:py-32 bg-gray-50/50 dark:bg-[#030303] border-b border-gray-200/50 dark:border-gray-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center gap-16">
+          <div class="flex-1 text-center lg:text-left">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/10 text-amber-500 font-bold text-xs uppercase tracking-widest mb-6">
+              🎨 Professional Artist Portfolio
+            </span>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-black tracking-tight mb-8 leading-tight">
+              Santhosh <br />
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-yellow-600">Sketch Creations</span>
+            </h1>
+            <p class="text-lg lg:text-2xl mb-10 leading-relaxed font-light text-gray-600 dark:text-gray-400">
+              Graphite, Charcoal and dynamic sketches geeyadam lo prathyeka kala. Mee gnapathalaki canvas paina portrait ga jeevam poyyandi.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
+              <button onclick="navigate('/gallery')" class="px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-black font-bold rounded-2xl transition-all hover:scale-105 shadow-xl shadow-amber-500/20 flex items-center justify-center gap-2">
+                Pradarsana Choodandi <i data-lucide="arrow-right" class="w-5 h-5"></i>
+              </button>
+              <button onclick="navigate('/contact')" class="px-8 py-4 rounded-2xl font-bold transition-all hover:scale-105 border-2 border-gray-300 hover:bg-gray-100 text-gray-900 dark:border-gray-800 dark:hover:bg-gray-900 dark:text-white flex items-center justify-center gap-2">
+                Art Order Cheyandi <i data-lucide="pen-tool" class="w-5 h-5"></i>
+              </button>
+            </div>
+          </div>
+          <div class="flex-1 w-full relative">
+            <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative max-w-md mx-auto border-4 border-amber-500/10">
+              <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1000&auto=format&fit=crop" alt="Hero Sketch" class="object-cover w-full h-full hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6">
+                <p class="text-xs font-bold uppercase tracking-wider text-amber-500">Sketch Master</p>
+                <h4 class="text-xl font-bold text-white font-serif">Santhosh Sketches</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Masterpieces Grid -->
+      <div class="max-w-7xl mx-auto px-4 py-24 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-end mb-12">
+          <div>
+            <h2 class="text-3xl sm:text-4xl font-serif font-black mb-3">Santhosh Special Works</h2>
+            <p class="text-gray-500 dark:text-gray-400 font-light">Santhosh garu geesina real-time charcoal studies & precise pencil portraits.</p>
+          </div>
+          <button onclick="navigate('/gallery')" class="text-amber-500 font-bold hover:underline hidden sm:block flex items-center gap-1">Annitini Choodandi <i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+        </div>
+
+        <div id="featured-artworks-grid" class="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <!-- Dynamic rendering by JS -->
+        </div>
+        
+        <!-- Empty slate guide for owner -->
+        <div id="featured-empty-slate" class="hidden text-center py-16 border-2 border-dashed border-gray-300 dark:border-gray-800 rounded-3xl bg-white/30 dark:bg-gray-950/30">
+          <i data-lucide="sparkles" class="w-12 h-12 text-amber-500 mx-auto mb-4 animate-pulse"></i>
+          <h4 class="text-xl font-bold font-serif mb-2">No Artwork Uploaded Yet</h4>
+          <p class="text-sm text-gray-500 max-w-md mx-auto mb-6">Mee original art masterpieces ni directly live update cheyadaniki, lopo "Santhosh Art" logo paina 3-times click cheyandi.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- B. GALLERY VIEW -->
+    <section id="view-gallery" class="view-section hidden animate-in fade-in duration-300">
+      <div class="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 min-h-screen">
+        <div class="text-center mb-16">
+          <h1 class="text-4xl sm:text-6xl font-serif font-black mb-4">Artworks Gallery</h1>
+          <p class="max-w-2xl mx-auto text-gray-500 dark:text-gray-400">
+            Charcoal portrait sketches, high precision pencil drawings, custom decorations, wall paintings modalaina prathyeka chithralu.
+          </p>
+        </div>
+
+        <!-- Filters & Search Controls -->
+        <div class="flex flex-col lg:flex-row justify-between items-center gap-6 mb-12">
+          <div class="flex gap-2 overflow-x-auto w-full lg:w-auto pb-3" id="gallery-category-filters">
+            <!-- Render dynamically -->
+          </div>
+          <div class="relative w-full lg:w-80">
+            <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">
+              <i data-lucide="search" class="w-4.5 h-4.5"></i>
+            </span>
+            <input 
+              type="text" 
+              id="gallery-search"
+              oninput="handleSearch(this.value)"
+              placeholder="Chithralani vethakandi..." 
+              class="w-full pl-12 pr-4 py-3 rounded-full border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white border-gray-300 dark:bg-gray-900 dark:border-gray-800 dark:text-white"
+            />
+          </div>
+        </div>
+
+        <!-- Grid -->
+        <div id="gallery-masonry" class="masonry-grid">
+          <!-- Render dynamically -->
+        </div>
+        <div id="gallery-empty-state" class="hidden text-center py-24 text-gray-500">
+          <i data-lucide="image-off" class="w-12 h-12 mx-auto mb-4 text-gray-400"></i>
+          <p class="text-lg">Prasthuthaniki eh artworks dhorukaledhu.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- C. SERVICES VIEW -->
+    <section id="view-services" class="view-section hidden animate-in fade-in duration-300">
+      <div class="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+        <div class="text-center mb-20">
+          <h1 class="text-4xl sm:text-6xl font-serif font-black mb-4">Chitrakala Sevalu & Options</h1>
+          <p class="max-w-2xl mx-auto text-gray-500 dark:text-gray-400">
+            Santhosh garu prathi sketch ni entho dynamic ga high pixel clarity realistic precision tho designs andinchagalaru.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <!-- Pencil Sketches -->
+          <div class="rounded-3xl overflow-hidden shadow-xl flex flex-col border bg-white border-gray-100 dark:bg-gray-900/30 dark:border-gray-800/80 hover:border-amber-500/30 transition-all duration-300">
+            <div class="h-52 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1580136608260-4eb11f4b24fe?w=500" alt="Pencil Sketches" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-2xl font-bold mb-3">Pencil Sketches</h3>
+                <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">Highly detailed graphite pencil sketches and customized drawings capturing expressions flawlessly.</p>
+              </div>
+              <button onclick="requestService('Pencil Sketches')" class="w-full py-3 rounded-xl font-bold bg-amber-500/10 hover:bg-amber-500 text-amber-500 hover:text-black dark:bg-amber-500/5 dark:text-amber-400 transition-all">
+                Ippude Request Cheyandi
+              </button>
+            </div>
+          </div>
+
+          <!-- Portrait Drawings -->
+          <div class="rounded-3xl overflow-hidden shadow-xl flex flex-col border bg-white border-gray-100 dark:bg-gray-900/30 dark:border-gray-800/80 hover:border-amber-500/30 transition-all duration-300">
+            <div class="h-52 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=500" alt="Portrait Drawings" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-2xl font-bold mb-3">Portrait Drawings</h3>
+                <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">Timeless charcoal portrait drawings recreated exactly from your favorite photographs with high-end premium framing options.</p>
+              </div>
+              <button onclick="requestService('Portrait Drawings')" class="w-full py-3 rounded-xl font-bold bg-amber-500/10 hover:bg-amber-500 text-amber-500 hover:text-black dark:bg-amber-500/5 dark:text-amber-400 transition-all">
+                Ippude Request Cheyandi
+              </button>
+            </div>
+          </div>
+
+          <!-- Wall Art -->
+          <div class="rounded-3xl overflow-hidden shadow-xl flex flex-col border bg-white border-gray-100 dark:bg-gray-900/30 dark:border-gray-800/80 hover:border-amber-500/30 transition-all duration-300">
+            <div class="h-52 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443?w=500" alt="Wall Art" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-2xl font-bold mb-3">Wall Art</h3>
+                <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">Large scale paintings and mural charcoal illustrations customized specifically to elevate your living room or office walls.</p>
+              </div>
+              <button onclick="requestService('Wall Art')" class="w-full py-3 rounded-xl font-bold bg-amber-500/10 hover:bg-amber-500 text-amber-500 hover:text-black dark:bg-amber-500/5 dark:text-amber-400 transition-all">
+                Ippude Request Cheyandi
+              </button>
+            </div>
+          </div>
+
+          <!-- Custom Artwork -->
+          <div class="rounded-3xl overflow-hidden shadow-xl flex flex-col border bg-white border-gray-100 dark:bg-gray-900/30 dark:border-gray-800/80 hover:border-amber-500/30 transition-all duration-300">
+            <div class="h-52 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=500" alt="Custom Artwork" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-2xl font-bold mb-3">Custom Artwork</h3>
+                <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">Your imaginative and conceptual art requirements sketched onto high-quality medium papers directly.</p>
+              </div>
+              <button onclick="requestService('Custom Artwork')" class="w-full py-3 rounded-xl font-bold bg-amber-500/10 hover:bg-amber-500 text-amber-500 hover:text-black dark:bg-amber-500/5 dark:text-amber-400 transition-all">
+                Ippude Request Cheyandi
+              </button>
+            </div>
+          </div>
+
+          <!-- Gift Sketches -->
+          <div class="rounded-3xl overflow-hidden shadow-xl flex flex-col border bg-white border-gray-100 dark:bg-gray-900/30 dark:border-gray-800/80 hover:border-amber-500/30 transition-all duration-300">
+            <div class="h-52 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=500" alt="Gift Sketches" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-2xl font-bold mb-3">Gift Sketches</h3>
+                <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">The absolute perfect birthday, marriage anniversary, and dynamic customized portrait sketches for your special ones.</p>
+              </div>
+              <button onclick="requestService('Gift Sketches')" class="w-full py-3 rounded-xl font-bold bg-amber-500/10 hover:bg-amber-500 text-amber-500 hover:text-black dark:bg-amber-500/5 dark:text-amber-400 transition-all">
+                Ippude Request Cheyandi
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- D. CONTACT VIEW -->
+    <section id="view-contact" class="view-section hidden animate-in fade-in duration-300">
+      <div class="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 min-h-[80vh]">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+          <!-- Text Info -->
+          <div>
+            <h1 class="text-4xl sm:text-6xl font-serif font-black mb-6">Order Sketch Works</h1>
+            <p class="mb-10 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+              Santhosh sketches direct commission works discuss cheskovadaniki kindly e requirement form submit cheyandi. Ee submit button click cheyagane full description direct ga dynamic WhatsApp message roopam lo Santhosh gari window open chesthundhi.
+            </p>
+            
+            <div class="space-y-6">
+              <div class="p-6 rounded-2xl flex items-center gap-5 border bg-white border-gray-200 dark:bg-gray-900/30 dark:border-gray-800">
+                <div class="p-4 bg-amber-500/10 text-amber-500 rounded-full">
+                  <i data-lucide="phone" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <p class="text-xs font-semibold text-gray-500">Direct Contact Mobile</p>
+                  <p class="text-2xl font-black">+91 8919904820</p>
+                </div>
+              </div>
+
+              <div class="p-6 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border bg-emerald-950/10 border-emerald-900/40 text-emerald-400 dark:border-emerald-800/30">
+                <div class="flex items-center gap-4">
+                  <div class="p-4 bg-emerald-500 text-white rounded-full shadow-lg">
+                    <i data-lucide="message-square" class="w-6 h-6"></i>
+                  </div>
+                  <div>
+                    <p class="text-xs font-semibold text-emerald-500">Live Support Chat</p>
+                    <p class="text-lg font-bold text-emerald-700 dark:text-emerald-400">WhatsApp Communication</p>
+                  </div>
+                </div>
+                <a 
+                  href="https://wa.me/918919904820" 
+                  target="_blank" 
+                  class="w-full sm:w-auto px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl text-center transition-all hover:scale-105 shadow-lg shadow-emerald-500/10"
+                >
+                  Direct Message
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Submission Form -->
+          <div class="p-8 sm:p-10 rounded-3xl border shadow-xl bg-white border-gray-100 dark:bg-gray-900/30 dark:border-gray-850">
+            <h2 class="text-3xl font-bold mb-8">Request Project Detail Form</h2>
+            <form id="contact-commission-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">Mee Peru (Name) *</label>
+                <input type="text" id="form-name" required class="w-full px-5 py-3.5 rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 text-gray-900 dark:bg-gray-950 dark:border-gray-800 dark:text-white" placeholder="Mee peru enter cheyandi">
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">Mobile Phone Number *</label>
+                <input type="tel" id="form-phone" required class="w-full px-5 py-3.5 rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 text-gray-900 dark:bg-gray-950 dark:border-gray-800 dark:text-white" placeholder="+91 xxxxx xxxxx">
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">Artwork Category</label>
+                <select id="form-category" class="w-full px-5 py-3.5 rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 text-gray-900 dark:bg-gray-950 dark:border-gray-800 dark:text-white">
+                  <option value="Pencil Sketches">Pencil Sketches</option>
+                  <option value="Portrait Drawings">Portrait Drawings</option>
+                  <option value="Wall Art">Wall Art</option>
+                  <option value="Custom Artwork">Custom Artwork</option>
+                  <option value="Gift Sketches">Gift Sketches</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">Sanketika Specifications *</label>
+                <textarea id="form-message" rows="4" required class="w-full px-5 py-3.5 rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 text-gray-900 dark:bg-gray-950 dark:border-gray-800 dark:text-white" placeholder="Explain details (Size, Medium, custom frames layout details)"></textarea>
+              </div>
+              <button type="submit" class="w-full py-4 rounded-xl font-bold text-black transition-all bg-amber-500 hover:bg-amber-600 shadow-xl shadow-amber-500/10 flex justify-center items-center gap-2">
+                <i data-lucide="message-square" class="w-5 h-5"></i> WhatsApp Message Pampandi
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- E. ARTWORK DETAIL VIEW -->
+    <section id="view-artwork-detail" class="view-section hidden animate-in fade-in duration-300">
+      <div class="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+        <button onclick="navigate('/gallery')" class="flex items-center gap-2 mb-8 text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors font-semibold">
+          <i data-lucide="chevron-left" class="w-5 h-5"></i> Back to Pradarsana
+        </button>
+
+        <div id="artwork-detail-container" class="flex flex-col lg:flex-row rounded-3xl overflow-hidden border bg-white border-gray-200 dark:bg-gray-950 dark:border-gray-900 shadow-2xl">
+          <!-- Populated by JS dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- F. SECURE ADMIN VIEW -->
+    <section id="view-admin" class="view-section hidden animate-in fade-in duration-300">
+      <div class="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+        <!-- Login Screen -->
+        <div id="admin-login-box" class="flex items-center justify-center min-h-[60vh]">
+          <div class="p-8 sm:p-12 rounded-3xl shadow-2xl w-full max-w-md text-center border bg-white border-gray-150 dark:bg-gray-950 dark:border-gray-900">
+            <div class="p-4 bg-amber-500/10 text-amber-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6 border border-amber-500/20">
+              <i data-lucide="lock" class="w-8 h-8"></i>
+            </div>
+            <h2 class="text-3xl font-serif font-black mb-3">Admin Login Panel</h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-8">Secure system authorization access</p>
+
+            <form onsubmit="handleAdminLogin(event)" class="space-y-5">
+              <input 
+                type="password" 
+                id="admin-password" 
+                placeholder="Password Key Code" 
+                required 
+                class="w-full px-5 py-3.5 rounded-xl border text-center font-mono tracking-widest focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800 dark:text-white"
+              />
+              <button 
+                type="submit" 
+                class="w-full py-4 bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-black font-extrabold rounded-xl transition-all shadow-xl shadow-amber-500/10"
+              >
+                Access Authorization (Login)
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Dashboard Screen (Hidden by default) -->
+        <div id="admin-dashboard-box" class="hidden">
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
+            <div>
+              <h1 class="text-4xl font-serif font-black">Nirvahana Dashboard</h1>
+              <p class="text-gray-500 dark:text-gray-400">Welcome, Santhosh garu!</p>
+            </div>
+            <button onclick="handleAdminLogout()" class="flex items-center gap-2 px-5 py-2.5 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl transition-all hover:scale-105 shadow-lg shadow-red-500/10">
+              <i data-lucide="log-out" class="w-4.5 h-4.5"></i> Logout
+            </button>
+          </div>
+
+          <!-- Admin Nav Links -->
+          <div class="flex overflow-x-auto gap-2 p-1.5 rounded-2xl mb-10 border bg-gray-100 border-gray-200 dark:bg-gray-950 dark:border-gray-900">
+            <button onclick="setAdminTab('stats')" id="btn-tab-stats" class="admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all bg-white text-black dark:bg-gray-900 dark:text-amber-400 border border-gray-800 shadow">
+              Dashboard Overview
+            </button>
+            <button onclick="setAdminTab('artworks')" id="btn-tab-artworks" class="admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all text-gray-500">
+              Artworks List
+            </button>
+            <button onclick="setAdminTab('upload')" id="btn-tab-upload" class="admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all text-gray-500">
+              Upload New Sketch
+            </button>
+            <button onclick="setAdminTab('messages')" id="btn-tab-messages" class="admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all text-gray-500">
+              Order Requests
+            </button>
+            <button onclick="setAdminTab('comments')" id="btn-tab-comments" class="admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all text-gray-500">
+              Review Comments
+            </button>
+            <button onclick="setAdminTab('security')" id="btn-tab-security" class="admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all text-gray-500">
+              Security Pin Settings
+            </button>
+          </div>
+
+          <!-- Tab Contents -->
+          <div id="admin-tab-stats" class="admin-tab-content animate-in fade-in">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div class="p-6 rounded-2xl border bg-white border-gray-200 dark:bg-gray-950 dark:border-gray-900 flex items-center justify-between">
+                <div>
+                  <p class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-1">Sketches Count</p>
+                  <p id="stat-artworks" class="text-4xl font-black">0</p>
+                </div>
+                <div class="p-4 rounded-xl bg-amber-500/10 text-amber-500 border border-amber-500/20">
+                  <i data-lucide="image" class="w-6 h-6"></i>
+                </div>
+              </div>
+
+              <div class="p-6 rounded-2xl border bg-white border-gray-200 dark:bg-gray-950 dark:border-gray-900 flex items-center justify-between">
+                <div>
+                  <p class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-1">Motham Likes</p>
+                  <p id="stat-likes" class="text-4xl font-black">0</p>
+                </div>
+                <div class="p-4 rounded-xl bg-red-500/10 text-red-500 border border-red-500/20">
+                  <i data-lucide="heart" class="w-6 h-6"></i>
+                </div>
+              </div>
+
+              <div class="p-6 rounded-2xl border bg-white border-gray-200 dark:bg-gray-950 dark:border-gray-900 flex items-center justify-between">
+                <div>
+                  <p class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-1">Inbox Requests</p>
+                  <p id="stat-messages" class="text-4xl font-black">0</p>
+                </div>
+                <div class="p-4 rounded-xl bg-blue-500/10 text-blue-500 border border-blue-500/20">
+                  <i data-lucide="message-square" class="w-6 h-6"></i>
+                </div>
+              </div>
+
+              <div class="p-6 rounded-2xl border bg-white border-gray-200 dark:bg-gray-950 dark:border-gray-900 flex items-center justify-between">
+                <div>
+                  <p class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-1">Total Comments</p>
+                  <p id="stat-comments" class="text-4xl font-black">0</p>
+                </div>
+                <div class="p-4 rounded-xl bg-indigo-500/10 text-indigo-500 border border-indigo-500/20">
+                  <i data-lucide="message-circle" class="w-6 h-6"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="admin-tab-artworks" class="admin-tab-content hidden animate-in fade-in">
+            <div id="admin-artworks-list-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+              <!-- Dynamically populated by JS -->
+            </div>
+          </div>
+
+          <div id="admin-tab-upload" class="admin-tab-content hidden animate-in fade-in">
+            <form onsubmit="handleArtworkUploadOrUpdate(event)" class="max-w-3xl mx-auto p-8 sm:p-12 rounded-3xl border bg-white border-gray-100 dark:bg-gray-950 dark:border-gray-900 space-y-6">
+              <div class="flex justify-between items-center">
+                <h2 id="upload-form-title" class="text-3xl font-bold">Upload New Sketch (Simulated Cloudinary)</h2>
+                <button type="button" id="btn-cancel-edit" onclick="cancelArtworkEdit()" class="hidden text-red-500 font-bold hover:underline">Cancel Edit</button>
+              </div>
+              <input type="hidden" id="upload-art-id">
+              
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-widest mb-2 text-gray-400">Artwork Title (Peru) *</label>
+                <input type="text" id="upload-title" required class="w-full px-5 py-3 rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800 dark:text-white" />
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-widest mb-2 text-gray-400">Upload Image File (Drag or drop / Local File Select)</label>
+                <div 
+                  class="border-2 border-dashed border-gray-300 dark:border-gray-800 rounded-2xl p-8 text-center cursor-pointer hover:border-amber-500 transition-colors relative"
+                  onclick="document.getElementById('upload-file-input').click()"
+                  ondragover="event.preventDefault(); this.classList.add('border-amber-500')"
+                  ondragleave="this.classList.remove('border-amber-500')"
+                  ondrop="event.preventDefault(); handleImageDrop(event)"
+                >
+                  <input type="file" id="upload-file-input" accept="image/*" class="hidden" onchange="handleImageFileSelect(event)">
+                  <i data-lucide="upload-cloud" class="w-12 h-12 mx-auto text-gray-500 mb-2"></i>
+                  <p class="text-sm font-bold text-gray-400">Choose file or drag it here</p>
+                  <p class="text-xs text-gray-500 mt-1">Image conversion securely processes inside client application</p>
+                </div>
+                <input type="hidden" id="upload-image-url">
+                <div id="upload-preview-container" class="mt-4 hidden p-4 rounded-xl border border-gray-200 dark:border-gray-800">
+                  <p class="text-xs text-amber-500 font-bold mb-2">Image Preview:</p>
+                  <img id="upload-preview-image" src="" class="h-44 object-cover rounded-lg" alt="preview" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-widest mb-2 text-gray-400">Category Select</label>
+                <select id="upload-category" class="w-full px-5 py-3 rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800 dark:text-white">
+                  <!-- JS populated -->
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-widest mb-2 text-gray-400">Artwork Description (Varnana)</label>
+                <textarea id="upload-description" rows="4" class="w-full px-5 py-3 rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800 dark:text-white"></textarea>
+              </div>
+
+              <button type="submit" id="btn-submit-artwork" class="w-full py-4 bg-amber-500 text-black font-extrabold rounded-2xl shadow-xl shadow-amber-500/10 flex justify-center items-center gap-2">
+                <i data-lucide="plus" class="w-5 h-5"></i> Publish Live Artwork
+              </button>
+            </form>
+          </div>
+
+          <div id="admin-tab-messages" class="admin-tab-content hidden animate-in fade-in">
+            <div id="admin-messages-list" class="space-y-6">
+              <!-- Populate dynamically -->
+            </div>
+          </div>
+
+          <div id="admin-tab-comments" class="admin-tab-content hidden animate-in fade-in">
+            <div id="admin-comments-list" class="space-y-6">
+              <!-- Populate dynamically -->
+            </div>
+          </div>
+
+          <div id="admin-tab-security" class="admin-tab-content hidden animate-in fade-in">
+            <form onsubmit="handleChangePassword(event)" class="max-w-md mx-auto p-8 sm:p-12 rounded-3xl border bg-white border-gray-100 dark:bg-gray-950 dark:border-gray-900 space-y-6">
+              <h2 class="text-2xl font-bold">Nirvahana Password Pin Settings</h2>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-widest mb-2 text-gray-400">Current Password Pin *</label>
+                <input type="password" id="security-current-pw" required class="w-full px-5 py-3 rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800 dark:text-white" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-widest mb-2 text-gray-400">New Password Pin *</label>
+                <input type="password" id="security-new-pw" required class="w-full px-5 py-3 rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800 dark:text-white" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-widest mb-2 text-gray-400">Confirm New Password Pin *</label>
+                <input type="password" id="security-confirm-pw" required class="w-full px-5 py-3 rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800 dark:text-white" />
+              </div>
+              <button type="submit" class="w-full py-4 bg-amber-500 text-black font-extrabold rounded-2xl shadow-xl shadow-amber-500/10 flex justify-center items-center gap-2">
+                Update Security Pin
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 3. FOOTER -->
+  <footer id="app-footer" class="py-12 text-center border-t border-gray-200 bg-white text-gray-500 dark:border-gray-900 dark:bg-[#040404]">
+    <p class="font-serif tracking-wider font-bold text-gray-900 dark:text-gray-300">© 2026 Santhosh Artworks. All rights reserved.</p>
+    <p class="text-xs mt-2 text-gray-500">Live Active Portal connected to WhatsApp Redirection Systems.</p>
+  </footer>
+
+  <!-- 4. FLOATING SUPPORT SYSTEM -->
+  <div class="fixed bottom-6 right-6 z-40">
+    <a 
+      href="https://wa.me/918919904820" 
+      target="_blank" 
+      class="w-16 h-16 bg-emerald-500 hover:bg-emerald-600 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform text-white"
+      title="Immediate WhatsApp Contact"
+    >
+      <i data-lucide="message-square" class="w-8 h-8"></i>
+    </a>
+  </div>
+
+  <!-- 5. FULLSCREEN IMAGE ZOOM MODAL -->
+  <div id="zoom-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 hidden animate-in fade-in duration-200">
+    <button class="absolute top-6 right-6 text-white/70 hover:text-white" onclick="closeZoomModal()">
+      <i data-lucide="x" class="w-9 h-9"></i>
+    </button>
+    <img id="zoom-modal-img" src="" class="max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl" alt="Zoomed View">
+  </div>
+
+  <!-- PREMIUM OVERLAY CONFIRMATION MODAL (Strict Rule 2 compliant, no confirm dialogs) -->
+  <div id="confirm-delete-modal" class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 hidden animate-in fade-in duration-200">
+    <div class="bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-900 p-8 rounded-3xl max-w-sm w-full text-center shadow-2xl">
+      <div class="p-3 bg-red-500/10 text-red-500 rounded-full w-14 h-14 flex items-center justify-center mx-auto mb-4">
+        <i data-lucide="trash-2" class="w-6 h-6"></i>
+      </div>
+      <h3 class="text-lg font-bold mb-2">Delete Cheyala?</h3>
+      <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Ee action ni thirigi ponchalemu. Ee item permanently tholaginchabaduthundhi.</p>
+      <div class="flex gap-4">
+        <button id="btn-confirm-delete-cancel" class="flex-1 py-3 border border-gray-200 dark:border-gray-800 rounded-xl font-bold text-sm text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">
+          Cancel
+        </button>
+        <button id="btn-confirm-delete-action" class="flex-1 py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl font-bold text-sm transition-all">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. GLOBAL NOTIFICATION SYSTEM -->
+  <div id="toast-container" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 space-y-2">
+    <!-- Populated dynamically -->
+  </div>
+
+  <!-- 7. APPLICATION LOGIC ENGINE -->
+  <script>
+    // CLEAN PRODUCTION INITIAL STATE: Empty arrays so Santhosh can build his real-time database
+    const INITIAL_ARTWORKS = [];
+    const INITIAL_COMMENTS = [];
+    const CATEGORIES_LIST = ["All", "Pencil Sketches", "Portrait Drawings", "Wall Art", "Custom Artwork", "Gift Sketches"];
+
+    // SYSTEM STATE DB MANAGEMENT
+    let db = {
+      artworks: JSON.parse(localStorage.getItem('art_db_artworks')) || INITIAL_ARTWORKS,
+      comments: JSON.parse(localStorage.getItem('art_db_comments')) || INITIAL_COMMENTS,
+      messages: JSON.parse(localStorage.getItem('art_db_messages')) || [],
+      likes: JSON.parse(localStorage.getItem('art_db_likes')) || {},
+      session: {
+        userId: localStorage.getItem('art_db_userId') || 'guest-' + Math.random().toString(36).substr(2, 9),
+        isAdmin: JSON.parse(localStorage.getItem('art_db_isAdmin')) || false
+      }
+    };
+
+    // Global variable to keep track of item being deleted
+    let pendingDeleteConfig = null;
+
+    function saveStateToLocal() {
+      localStorage.setItem('art_db_artworks', JSON.stringify(db.artworks));
+      localStorage.setItem('art_db_comments', JSON.stringify(db.comments));
+      localStorage.setItem('art_db_messages', JSON.stringify(db.messages));
+      localStorage.setItem('art_db_likes', JSON.stringify(db.likes));
+      localStorage.setItem('art_db_userId', db.session.userId);
+      localStorage.setItem('art_db_isAdmin', JSON.stringify(db.session.isAdmin));
+    }
+
+    // UTILITIES: TOAST NOTIFICATIONS
+    function showNotification(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = `flex items-center gap-2 px-6 py-3.5 rounded-full shadow-2xl text-white font-semibold text-sm transition-all ${
+        type === 'error' ? 'bg-red-600' : 'bg-emerald-600'
+      }`;
+      
+      const icon = type === 'error' ? 'info' : 'check';
+      toast.innerHTML = `<i data-lucide="${icon}" class="w-4.5 h-4.5"></i> <span>${message}</span>`;
+      
+      container.appendChild(toast);
+      lucide.createIcons();
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'scale-90');
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+
+    // PREMIUM MODAL OVERRIDES FOR ALERTS/CONFIRMS (Rule 2 Guardrail)
+    function showCustomConfirm(onConfirm) {
+      const modal = document.getElementById('confirm-delete-modal');
+      modal.classList.remove('hidden');
+      
+      const handleConfirm = () => {
+        onConfirm();
+        closeCustomConfirm();
+      };
+
+      const handleCancel = () => {
+        closeCustomConfirm();
+      };
+
+      document.getElementById('btn-confirm-delete-action').onclick = handleConfirm;
+      document.getElementById('btn-confirm-delete-cancel').onclick = handleCancel;
+    }
+
+    function closeCustomConfirm() {
+      document.getElementById('confirm-delete-modal').classList.add('hidden');
+    }
+
+    // THEME CONTROLLER
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+
+    // Logo Hidden Trigger Event Tracker (Triple-click)
+    let logoClickCount = 0;
+    let logoClickTimer;
+    function handleLogoClick() {
+      logoClickCount++;
+      clearTimeout(logoClickTimer);
+      if (logoClickCount === 3) {
+        logoClickCount = 0;
+        navigate('/admin');
+        showNotification("Nirvahana secret portal unlocked!", "success");
+        return;
+      }
+      logoClickTimer = setTimeout(() => {
+        logoClickCount = 0;
+        navigate('/');
+      }, 800);
+    }
+
+    // NAVIGATION SYSTEM (SPA ROUTER)
+    let currentRoute = '/';
+    let currentSelectedCategory = 'All';
+    let searchQueryString = '';
+
+    function navigate(route) {
+      currentRoute = route;
+      
+      // Update UI views
+      const sections = document.querySelectorAll('.view-section');
+      sections.forEach(s => s.classList.add('hidden'));
+
+      // Navbar links highlighting reset
+      const links = document.querySelectorAll('.nav-link');
+      links.forEach(l => l.classList.remove('text-amber-500', 'dark:text-amber-400'));
+
+      if (route === '/') {
+        document.getElementById('view-home').classList.remove('hidden');
+        document.getElementById('nav-home').classList.add('text-amber-500', 'dark:text-amber-400');
+        renderHomeFeatured();
+      } else if (route === '/gallery') {
+        document.getElementById('view-gallery').classList.remove('hidden');
+        document.getElementById('nav-gallery').classList.add('text-amber-500', 'dark:text-amber-400');
+        renderGallery();
+      } else if (route === '/services') {
+        document.getElementById('view-services').classList.remove('hidden');
+        document.getElementById('nav-services').classList.add('text-amber-500', 'dark:text-amber-400');
+      } else if (route === '/contact') {
+        document.getElementById('view-contact').classList.remove('hidden');
+        document.getElementById('nav-contact').classList.add('text-amber-500', 'dark:text-amber-400');
+      } else if (route === '/admin') {
+        document.getElementById('view-admin').classList.remove('hidden');
+        renderAdminPortal();
+      } else if (route.startsWith('/artwork/')) {
+        document.getElementById('view-artwork-detail').classList.remove('hidden');
+        const artId = route.split('/')[2];
+        renderArtworkDetail(artId);
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // MOBILE MENU TOGGLER
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const openIcon = document.getElementById('menu-icon-open');
+      const closeIcon = document.getElementById('menu-icon-close');
+      
+      const isHidden = menu.classList.toggle('hidden');
+      if (isHidden) {
+        openIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      } else {
+        openIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      }
+    }
+
+    // VIEW: RENDERING HOME PAGE FEATURED IMAGES
+    function renderHomeFeatured() {
+      const grid = document.getElementById('featured-artworks-grid');
+      const emptySlate = document.getElementById('featured-empty-slate');
+      grid.innerHTML = '';
+      
+      const visibleArtworks = db.artworks.filter(art => !art.isHidden).slice(0, 3);
+      
+      if (visibleArtworks.length === 0) {
+        emptySlate.classList.remove('hidden');
+        grid.classList.add('hidden');
+      } else {
+        emptySlate.classList.add('hidden');
+        grid.classList.remove('hidden');
+
+        visibleArtworks.forEach(art => {
+          const item = document.createElement('div');
+          item.className = 'group cursor-pointer rounded-3xl overflow-hidden bg-white dark:bg-gray-900/40 border border-gray-150 dark:border-gray-800/60 shadow-lg hover:shadow-2xl transition-all duration-300';
+          item.onclick = () => navigate(`/artwork/${art.id}`);
+          
+          item.innerHTML = `
+            <div class="aspect-[4/5] overflow-hidden bg-black/5">
+              <img src="${art.imageUrl}" alt="${art.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            </div>
+            <div class="p-6">
+              <span class="text-xs font-bold text-amber-500 tracking-wider uppercase mb-1 block">${art.category}</span>
+              <h3 class="text-xl font-bold truncate mb-3">${art.title}</h3>
+              <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 gap-1.5">
+                <i data-lucide="heart" class="w-4 h-4 text-red-500 fill-current"></i> ${art.likes.length} Nachina varu
+              </div>
+            </div>
+          `;
+          grid.appendChild(item);
+        });
+      }
+      lucide.createIcons();
+    }
+
+    // VIEW: RENDERING GALLERY CONTROLS
+    function renderGallery() {
+      // Category Buttons Rendering
+      const filterBox = document.getElementById('gallery-category-filters');
+      filterBox.innerHTML = '';
+      
+      CATEGORIES_LIST.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = `px-5 py-2.5 rounded-full whitespace-nowrap text-sm font-semibold transition-all ${
+          currentSelectedCategory === cat 
+            ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/20' 
+            : 'bg-gray-200 text-gray-700 dark:bg-gray-900 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-800'
+        }`;
+        btn.innerText = cat;
+        btn.onclick = () => {
+          currentSelectedCategory = cat;
+          renderGallery();
+        };
+        filterBox.appendChild(btn);
+      });
+
+      // Filter and Search logic
+      const filtered = db.artworks.filter(art => {
+        const matchesCategory = currentSelectedCategory === 'All' || art.category === currentSelectedCategory;
+        const matchesSearch = art.title.toLowerCase().includes(searchQueryString.toLowerCase()) || 
+                              (art.description && art.description.toLowerCase().includes(searchQueryString.toLowerCase()));
+        return !art.isHidden && matchesCategory && matchesSearch;
+      });
+
+      const masonry = document.getElementById('gallery-masonry');
+      const emptyState = document.getElementById('gallery-empty-state');
+      
+      masonry.innerHTML = '';
+
+      if (filtered.length === 0) {
+        emptyState.classList.remove('hidden');
+        masonry.classList.add('hidden');
+      } else {
+        emptyState.classList.add('hidden');
+        masonry.classList.remove('hidden');
+
+        filtered.forEach(art => {
+          const mItem = document.createElement('div');
+          mItem.className = 'masonry-item break-inside-avoid relative group rounded-2xl overflow-hidden shadow border border-transparent dark:hover:border-gray-800';
+          
+          mItem.innerHTML = `
+            <img 
+              src="${art.imageUrl}" 
+              alt="${art.title}" 
+              class="w-full h-auto object-cover cursor-pointer"
+              onclick="navigate('/artwork/${art.id}')"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 pointer-events-none">
+              <h3 class="text-white font-bold text-xl pointer-events-auto cursor-pointer" onclick="navigate('/artwork/${art.id}')">${art.title}</h3>
+              <p class="text-amber-400 text-xs mt-1 font-semibold">${art.category}</p>
+            </div>
+            <button 
+              onclick="openZoomModal('${art.imageUrl}')"
+              class="absolute top-4 right-4 p-2.5 bg-black/40 backdrop-blur-md rounded-full text-white opacity-0 group-hover:opacity-100 hover:bg-amber-500 hover:text-black transition-all z-10"
+            >
+              <i data-lucide="zoom-in" class="w-4.5 h-4.5"></i>
+            </button>
+          `;
+          masonry.appendChild(mItem);
+        });
+      }
+      lucide.createIcons();
+    }
+
+    function handleSearch(val) {
+      searchQueryString = val;
+      renderGallery();
+    }
+
+    // IMAGE FULLSCREEN MODAL CONTROLS
+    function openZoomModal(imgSrc) {
+      const modal = document.getElementById('zoom-modal');
+      const img = document.getElementById('zoom-modal-img');
+      img.src = imgSrc;
+      modal.classList.remove('hidden');
+    }
+
+    function closeZoomModal() {
+      document.getElementById('zoom-modal').classList.add('hidden');
+    }
+
+    // COMMISSION SERVICES TRIGGER
+    function requestService(serviceName) {
+      navigate('/contact');
+      document.getElementById('form-category').value = serviceName;
+    }
+
+    // CONTACT COMMISSIONS FORM HANDLER (Direct WhatsApp Redirection)
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('form-name').value;
+      const phone = document.getElementById('form-phone').value;
+      const type = document.getElementById('form-category').value;
+      const message = document.getElementById('form-message').value;
+
+      if (!name || !phone || !message) {
+        showNotification("Required details fill cheyadam compulsary!", "error");
+        return;
+      }
+
+      // Save locally to database
+      const newMsg = {
+        id: 'msg-' + Date.now(),
+        name,
+        phone,
+        type,
+        message,
+        read: false,
+        createdAt: Date.now()
+      };
+
+      db.messages.unshift(newMsg);
+      saveStateToLocal();
+      
+      showNotification("Requirement local database lo save ayyindi! WhatsApp message construct chesi opening...", "success");
+
+      // Redirect user to WhatsApp with prefilled template
+      const formattedMessage = `*🎨 KOTHA ARTWORK ORDER REQUEST*\n\n` +
+                                `👤 *Peru (Name):* ${name}\n` +
+                                `📞 *Phone Number:* ${phone}\n` +
+                                `🏷️ *Category:* ${type}\n` +
+                                `📝 *Specifications:* ${message}`;
+
+      const encodedMessage = encodeURIComponent(formattedMessage);
+      const whatsappURL = `https://wa.me/918919904820?text=${encodedMessage}`;
+
+      setTimeout(() => {
+        window.open(whatsappURL, '_blank');
+        document.getElementById('contact-commission-form').reset();
+      }, 1500);
+    }
+
+    // REDIRECT TO ORDER SPECIFIC SKETCH
+    function orderArtworkWhatsApp(title, category, url) {
+      const formattedMessage = `*🎨 SKETCH WORK ORDER REQUEST*\n\n` +
+                                `Hi Santhosh garu, nenu mee website lo ee adbhuthamaina art chusaanu. Naku ilanti sketch kavali:\n\n` +
+                                `📌 *Artwork Title:* ${title}\n` +
+                                `🏷️ *Category:* ${category}\n` +
+                                `🔗 *Artwork Link:* ${window.location.origin}/#artwork/${encodeURIComponent(title)}`;
+      
+      const encodedMessage = encodeURIComponent(formattedMessage);
+      window.open(`https://wa.me/918919904820?text=${encodedMessage}`, '_blank');
+    }
+
+    // VIEW: RENDERING ARTWORK DETAILED SCREEN
+    function renderArtworkDetail(artId) {
+      const container = document.getElementById('artwork-detail-container');
+      const art = db.artworks.find(a => a.id === artId);
+      
+      if (!art) {
+        container.innerHTML = '<div class="p-12 text-center text-lg">Artwork Not Found!</div>';
+        return;
+      }
+
+      const hasLiked = art.likes.includes(db.session.userId);
+      const artComments = db.comments.filter(c => c.artworkId === artId).sort((a,b) => b.createdAt - a.createdAt);
+
+      container.innerHTML = `
+        <!-- Left Side Media -->
+        <div class="lg:w-3/5 bg-black/80 flex items-center justify-center p-6 border-r border-gray-150 dark:border-gray-900">
+          <img src="${art.imageUrl}" alt="${art.title}" class="max-h-[80vh] object-contain rounded-xl shadow-2xl" onerror="this.src='https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800'" />
+        </div>
+
+        <!-- Right Side Controls & Comment System -->
+        <div class="lg:w-2/5 p-8 flex flex-col max-h-[85vh] overflow-y-auto custom-scrollbar bg-white dark:bg-gray-950">
+          <div class="mb-6">
+            <span class="text-xs font-bold tracking-widest text-amber-500 uppercase">${art.category}</span>
+            <h1 class="text-3xl sm:text-4xl font-serif font-black mt-2 mb-4 text-gray-900 dark:text-white">${art.title}</h1>
+            <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400">${art.description || "Beautiful artistic portrayal."}</p>
+          </div>
+
+          <!-- Real Order on WhatsApp button -->
+          <button onclick="orderArtworkWhatsApp('${art.title.replace(/'/g, "\\'")}', '${art.category}', '${art.imageUrl}')" class="w-full mb-6 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold rounded-2xl shadow-lg transition-transform hover:scale-105 flex justify-center items-center gap-2">
+            <i data-lucide="shopping-cart" class="w-5 h-5"></i> Ee Art Ni Order Cheyandi (WhatsApp)
+          </button>
+
+          <!-- Likes and Share Row -->
+          <div class="flex items-center gap-4 py-5 border-y border-gray-200 dark:border-gray-900 mb-8">
+            <button onclick="toggleLike('${art.id}')" class="flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm transition-all ${
+              hasLiked ? 'bg-red-500/10 text-red-500' : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-800'
+            }">
+              <i data-lucide="heart" class="w-4.5 h-4.5 ${hasLiked ? 'fill-current' : ''}"></i>
+              <span id="detail-likes-count">${art.likes.length} Likes</span>
+            </button>
+            <button onclick="copyArtLink()" class="flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-800">
+              <i data-lucide="share-2" class="w-4.5 h-4.5"></i> Share Cheyandi
+            </button>
+          </div>
+
+          <!-- Feedback & Comment Engine -->
+          <div class="flex-1">
+            <h3 class="text-lg font-bold mb-6 flex items-center gap-2 text-gray-900 dark:text-white">
+              <i data-lucide="message-circle" class="text-amber-500 w-5 h-5"></i> Abhiprayalu (${artComments.length})
+            </h3>
+            
+            <form onsubmit="handleCommentPost(event, '${art.id}')" class="mb-8 relative">
+              <input 
+                type="text" 
+                id="comment-input"
+                placeholder="Mee abhiprayam rayandi..."
+                required
+                class="w-full pr-12 pl-5 py-4 rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800 dark:text-white text-sm"
+              />
+              <button type="submit" class="absolute right-2 top-1/2 transform -translate-y-1/2 p-2.5 text-amber-500 hover:bg-amber-500/10 rounded-lg">
+                <i data-lucide="send" class="w-4.5 h-4.5"></i>
+              </button>
+            </form>
+
+            <div class="space-y-6" id="detail-comments-list">
+              ${artComments.map(c => `
+                <div class="p-5 rounded-2xl border bg-gray-50 border-gray-150 dark:bg-gray-900/20 dark:border-gray-900">
+                  <div class="flex justify-between items-center mb-2">
+                    <span class="font-bold text-sm text-amber-500">${c.userName}</span>
+                    <span class="text-xs text-gray-400">${new Date(c.createdAt).toLocaleDateString()}</span>
+                  </div>
+                  <p class="text-sm leading-relaxed text-gray-800 dark:text-gray-300">${c.text}</p>
+                  
+                  ${c.replies && c.replies.length > 0 ? c.replies.map(rep => `
+                    <div class="mt-4 pt-3 border-t border-gray-200 dark:border-gray-800/40 pl-4 flex gap-2 text-sm">
+                      <i data-lucide="corner-down-right" class="w-4.5 h-4.5 text-amber-500 shrink-0 mt-0.5"></i>
+                      <div>
+                        <p class="font-bold text-xs text-amber-400">Santhosh (Admin)</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-xs mt-1">${rep.text}</p>
+                      </div>
+                    </div>
+                  `).join('') : ''}
+                </div>
+              `).join('')}
+              ${artComments.length === 0 ? '<p class="text-gray-500 italic text-sm text-center py-6">Mee abhiprayam cheppandi!</p>' : ''}
+            </div>
+          </div>
+        </div>
+      `;
+      lucide.createIcons();
+    }
+
+    // COMMENT POST LOGIC
+    function handleCommentPost(e, artId) {
+      e.preventDefault();
+      const text = document.getElementById('comment-input').value;
+      if (!text.trim()) return;
+
+      const newComment = {
+        id: 'comment-' + Date.now(),
+        artworkId: artId,
+        userName: db.session.isAdmin ? "Santhosh (Admin)" : "Chitrakala Preethi (Guest)",
+        text,
+        createdAt: Date.now(),
+        replies: []
+      };
+
+      db.comments.push(newComment);
+      saveStateToLocal();
+      showNotification("Abhiprayam success ga add cheyabadindhi!", "success");
+      renderArtworkDetail(artId);
+    }
+
+    // LIKE TOGGLER
+    function toggleLike(artId) {
+      const art = db.artworks.find(a => a.id === artId);
+      if (!art) return;
+
+      const idx = art.likes.indexOf(db.session.userId);
+      if (idx > -1) {
+        art.likes.splice(idx, 1);
+        showNotification("Unliked successfully");
+      } else {
+        art.likes.push(db.session.userId);
+        showNotification("Liked successfully!");
+      }
+      saveStateToLocal();
+      renderArtworkDetail(artId);
+    }
+
+    // CLIPBOARD SYSTEM
+    function copyArtLink() {
+      try {
+        const dummy = document.createElement('input');
+        document.body.appendChild(dummy);
+        dummy.value = window.location.href;
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+        showNotification("Lingu successfully copied!", "success");
+      } catch (err) {
+        showNotification("Copy process failed", "error");
+      }
+    }
+
+    // --- VIEW: ADMIN CORE ENGINE ---
+    function renderAdminPortal() {
+      const loginBox = document.getElementById('admin-login-box');
+      const dashBox = document.getElementById('admin-dashboard-box');
+
+      if (db.session.isAdmin) {
+        loginBox.classList.add('hidden');
+        dashBox.classList.remove('hidden');
+        // Pre-fill categories in upload dropdown
+        const select = document.getElementById('upload-category');
+        select.innerHTML = '';
+        CATEGORIES_LIST.filter(c => c !== 'All').forEach(c => {
+          select.innerHTML += `<option value="${c}">${c}</option>`;
+        });
+        setAdminTab('stats');
+      } else {
+        loginBox.classList.remove('hidden');
+        dashBox.classList.add('hidden');
+      }
+    }
+
+    function handleAdminLogin(e) {
+      e.preventDefault();
+      const pw = document.getElementById('admin-password').value;
+      const savedPw = localStorage.getItem('art_db_password') || 'santhosh123';
+      if (pw === savedPw) {
+        db.session.isAdmin = true;
+        saveStateToLocal();
+        showNotification("Santhosh Garu, Swagatham!", "success");
+        renderAdminPortal();
+      } else {
+        showNotification("Pin Key incorrect! Verification check match avvaledhu.", "error");
+      }
+    }
+
+    function handleAdminLogout() {
+      db.session.isAdmin = false;
+      saveStateToLocal();
+      showNotification("Logged out successfully");
+      renderAdminPortal();
+    }
+
+    // ADMIN TABS NAVIGATION
+    let activeAdminTab = 'stats';
+    function setAdminTab(tabId) {
+      activeAdminTab = tabId;
+      
+      const contents = document.querySelectorAll('.admin-tab-content');
+      contents.forEach(c => c.classList.add('hidden'));
+      document.getElementById('admin-tab-' + tabId).classList.remove('hidden');
+
+      const btns = document.querySelectorAll('.admin-tab-btn');
+      btns.forEach(b => {
+        b.className = "admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all text-gray-500";
+      });
+
+      const activeBtn = document.getElementById('btn-tab-' + tabId);
+      if (activeBtn) {
+        activeBtn.className = "admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all bg-white text-black dark:bg-gray-900 dark:text-amber-400 border border-gray-200 dark:border-gray-800 shadow";
+      }
+
+      if (tabId === 'stats') {
+        renderAdminStats();
+      } else if (tabId === 'artworks') {
+        renderAdminArtworksList();
+      } else if (tabId === 'messages') {
+        renderAdminMessages();
+      } else if (tabId === 'comments') {
+        renderAdminComments();
+      }
+    }
+
+    // CHANGE ADMIN PASSWORD
+    function handleChangePassword(e) {
+      e.preventDefault();
+      const savedPw = localStorage.getItem('art_db_password') || 'santhosh123';
+      const curInput = document.getElementById('security-current-pw').value;
+      const newInput = document.getElementById('security-new-pw').value;
+      const confirmInput = document.getElementById('security-confirm-pw').value;
+
+      if (curInput !== savedPw) {
+        showNotification("Prastha Password (Current Pin) match avvaledhu!", "error");
+        return;
+      }
+      if (newInput !== confirmInput) {
+        showNotification("Kotha pins match avvaledhu!", "error");
+        return;
+      }
+      if (newInput.length < 4) {
+        showNotification("Pin minimal 4 characters undali!", "error");
+        return;
+      }
+
+      localStorage.setItem('art_db_password', newInput);
+      showNotification("Admin Pin changed successfully!", "success");
+      document.getElementById('security-current-pw').value = "";
+      document.getElementById('security-new-pw').value = "";
+      document.getElementById('security-confirm-pw').value = "";
+      setAdminTab('stats');
+    }
+
+    function renderAdminStats() {
+      document.getElementById('stat-artworks').innerText = db.artworks.length;
+      document.getElementById('stat-likes').innerText = db.artworks.reduce((acc, curr) => acc + curr.likes.length, 0);
+      document.getElementById('stat-messages').innerText = db.messages.length;
+      document.getElementById('stat-comments').innerText = db.comments.length;
+    }
+
+    function renderAdminArtworksList() {
+      const grid = document.getElementById('admin-artworks-list-grid');
+      grid.innerHTML = '';
+
+      if (db.artworks.length === 0) {
+        grid.innerHTML = '<div class="col-span-full text-center py-12 text-gray-500">Motham art dashboard empty ga undhi. Sketches upload cheyandi.</div>';
+        return;
+      }
+
+      db.artworks.forEach(art => {
+        const item = document.createElement('div');
+        item.className = `rounded-2xl border overflow-hidden flex flex-col transition-all bg-white dark:bg-gray-950 dark:border-gray-900 ${
+          art.isHidden ? 'opacity-50 grayscale' : ''
+        }`;
+        
+        item.innerHTML = `
+          <div class="h-48 overflow-hidden relative bg-black/10">
+            <img src="${art.imageUrl}" class="w-full h-full object-cover" alt="Art Preview" />
+            ${art.isHidden ? '<div class="absolute inset-0 bg-black/60 flex items-center justify-center text-white font-bold tracking-widest uppercase text-xs">Daachabadindhi (Hidden)</div>' : ''}
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-lg truncate">${art.title}</h3>
+            <p class="text-xs text-amber-500 mt-1 mb-6 font-semibold">${art.category}</p>
+            
+            <div class="flex justify-between items-center border-t border-gray-150 dark:border-gray-900 pt-4 mt-auto">
+              <span class="text-sm font-bold flex items-center gap-1"><i data-lucide="heart" class="text-red-500 fill-current w-4 h-4"></i> ${art.likes.length}</span>
+              <div class="flex gap-1.5">
+                <button onclick="startArtworkEdit('${art.id}')" class="p-2 rounded-xl bg-gray-100 hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-850 border dark:border-gray-850" title="Edit details">
+                  <i data-lucide="edit-3" class="w-4 h-4 text-amber-500"></i>
+                </button>
+                <button onclick="toggleArtworkVisibility('${art.id}')" class="p-2 rounded-xl bg-gray-100 hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-850 border dark:border-gray-850" title="${art.isHidden ? 'Unhide' : 'Hide'}">
+                  <i data-lucide="${art.isHidden ? 'eye' : 'eye-off'}" class="w-4 h-4"></i>
+                </button>
+                <button onclick="deleteArtwork('${art.id}')" class="p-2 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-500 border border-red-500/10" title="Delete permanently">
+                  <i data-lucide="trash-2" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        grid.appendChild(item);
+      });
+      lucide.createIcons();
+    }
+
+    // SIMULATED FILE DRAG AND DROP
+    function handleImageFileSelect(e) {
+      const file = e.target.files[0];
+      if (file) {
+        processImageFile(file);
+      }
+    }
+
+    function handleImageDrop(e) {
+      const file = e.dataTransfer.files[0];
+      if (file) {
+        processImageFile(file);
+      }
+    }
+
+    function processImageFile(file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        document.getElementById('upload-image-url').value = reader.result;
+        document.getElementById('upload-preview-image').src = reader.result;
+        document.getElementById('upload-preview-container').classList.remove('hidden');
+        showNotification("Chithram successfully upload cheyabadindhi!", "success");
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // DYNAMIC PUBLISH & MODIFY API
+    function handleArtworkUploadOrUpdate(e) {
+      e.preventDefault();
+      const id = document.getElementById('upload-art-id').value;
+      const title = document.getElementById('upload-title').value;
+      const imageUrl = document.getElementById('upload-image-url').value;
+      const category = document.getElementById('upload-category').value;
+      const description = document.getElementById('upload-description').value;
+
+      if (!title || !imageUrl) {
+        showNotification("Required details fill cheyadam compulsary!", "error");
+        return;
+      }
+
+      if (id) {
+        // Edit Action Mode
+        const art = db.artworks.find(a => a.id === id);
+        if (art) {
+          art.title = title;
+          art.imageUrl = imageUrl;
+          art.category = category;
+          art.description = description;
+          showNotification("Chithram successfully updated!", "success");
+        }
+      } else {
+        // Publish Mode
+        const newArt = {
+          id: 'art-' + Date.now(),
+          title,
+          imageUrl,
+          category,
+          description,
+          isHidden: false,
+          likes: [],
+          createdAt: Date.now()
+        };
+        db.artworks.unshift(newArt);
+        showNotification("Chithram published successfully!", "success");
+      }
+
+      saveStateToLocal();
+      cancelArtworkEdit();
+      setAdminTab('artworks');
+    }
+
+    // EDIT TRIGGER
+    function startArtworkEdit(artId) {
+      const art = db.artworks.find(a => a.id === artId);
+      if (!art) return;
+
+      document.getElementById('upload-art-id').value = art.id;
+      document.getElementById('upload-title').value = art.title;
+      document.getElementById('upload-image-url').value = art.imageUrl;
+      document.getElementById('upload-category').value = art.category;
+      document.getElementById('upload-description').value = art.description;
+      
+      document.getElementById('upload-preview-image').src = art.imageUrl;
+      document.getElementById('upload-preview-container').classList.remove('hidden');
+
+      document.getElementById('upload-form-title').innerText = "Artwork Details Update Mode";
+      document.getElementById('btn-cancel-edit').classList.remove('hidden');
+      document.getElementById('btn-submit-artwork').innerHTML = '<i data-lucide="check" class="w-5 h-5"></i> Update Artwork Details';
+
+      setAdminTab('upload');
+      lucide.createIcons();
+    }
+
+    function cancelArtworkEdit() {
+      document.getElementById('upload-art-id').value = "";
+      document.getElementById('upload-title').value = "";
+      document.getElementById('upload-image-url').value = "";
+      document.getElementById('upload-description').value = "";
+      document.getElementById('upload-preview-container').classList.add('hidden');
+
+      document.getElementById('upload-form-title').innerText = "Upload New Sketch";
+      document.getElementById('btn-cancel-edit').classList.add('hidden');
+      document.getElementById('btn-submit-artwork').innerHTML = '<i data-lucide="plus" class="w-5 h-5"></i> Publish Live Artwork';
+      lucide.createIcons();
+    }
+
+    function toggleArtworkVisibility(artId) {
+      const art = db.artworks.find(a => a.id === artId);
+      if (art) {
+        art.isHidden = !art.isHidden;
+        saveStateToLocal();
+        showNotification(art.isHidden ? "Artwork locked/hidden" : "Artwork published public!");
+        renderAdminArtworksList();
+      }
+    }
+
+    // Strict Rule 2: Custom beautiful popup modal override (no window.confirm dialogs)
+    function deleteArtwork(artId) {
+      showCustomConfirm(() => {
+        db.artworks = db.artworks.filter(a => a.id !== artId);
+        // Also clean up related comments
+        db.comments = db.comments.filter(c => c.artworkId !== artId);
+        saveStateToLocal();
+        showNotification("Artwork permanently deleted", "success");
+        renderAdminArtworksList();
+      });
+    }
+
+    // VIEW: ADMIN MESSAGES / COMMISSIONS LIST
+    function renderAdminMessages() {
+      const container = document.getElementById('admin-messages-list');
+      container.innerHTML = '';
+
+      if (db.messages.length === 0) {
+        container.innerHTML = '<p class="text-center text-gray-500 py-12">Inthavaraku custom orders raledhu.</p>';
+        return;
+      }
+
+      db.messages.forEach(msg => {
+        const item = document.createElement('div');
+        item.className = 'p-6 sm:p-8 rounded-2xl border bg-white border-gray-150 dark:bg-gray-950 dark:border-gray-900 flex flex-col md:flex-row justify-between items-start md:items-center gap-6';
+        
+        item.innerHTML = `
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <h3 class="font-bold text-xl">${msg.name}</h3>
+              <span class="text-xs px-2.5 py-1 rounded-full font-bold bg-amber-500/10 text-amber-500">${msg.type}</span>
+              <span class="text-xs text-gray-400">${new Date(msg.createdAt).toLocaleString()}</span>
+            </div>
+            <p class="font-mono text-sm text-blue-500 mb-3">${msg.phone}</p>
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">${msg.message}</p>
+          </div>
+          <div class="flex md:flex-col gap-2 shrink-0 w-full md:w-auto">
+            <a href="https://wa.me/${msg.phone.replace(/\D/g, '')}" target="_blank" class="w-full px-5 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl text-sm text-center">
+              WhatsApp Reply
+            </a>
+            <button onclick="deleteMessage('${msg.id}')" class="w-full px-5 py-3 border border-red-500/20 hover:bg-red-500/10 text-red-500 rounded-xl text-sm font-bold transition-all">
+              Delete Order
+            </button>
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function deleteMessage(id) {
+      showCustomConfirm(() => {
+        db.messages = db.messages.filter(m => m.id !== id);
+        saveStateToLocal();
+        showNotification("Order Request request deleted", "success");
+        renderAdminMessages();
+      });
+    }
+
+    // VIEW: ADMIN COMMENTS CONTROL
+    function renderAdminComments() {
+      const container = document.getElementById('admin-comments-list');
+      container.innerHTML = '';
+
+      if (db.comments.length === 0) {
+        container.innerHTML = '<p class="text-center text-gray-500 py-12">Inthavaraku custom feedback comments raledhu.</p>';
+        return;
+      }
+
+      db.comments.forEach(c => {
+        const art = db.artworks.find(a => a.id === c.artworkId);
+        const item = document.createElement('div');
+        item.className = 'p-6 rounded-2xl border bg-white border-gray-150 dark:bg-gray-950 dark:border-gray-900';
+        
+        item.innerHTML = `
+          <div class="flex justify-between items-start gap-4 mb-4">
+            <div class="flex items-center gap-4">
+              ${art ? `<img src="${art.imageUrl}" class="w-14 h-14 rounded-xl object-cover border border-gray-200 dark:border-gray-800" alt="thumbnail" />` : ''}
+              <div>
+                <p class="text-base font-bold">${c.userName} <span class="text-xs text-gray-500 font-normal ml-3">${new Date(c.createdAt).toLocaleDateString()}</span></p>
+                <p class="text-gray-600 dark:text-gray-300 mt-1">${c.text}</p>
+                ${art ? `<p class="text-xs text-amber-500 font-bold mt-1">on: ${art.title}</p>` : ''}
+              </div>
+            </div>
+            <button onclick="deleteComment('${c.id}')" class="p-2.5 text-red-500 hover:bg-red-500/10 rounded-xl"><i data-lucide="trash-2" class="w-4.5 h-4.5"></i></button>
+          </div>
+
+          <!-- Secure Response Reply Form -->
+          <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-900 flex gap-3">
+            <input 
+              type="text" 
+              id="reply-input-${c.id}"
+              placeholder="Reply strictly as Santhosh Admin..." 
+              class="flex-1 px-4 py-2.5 rounded-xl text-sm border focus:outline-none focus:ring-1 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-850 dark:text-white"
+            />
+            <button onclick="postAdminReply('${c.id}')" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-black text-xs font-black rounded-xl">
+              Reply
+            </button>
+          </div>
+        `;
+        container.appendChild(item);
+      });
+      lucide.createIcons();
+    }
+
+    function postAdminReply(commentId) {
+      const text = document.getElementById(`reply-input-${commentId}`).value;
+      if (!text.trim()) return;
+
+      const comment = db.comments.find(c => c.id === commentId);
+      if (comment) {
+        if (!comment.replies) comment.replies = [];
+        comment.replies.push({
+          text,
+          createdAt: Date.now()
+        });
+        saveStateToLocal();
+        showNotification("Reply pampinchabadindhi!", "success");
+        renderAdminComments();
+      }
+    }
+
+    function deleteComment(id) {
+      showCustomConfirm(() => {
+        db.comments = db.comments.filter(c => c.id !== id);
+        saveStateToLocal();
+        showNotification("Comment successfully deleted", "success");
+        renderAdminComments();
+      });
+    }
+
+    // RUNTIME INITS
+    window.onload = function() {
+      // Check Theme Preference
+      if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+
+      // Initial Navigation
+      navigate('/');
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>
