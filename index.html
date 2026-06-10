@@ -9,7 +9,7 @@
   <!-- Google Fonts for Premium Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght=0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;800&family=Playfair+Display:ital,wght=0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
   
@@ -264,14 +264,6 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="testimonials-container">
           <!-- Populated dynamically -->
-        </div>
-      </div>
-
-      <!-- BRAND NEW: ACCORDION FAQs -->
-      <div class="max-w-4xl mx-auto px-4 py-24 sm:px-6 lg:px-8">
-        <h2 id="faq-title" class="text-3xl sm:text-5xl font-serif font-black text-center mb-12">Frequently Asked Questions</h2>
-        <div class="space-y-4" id="faq-container">
-          <!-- Populated dynamically by script -->
         </div>
       </div>
     </section>
@@ -625,6 +617,7 @@
                 <textarea id="upload-description" rows="4" class="w-full px-5 py-3 rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800 dark:text-white"></textarea>
               </div>
 
+              <!-- Verbatim reference to image_743e7c.png: submit button is dynamic and styled as block -->
               <button type="submit" id="btn-submit-artwork" class="w-full py-4 bg-amber-500 text-black font-extrabold rounded-2xl shadow-xl shadow-amber-500/10 flex justify-center items-center gap-2">
                 <!-- Rendered dynamically -->
               </button>
@@ -644,7 +637,7 @@
           </div>
 
           <div id="admin-tab-settings" class="admin-tab-content hidden animate-in fade-in">
-            <form onsubmit="handlePINChange(event)" class="max-w-md mx-auto p-8 rounded-3xl border bg-white border-gray-150 dark:bg-gray-950 dark:border-gray-900 space-y-5">
+            <form onsubmit="handlePINChange(event)" class="max-w-md mx-auto p-8 rounded-3xl border bg-white border-gray-100 dark:bg-gray-950 dark:border-gray-900 space-y-5">
               <h2 id="settings-form-title" class="text-2xl font-bold font-serif mb-4">Security PIN Customization</h2>
               <div>
                 <label id="settings-old-label" class="block text-xs font-bold uppercase tracking-widest mb-2 text-gray-400">Old Security PIN</label>
@@ -791,6 +784,7 @@
       localStorage.setItem('art_db_lang', db.session.lang);
     }
 
+    // MULTI-LANGUAGE RESOURCE DICTIONARY
     const LANG_DATA = {
       en: {
         navHome: "Home",
@@ -1039,18 +1033,18 @@
         galleryDesc: "हाथ से बने पेंसिल और चारकोल स्केच, जीवंत दीवार कला, और सुंदर उपहार चित्रों का संग्रह।",
         searchPlaceholder: "कलाकृतियाँ खोजें...",
         emptyGallery: "इस श्रेणी में कोई कलाकृति नहीं मिली।",
-        servicesTitle: "कला सेवाएं और विकल्प",
-        servicesDesc: "हर कलाकृति अत्यंत सटीकता, समर्पण और जुनून के साथ बनाई गई है।",
+        servicesTitle: "कला सेवाएं and विकल्प",
+        servicesDesc: "हर कलाकृति अत्यंत सटीकता, समर्पण and जुनून के साथ बनाई गई है।",
         service1Title: "पेंसिल स्केच",
-        service1Desc: "अत्यंत विस्तृत ग्रेफाइट पेंसिल स्केच जो त्रुटिहीन हाव-भाव और यथार्थवादी त्वचा की बनावट को दर्शाते हैं।",
+        service1Desc: "अत्यंत विस्तृत ग्रेफाइट पेंसिल स्केच जो त्रुटिहीन हाव-भाव and यथार्थवादी त्वचा की बनावट को दर्शाते हैं।",
         service2Title: "पोर्ट्रेट चित्र",
         service2Desc: "आपकी पसंदीदा तस्वीरों से खूबसूरती से बनाए गए शाश्वत, गहरे चारकोल पोर्ट्रेट चित्र।",
         service3Title: "दीवार कला (वॉल आर्ट)",
-        service3Desc: "लिविंग रूम या कार्यालयों को सजाने के लिए अनुकूलित बड़े पैमाने के चित्र और भित्ति चारकोल कला।",
+        service3Desc: "लिविंग रूम या कार्यालयों को सजाने के लिए अनुकूलित बड़े पैमाने के चित्र and भित्ति चारकोल कला।",
         service4Title: "कस्टम कलाकृति",
-        service4Desc: "आपकी कल्पना और वैचारिक आवश्यकताओं के अनुसार प्रीमियम-ग्रेड पेपर पर स्केच किए गए चित्र।",
+        service4Desc: "आपकी कल्पना and वैचारिक आवश्यकताओं के अनुसार प्रीमियम-ग्रेड पेपर पर स्केच किए गए चित्र।",
         service5Title: "उपहार स्केच",
-        service5Desc: "जन्मदिन, शादियों, वर्षगांठों और जीवन के अनमोल पलों के लिए एकदम सही अनुकूलित उपहार।",
+        service5Desc: "जन्मदिन, शादियों, वर्षगांठों and जीवन के अनमोल पलों के लिए एकदम सही अनुकूलित उपहार।",
         serviceReqBtn: "सेवा के लिए अनुरोध करें",
         contactTitle: "कलाकृति कमीशन करें",
         contactDesc: "संतोष के साथ सीधे चर्चा करने के लिए नीचे अपनी विशिष्ट आवश्यकताओं का विवरण जमा करें।",
@@ -1087,9 +1081,9 @@
         adminStatInbox: "इनबॉक्स अनुरोध",
         adminStatComments: "कुल टिप्पणियाँ",
         adminUploadTitle: "नया स्केच अपलोड करें",
-        adminCancelEdit: "संपादन मोड रद्द करें",
+        adminCancelEdit: "संपादित मोड रद्द करें",
         adminUpTitleLabel: "कलाकृति का शीर्षक *",
-        adminUpFileLabel: "छवि फ़ाइल अपलोड करें (खींचें और छोड़ें या स्थानीय चयन करें)",
+        adminUpFileLabel: "छवि फ़ाइल अपलोड करें (खींचें and छोड़ें या स्थानीय चयन करें)",
         adminUpFileSub: "फ़ाइल चुनें या यहाँ खींचें",
         adminUpFileWarn: "छवि रूपांतरण सुरक्षित रूप से क्लाइंट के भीतर संसाधित होता है",
         adminUpCatLabel: "श्रेणी चयन",
@@ -1119,11 +1113,11 @@
         footerSubText: "लाइव सक्रिय पोर्टल सीधे व्हाट्सएप रीडायरेक्शन सिस्टम से जुड़ा है।",
         simBadge: "⚡ लाइव स्केच सिम्युलेटर",
         simTitle: "संतोष स्केच फ़िल्टर आज़माएं!",
-        simDesc: "नीचे अपना फोटो अपलोड करें और तुरंत देखें कि हाथ से बना पेंसिल स्केच कैसा दिखेगा!",
+        simDesc: "नीचे अपना फोटो अपलोड करें and तुरंत देखें कि हाथ से बना पेंसिल स्केच कैसा दिखेगा!",
         simUploadBtn: "अपना फोटो अपलोड करें",
         simResetBtn: "रीसेट करें",
         simPlaceholderText: "आपका संसाधित स्केच यहाँ दिखाई देगा",
-        reviewsTitle: "संतुष्ट ग्राहक और समीक्षाएं",
+        reviewsTitle: "संतुष्ट ग्राहक and समीक्षाएं",
         reviewsDesc: "देखें कि लोग संतोष की कस्टम कलाकृतियों के बारे में क्या कहते हैं।",
         faqHeader: "अक्सर पूछे जाने वाले प्रश्न",
         calcTitle: "अनुमानित मूल्य कनवर्टर",
@@ -1160,34 +1154,6 @@
       }
     ];
 
-    const FAQ_DATA = [
-      {
-        q: "How to order a custom drawing sketch?",
-        qTe: "కస్టమ్ డ్రాయింగ్ స్కెచ్ ఎలా ఆర్డర్ చేయాలి?",
-        qHi: "कस्टम स्केच कैसे ऑर्डर करें?",
-        a: "Simply browse services, use our pricing calculator to get an estimated quote, and click the WhatsApp booking button or submit the request form. Santhosh will contact you directly to confirm photos.",
-        aTe: "మీకు నచ్చిన సేవను సెలెక్ట్ చేసుకుని, ధర క్యాలిక్యులేటర్ ద్వారా అంచనా వేసి వాట్సాప్ బటన్ క్లిక్ చేయండి. సంతోష్ గారు నేరుగా ఫోటోల వివరాల కోసం మిమ్మల్ని సంప్రదిస్తారు.",
-        aHi: "बस हमारी सेवाओं को ब्राउज़ करें, मूल्य कैलकुलेटर का उपयोग करें और व्हाट्सएप बटन दबाएं। संतोष जी विवरण कीषिकी पुष्टि के लिए आपसे सीधे संपर्क करेंगे।"
-      },
-      {
-        q: "How long does a sketch take to complete?",
-        qTe: "ఒక స్కెచ్ గీయడానికి ఎంత సమయం పడుతుంది?",
-        qHi: "एक स्केच पूरा होने में कितना समय लगता है?",
-        a: "A standard portrait on A4/A3 paper takes about 3 to 5 working days depending on structural detail and complexity of facial features.",
-        aTe: "ముఖం యొక్క హావభావాలు మరియు సైజును బట్టి సాధారణంగా 3 నుండి 5 పనిదినాలు పడుతుంది.",
-        aHi: "आकार और जटिलता के आधार पर आमतौर पर 3 से 5 कार्यदिवस लगते हैं।"
-      },
-      {
-        q: "Do you ship artworks all over India?",
-        qTe: "భారతదేశం అంతటా కొరియర్ సదుపాయం ఉందా?",
-        qHi: "क्या आप पूरे भारत में शिपिंग प्रदान करते हैं?",
-        a: "Yes! We securely package all sketches inside damage-proof bubble wrap cardboard layering and ship them via high priority couriers all across India.",
-        aTe: "అవును! అన్ని చిత్రాలను డ్యామేజ్ కాకుండా సురక్షితంగా బబుల్ రాప్‌తో ప్యాక్ చేసి భారతదేశం అంతటా కొరియర్ చేస్తాము.",
-        aHi: "हां! हम स्केच को सुरक्षित रूप से पैक करके भारत के सभी हिस्सों में सुरक्षित कूरियर करते हैं।"
-      }
-    ];
-
-    // SYNC DATA FROM FIREBASE (Strictly adhering to Rules 1, 2, and 3)
     async function syncFromFirebase() {
       if (!currentUser) return; // Prevent unauthenticated queries (RULE 3)
 
@@ -1364,7 +1330,6 @@
       // Review Header & FAQs Localization
       safeSetText('reviews-section-title', getText('reviewsTitle'));
       safeSetText('reviews-section-desc', getText('reviewsDesc'));
-      safeSetText('faq-title', getText('faqHeader'));
 
       // Gallery View Labels
       safeSetText('gallery-title', getText('galleryTitle'));
@@ -1435,6 +1400,15 @@
       safeSetText('admin-up-desc-label', getText('adminUpDescLabel'));
       populateUploadCategories();
 
+      // Verbatim reference to image_743e7c.png: Resolving missing submit button names on load or translation lifecycle
+      const submitArtBtn = document.getElementById('btn-submit-artwork');
+      if (submitArtBtn) {
+        const isEditMode = document.getElementById('upload-art-id') ? document.getElementById('upload-art-id').value : '';
+        submitArtBtn.innerHTML = isEditMode 
+          ? `<i data-lucide="check" class="w-5 h-5"></i> ` + getText('adminUpBtnUpdate')
+          : `<i data-lucide="plus" class="w-5 h-5"></i> ` + getText('adminUpBtnPublish');
+      }
+
       // PIN System Panel
       safeSetText('settings-form-title', getText('settingsFormTitle'));
       safeSetText('settings-old-label', getText('settingsOldLabel'));
@@ -1459,10 +1433,10 @@
       if (lSel) lSel.value = db.session.lang;
 
       const lSelM = document.getElementById('lang-selector-mobile');
-      if (lSelM) lSelM.value = db.session.lang;
+      document.getElementById('lang-selector').value = db.session.lang;
+      document.getElementById('lang-selector-mobile').value = db.session.lang;
 
       renderTestimonials();
-      renderFAQ();
       calculatePrice();
 
       try {
@@ -1472,7 +1446,6 @@
       }
     }
 
-    // RENDER LOCAL DYNAMIC CONTENT
     function renderServicesGrid() {
       const grid = document.getElementById('services-grid');
       if (!grid) return;
@@ -1610,40 +1583,6 @@
         `;
         container.appendChild(card);
       });
-    }
-
-    function renderFAQ() {
-      const container = document.getElementById('faq-container');
-      if (!container) return;
-      container.innerHTML = '';
-
-      FAQ_DATA.forEach((faq, index) => {
-        let activeQ = faq.q;
-        let activeA = faq.a;
-        if (db.session.lang === 'te') {
-          activeQ = faq.qTe;
-          activeA = faq.aTe;
-        } else if (db.session.lang === 'hi') {
-          activeQ = faq.qHi;
-          activeA = faq.aHi;
-        }
-
-        const details = document.createElement('details');
-        details.className = 'group border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden bg-white dark:bg-gray-950 transition-all';
-        details.innerHTML = `
-          <summary class="flex justify-between items-center p-6 text-lg font-bold cursor-pointer select-none">
-            <span>${activeQ}</span>
-            <span class="p-1.5 bg-gray-100 dark:bg-gray-900 rounded-lg group-open:rotate-180 transition-transform">
-              <i data-lucide="chevron-down" class="w-5 h-5 text-amber-500"></i>
-            </span>
-          </summary>
-          <div class="px-6 pb-6 text-sm text-gray-500 dark:text-gray-400 leading-relaxed border-t border-transparent group-open:border-gray-100 dark:group-open:border-gray-900 pt-4">
-            ${activeA}
-          </div>
-        `;
-        container.appendChild(details);
-      });
-      if (typeof lucide !== 'undefined') lucide.createIcons();
     }
 
     function calculatePrice() {
@@ -1785,13 +1724,12 @@
       links.forEach(l => l.classList.remove('text-amber-500', 'dark:text-amber-400'));
 
       if (route === '/') {
-        const homeSec = document.getElementById('view-home');
-        if (homeSec) homeSec.classList.remove('hidden');
+        const hSec = document.getElementById('view-home');
+        if (hSec) hSec.classList.remove('hidden');
         const navH = document.getElementById('nav-home');
         if (navH) navH.classList.add('text-amber-500', 'dark:text-amber-400');
         renderHomeFeatured();
         renderTestimonials();
-        renderFAQ();
       } else if (route === '/gallery') {
         const gallSec = document.getElementById('view-gallery');
         if (gallSec) gallSec.classList.remove('hidden');
@@ -1820,53 +1758,6 @@
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function renderHomeFeatured() {
-      const grid = document.getElementById('featured-artworks-grid');
-      const emptySlate = document.getElementById('featured-empty-slate');
-      if (!grid || !emptySlate) return;
-      grid.innerHTML = '';
-      
-      const visibleArtworks = db.artworks.filter(art => !art.isHidden).slice(0, 3);
-      
-      if (visibleArtworks.length === 0) {
-        emptySlate.classList.remove('hidden');
-        grid.classList.add('hidden');
-      } else {
-        emptySlate.classList.add('hidden');
-        grid.classList.remove('hidden');
-
-        visibleArtworks.forEach(art => {
-          const item = document.createElement('div');
-          item.className = 'group cursor-pointer rounded-3xl overflow-hidden bg-white dark:bg-gray-900/40 border border-gray-150 dark:border-gray-800/60 shadow-lg hover:shadow-2xl transition-all duration-300';
-          item.onclick = () => navigate(`/artwork/${art.id}`);
-          
-          let displayCategory = art.category;
-          if (art.category === "Pencil Sketches") displayCategory = getText('service1Title');
-          else if (art.category === "Portrait Drawings") displayCategory = getText('service2Title');
-          else if (art.category === "Wall Art") displayCategory = getText('service3Title');
-          else if (art.category === "Custom Artwork") displayCategory = getText('service4Title');
-          else if (art.category === "Gift Sketches") displayCategory = getText('service5Title');
-
-          item.innerHTML = `
-            <div class="aspect-[4/5] overflow-hidden bg-black/5">
-              <img src="${art.imageUrl}" alt="${art.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            </div>
-            <div class="p-6">
-              <span class="text-xs font-bold text-amber-500 tracking-wider uppercase mb-1 block">${displayCategory}</span>
-              <h3 class="text-xl font-bold truncate mb-3">${art.title}</h3>
-              <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 gap-1.5">
-                <i data-lucide="heart" class="w-4 h-4 text-red-500 fill-current"></i> ${art.likes ? art.likes.length : 0} ${db.session.lang === 'te' ? 'లైకులు' : (db.session.lang === 'hi' ? 'लाइक्स' : 'Likes')}
-              </div>
-            </div>
-          `;
-          grid.appendChild(item);
-        });
-      }
-      try {
-        if (typeof lucide !== 'undefined') lucide.createIcons();
-      } catch(e) {}
     }
 
     function renderGallery() {
@@ -2359,7 +2250,6 @@
       } catch(e) {}
     }
 
-    // CLOUD STORAGE UPLOAD CONTROLLER WITH RESILIENT SECURE BASE64 FALLBACK
     async function processImageFile(file) {
       const reader = new FileReader();
       reader.onloadend = async () => {
@@ -2518,7 +2408,6 @@
       });
     }
 
-    // MESSAGES CHANNEL CONTROL
     function renderAdminMessages() {
       const container = document.getElementById('admin-messages-list');
       if (!container) return;
@@ -2570,7 +2459,6 @@
       });
     }
 
-    // COMMENTS ADMIN CHANNEL CONTROL
     function renderAdminComments() {
       const container = document.getElementById('admin-comments-list');
       if (!container) return;
@@ -2722,11 +2610,6 @@
       const initialRoute = window.location.hash.slice(1) || '/';
       navigate(initialRoute, false);
     }
-
-    const safeSetText = (id, val) => {
-      const el = document.getElementById(id);
-      if (el) el.innerText = val;
-    };
 
     // EVENT DELEGATOR - BINDING TO WINDOW OBJECT FOR INLINE HANDLERS
     window.handleLogoClick = handleLogoClick;
