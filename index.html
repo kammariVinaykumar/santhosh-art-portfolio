@@ -13,19 +13,30 @@
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
   
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            serif: ['Playfair Display', 'Georgia', 'serif'],
-            sans: ['Inter', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
+  <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+  import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+  import { getStorage, ref, uploadString, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCmzLy5eblr1GQTJeAJJE8haEONxVo61yM",
+    authDomain: "santhoshapp-625c7.firebaseapp.com",
+    projectId: "santhoshapp-625c7",
+    storageBucket: "santhoshapp-625c7.appspot.com",
+    messagingSenderId: "832072775875",
+    appId: "1:832072775875:web:3bb34c29ac1c04d4daca76"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  window.db_fs = getFirestore(app);
+  window.storage = getStorage(app);
+  window.collection = collection;
+  window.getDocs = getDocs;
+  window.addDoc = addDoc;
+  window.ref = ref;
+  window.uploadString = uploadString;
+  window.getDownloadURL = getDownloadURL;
+</script>
   <style>
     /* Custom Scrollbar for Premium Feel */
     ::-webkit-scrollbar {
@@ -2150,14 +2161,26 @@ async function syncFromFirebase() {
     }
 
     // INITIALIZATION PASS & ROUTING MANAGEMENT
-   function initApp() {
+   async function initApp() {
     // 1. Theme Setup
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark');
     }
+
+    // 2. Firebase నుండి డేటా తెచ్చుకోవడం
+    try {
+        await syncFromFirebase(); // ఇది Firebase నుండి డేటాను తెస్తుంది
+        console.log("Firebase నుండి డేటా విజయవంతంగా లోడ్ అయ్యింది!");
+    } catch (error) {
+        console.error("Firebase డేటా లోడ్ అవ్వలేదు:", error);
+    }
+
+    // 3. UI Translator మరియు Routing
+    translateUI();
+    const initialRoute = window.location.hash.slice(1) || '/';
+    navigate(initialRoute, false);
+}
 
     // 2. Firebase నుండి డేటా తెచ్చుకుని, తర్వాతే వెబ్‌సైట్ చూపించడం
     syncFromFirebase()
