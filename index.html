@@ -191,8 +191,7 @@
           </div>
           <div class="flex-1 w-full relative">
             <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative max-w-md mx-auto border-4 border-amber-500/10">
-              <!-- Verbatim reference to image_74d102.jpg as fallback if needed -->
-              <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1000&auto=format&fit=crop" alt="Hero Sketch" class="object-cover w-full h-full hover:scale-105 transition-transform duration-700" onerror="this.src='image_74d102.jpg'">
+              <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1000&auto=format&fit=crop" alt="Hero Sketch" class="object-cover w-full h-full hover:scale-105 transition-transform duration-700">
             </div>
           </div>
         </div>
@@ -211,7 +210,6 @@
           <!-- Dynamic rendering by JS -->
         </div>
         
-        <!-- Empty slate guide for owner -->
         <div id="featured-empty-slate" class="hidden text-center py-16 border-2 border-dashed border-gray-300 dark:border-gray-800 rounded-3xl bg-white/30 dark:bg-gray-950/30">
           <i data-lucide="sparkles" class="w-12 h-12 text-amber-500 mx-auto mb-4 animate-pulse"></i>
           <h4 id="featured-empty-slate-title" class="text-xl font-bold font-serif mb-2">No Artwork Uploaded Yet</h4>
@@ -219,7 +217,7 @@
         </div>
       </div>
 
-      <!-- BRAND NEW: SKETCH SIMULATOR (FUN INTERACTIVE ENGAGEMENT) -->
+      <!-- SKETCH SIMULATOR -->
       <div class="bg-amber-500/5 dark:bg-[#0c0c08] border-y border-amber-500/10 py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex flex-col lg:flex-row gap-16 items-center">
@@ -246,8 +244,7 @@
                 <canvas id="simulator-canvas" class="w-full h-full object-contain rounded-2xl hidden"></canvas>
                 <div id="simulator-placeholder" class="text-center p-8">
                   <i data-lucide="image" class="w-16 h-16 mx-auto mb-4 text-gray-400 animate-pulse"></i>
-                  <!-- Verbatim reference to image_74d0c6.png as fallback context if needed -->
-                  <p id="sim-placeholder-text" class="text-sm text-gray-500" data-fallback="image_74d0c6.png">Your processed sketch preview will load here</p>
+                  <p id="sim-placeholder-text" class="text-sm text-gray-500">Your processed sketch preview will load here</p>
                 </div>
               </div>
             </div>
@@ -255,7 +252,7 @@
         </div>
       </div>
 
-      <!-- BRAND NEW: TESTIMONIALS (TRUST BUILDER) -->
+      <!-- TESTIMONIALS -->
       <div class="max-w-7xl mx-auto px-4 py-24 sm:px-6 lg:px-8 border-b border-gray-200/50 dark:border-gray-900/50">
         <div class="text-center mb-16">
           <h2 id="reviews-section-title" class="text-3xl sm:text-5xl font-serif font-black mb-3">Happy Clients & Reviews</h2>
@@ -278,10 +275,8 @@
           </p>
         </div>
 
-        <!-- Filters & Search Controls -->
         <div class="flex flex-col lg:flex-row justify-between items-center gap-6 mb-12">
           <div class="flex gap-2 overflow-x-auto w-full lg:w-auto pb-3" id="gallery-category-filters">
-            <!-- Render dynamically -->
           </div>
           <div class="relative w-full lg:w-80">
             <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">
@@ -297,10 +292,7 @@
           </div>
         </div>
 
-        <!-- Grid -->
-        <div id="gallery-masonry" class="masonry-grid">
-          <!-- Render dynamically -->
-        </div>
+        <div id="gallery-masonry" class="masonry-grid"></div>
         <div id="gallery-empty-state" class="hidden text-center py-24 text-gray-500">
           <i data-lucide="image-off" class="w-12 h-12 mx-auto mb-4 text-gray-400"></i>
           <p id="gallery-empty-state-title" class="text-lg">Prasthuthaniki eh artworks dhorukaledhu.</p>
@@ -318,11 +310,9 @@
           </p>
         </div>
 
-        <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-24">
-          <!-- Dynamic rendering by JS based on language -->
-        </div>
+        <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-24"></div>
 
-        <!-- BRAND NEW: ESTIMATED COST CALCULATOR -->
+        <!-- COST CALCULATOR -->
         <div class="bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-900 rounded-3xl p-8 sm:p-12 shadow-2xl max-w-3xl mx-auto">
           <div class="text-center mb-8">
             <h2 id="calc-title" class="text-3xl font-serif font-black">Estimated Sketch Price Calculator</h2>
@@ -371,7 +361,6 @@
     <section id="view-contact" class="view-section hidden animate-in fade-in duration-300">
       <div class="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 min-h-[80vh]">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-          <!-- Text Info -->
           <div>
             <h1 id="contact-title" class="text-4xl sm:text-6xl font-serif font-black mb-6">Order Sketch Works</h1>
             <p id="contact-desc" class="mb-10 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
@@ -411,7 +400,6 @@
             </div>
           </div>
 
-          <!-- Submission Form -->
           <div class="p-8 sm:p-10 rounded-3xl border shadow-xl bg-white border-gray-150 dark:bg-gray-900/30 dark:border-gray-850">
             <h2 id="contact-form-title" class="text-3xl font-bold mb-8">Request Project Detail Form</h2>
             <form id="contact-commission-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
@@ -426,7 +414,6 @@
               <div>
                 <label id="contact-form-category-label" class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">Artwork Category</label>
                 <select id="form-category" class="w-full px-5 py-3.5 rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 text-gray-900 dark:bg-gray-950 dark:border-gray-800 dark:text-white">
-                  <!-- Rendered dynamically -->
                 </select>
               </div>
               <div>
@@ -434,7 +421,6 @@
                 <textarea id="form-message" rows="4" required class="w-full px-5 py-3.5 rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 text-gray-900 dark:bg-gray-950 dark:border-gray-800 dark:text-white"></textarea>
               </div>
               <button type="submit" id="form-submit-btn" class="w-full py-4 rounded-xl font-bold text-black transition-all bg-amber-500 hover:bg-amber-600 shadow-xl shadow-amber-500/10 flex justify-center items-center gap-2">
-                <!-- Rendered dynamically -->
               </button>
             </form>
           </div>
@@ -448,9 +434,7 @@
         <button id="artwork-detail-back-btn" onclick="navigate('/gallery')" class="flex items-center gap-2 mb-8 text-gray-500 hover:text-900 dark:hover:text-white transition-colors font-semibold">
           <i data-lucide="chevron-left" class="w-5 h-5"></i> Back to Pradarsana
         </button>
-
         <div id="artwork-detail-container" class="flex flex-col lg:flex-row rounded-3xl overflow-hidden border bg-white border-gray-200 dark:bg-gray-950 dark:border-gray-900 shadow-2xl">
-          <!-- Populated by JS dynamically -->
         </div>
       </div>
     </section>
@@ -486,7 +470,7 @@
           </div>
         </div>
 
-        <!-- Dashboard Screen (Hidden by default) -->
+        <!-- Dashboard Screen -->
         <div id="admin-dashboard-box" class="hidden">
           <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
             <div>
@@ -498,26 +482,13 @@
             </button>
           </div>
 
-          <!-- Admin Nav Links -->
           <div class="flex overflow-x-auto gap-2 p-1.5 rounded-2xl mb-10 border bg-gray-100 border-gray-200 dark:bg-gray-950 dark:border-gray-900">
-            <button onclick="setAdminTab('stats')" id="admin-stats-tab-btn" class="admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all bg-white text-black dark:bg-gray-900 dark:text-amber-400 border border-gray-800 shadow">
-              Dashboard Overview
-            </button>
-            <button onclick="setAdminTab('artworks')" id="admin-artworks-tab-btn" class="admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all text-gray-500">
-              Artworks List
-            </button>
-            <button onclick="setAdminTab('upload')" id="admin-upload-tab-btn" class="admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all text-gray-500">
-              Upload New Sketch
-            </button>
-            <button onclick="setAdminTab('messages')" id="admin-inbox-tab-btn" class="admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all text-gray-500">
-              Order Requests
-            </button>
-            <button onclick="setAdminTab('comments')" id="admin-comments-tab-btn" class="admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all text-gray-500">
-              Review Comments
-            </button>
-            <button onclick="setAdminTab('settings')" id="admin-settings-tab-btn" class="admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all text-gray-500">
-              Security PIN Settings
-            </button>
+            <button onclick="setAdminTab('stats')" id="admin-stats-tab-btn" class="admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all bg-white text-black dark:bg-gray-900 dark:text-amber-400 border border-gray-800 shadow">Dashboard Overview</button>
+            <button onclick="setAdminTab('artworks')" id="admin-artworks-tab-btn" class="admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all text-gray-500">Artworks List</button>
+            <button onclick="setAdminTab('upload')" id="admin-upload-tab-btn" class="admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all text-gray-500">Upload New Sketch</button>
+            <button onclick="setAdminTab('messages')" id="admin-inbox-tab-btn" class="admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all text-gray-500">Order Requests</button>
+            <button onclick="setAdminTab('comments')" id="admin-comments-tab-btn" class="admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all text-gray-500">Review Comments</button>
+            <button onclick="setAdminTab('settings')" id="admin-settings-tab-btn" class="admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all text-gray-500">Security PIN Settings</button>
           </div>
 
           <!-- Tab Contents -->
@@ -528,47 +499,34 @@
                   <p id="stat-artworks-label" class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-1">Sketches Count</p>
                   <p id="stat-artworks" class="text-4xl font-black">0</p>
                 </div>
-                <div class="p-4 rounded-xl bg-amber-500/10 text-amber-500 border border-amber-500/20">
-                  <i data-lucide="image" class="w-6 h-6"></i>
-                </div>
+                <div class="p-4 rounded-xl bg-amber-500/10 text-amber-500 border border-amber-500/20"><i data-lucide="image" class="w-6 h-6"></i></div>
               </div>
-
               <div class="p-6 rounded-2xl border bg-white border-gray-200 dark:bg-gray-950 dark:border-gray-900 flex items-center justify-between">
                 <div>
                   <p id="stat-likes-label" class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-1">Total Likes</p>
                   <p id="stat-likes" class="text-4xl font-black">0</p>
                 </div>
-                <div class="p-4 rounded-xl bg-red-500/10 text-red-500 border border-red-500/20">
-                  <i data-lucide="heart" class="w-6 h-6"></i>
-                </div>
+                <div class="p-4 rounded-xl bg-red-500/10 text-red-500 border border-red-500/20"><i data-lucide="heart" class="w-6 h-6"></i></div>
               </div>
-
               <div class="p-6 rounded-2xl border bg-white border-gray-200 dark:bg-gray-950 dark:border-gray-900 flex items-center justify-between">
                 <div>
                   <p id="stat-messages-label" class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-1">Inbox Requests</p>
                   <p id="stat-messages" class="text-4xl font-black">0</p>
                 </div>
-                <div class="p-4 rounded-xl bg-blue-500/10 text-blue-500 border border-blue-500/20">
-                  <i data-lucide="message-square" class="w-6 h-6"></i>
-                </div>
+                <div class="p-4 rounded-xl bg-blue-500/10 text-blue-500 border border-blue-500/20"><i data-lucide="message-square" class="w-6 h-6"></i></div>
               </div>
-
               <div class="p-6 rounded-2xl border bg-white border-gray-200 dark:bg-gray-950 dark:border-gray-900 flex items-center justify-between">
                 <div>
                   <p id="stat-comments-label" class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-1">Total Comments</p>
                   <p id="stat-comments" class="text-4xl font-black">0</p>
                 </div>
-                <div class="p-4 rounded-xl bg-indigo-500/10 text-indigo-500 border border-indigo-500/20">
-                  <i data-lucide="message-circle" class="w-6 h-6"></i>
-                </div>
+                <div class="p-4 rounded-xl bg-indigo-500/10 text-indigo-500 border border-indigo-500/20"><i data-lucide="message-circle" class="w-6 h-6"></i></div>
               </div>
             </div>
           </div>
 
           <div id="admin-tab-artworks" class="admin-tab-content hidden animate-in fade-in">
-            <div id="admin-artworks-list-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-              <!-- Dynamically populated by JS -->
-            </div>
+            <div id="admin-artworks-list-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"></div>
           </div>
 
           <div id="admin-tab-upload" class="admin-tab-content hidden animate-in fade-in">
@@ -607,9 +565,7 @@
 
               <div>
                 <label id="admin-up-cat-label" class="block text-xs font-bold uppercase tracking-widest mb-2 text-gray-400">Category Select</label>
-                <select id="upload-category" class="w-full px-5 py-3 rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800 dark:text-white">
-                  <!-- JS populated -->
-                </select>
+                <select id="upload-category" class="w-full px-5 py-3 rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800 dark:text-white"></select>
               </div>
 
               <div>
@@ -617,23 +573,17 @@
                 <textarea id="upload-description" rows="4" class="w-full px-5 py-3 rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800 dark:text-white"></textarea>
               </div>
 
-              <!-- Verbatim reference to image_743e7c.png: submit button is dynamic and styled as block -->
               <button type="submit" id="btn-submit-artwork" class="w-full py-4 bg-amber-500 text-black font-extrabold rounded-2xl shadow-xl shadow-amber-500/10 flex justify-center items-center gap-2">
-                <!-- Rendered dynamically -->
               </button>
             </form>
           </div>
 
           <div id="admin-tab-messages" class="admin-tab-content hidden animate-in fade-in">
-            <div id="admin-messages-list" class="space-y-6">
-              <!-- Populate dynamically -->
-            </div>
+            <div id="admin-messages-list" class="space-y-6"></div>
           </div>
 
           <div id="admin-tab-comments" class="admin-tab-content hidden animate-in fade-in">
-            <div id="admin-comments-list" class="space-y-6">
-              <!-- Populate dynamically -->
-            </div>
+            <div id="admin-comments-list" class="space-y-6"></div>
           </div>
 
           <div id="admin-tab-settings" class="admin-tab-content hidden animate-in fade-in">
@@ -647,9 +597,7 @@
                 <label id="settings-new-label" class="block text-xs font-bold uppercase tracking-widest mb-2 text-gray-400">New Security PIN</label>
                 <input type="password" id="settings-new-pin" required class="w-full px-4 py-2.5 rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800 dark:text-white" />
               </div>
-              <button type="submit" id="btn-submit-settings" class="w-full py-3 bg-amber-500 hover:bg-amber-600 text-black font-extrabold rounded-xl transition-all shadow-lg">
-                Update Admin PIN Key
-              </button>
+              <button type="submit" id="btn-submit-settings" class="w-full py-3 bg-amber-500 hover:bg-amber-600 text-black font-extrabold rounded-xl transition-all shadow-lg">Update Admin PIN Key</button>
             </form>
           </div>
         </div>
@@ -659,23 +607,16 @@
   </main>
 
   <!-- 3. FOOTER -->
-  <footer id="app-footer" class="py-12 text-center border-t border-gray-200 bg-white text-gray-500 dark:border-gray-900 dark:bg-[#040404]">
-    <!-- Rendered dynamically -->
-  </footer>
+  <footer id="app-footer" class="py-12 text-center border-t border-gray-200 bg-white text-gray-500 dark:border-gray-900 dark:bg-[#040404]"></footer>
 
-  <!-- 4. FLOATING SUPPORT SYSTEM -->
+  <!-- 4. FLOATING SUPPORT -->
   <div class="fixed bottom-6 right-6 z-40">
-    <a 
-      href="https://wa.me/918919904820" 
-      target="_blank" 
-      class="w-16 h-16 bg-emerald-500 hover:bg-emerald-600 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform text-white"
-      title="Immediate WhatsApp Contact"
-    >
+    <a href="https://wa.me/918919904820" target="_blank" class="w-16 h-16 bg-emerald-500 hover:bg-emerald-600 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform text-white" title="Immediate WhatsApp Contact">
       <i data-lucide="message-square" class="w-8 h-8"></i>
     </a>
   </div>
 
-  <!-- 5. FULLSCREEN IMAGE ZOOM MODAL -->
+  <!-- 5. ZOOM MODAL -->
   <div id="zoom-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 hidden animate-in fade-in duration-200">
     <button class="absolute top-6 right-6 text-white/70 hover:text-white" onclick="closeZoomModal()">
       <i data-lucide="x" class="w-9 h-9"></i>
@@ -683,7 +624,7 @@
     <img id="zoom-modal-img" src="" class="max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl" alt="Zoomed View">
   </div>
 
-  <!-- PREMIUM OVERLAY CONFIRMATION MODAL -->
+  <!-- CONFIRM DELETE MODAL -->
   <div id="confirm-delete-modal" class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 hidden animate-in fade-in duration-200">
     <div class="bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-900 p-8 rounded-3xl max-w-sm w-full text-center shadow-2xl">
       <div class="p-3 bg-red-500/10 text-red-500 rounded-full w-14 h-14 flex items-center justify-center mx-auto mb-4">
@@ -692,22 +633,16 @@
       <h3 id="confirm-delete-title" class="text-lg font-bold mb-2">Delete?</h3>
       <p id="confirm-delete-desc" class="text-sm text-gray-500 dark:text-gray-400 mb-6">This action cannot be undone.</p>
       <div class="flex gap-4">
-        <button id="btn-confirm-delete-cancel" class="flex-1 py-3 border border-gray-200 dark:border-gray-800 rounded-xl font-bold text-sm text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">
-          Cancel
-        </button>
-        <button id="btn-confirm-delete-action" class="flex-1 py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl font-bold text-sm transition-all">
-          Delete
-        </button>
+        <button id="btn-confirm-delete-cancel" class="flex-1 py-3 border border-gray-200 dark:border-gray-800 rounded-xl font-bold text-sm text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">Cancel</button>
+        <button id="btn-confirm-delete-action" class="flex-1 py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl font-bold text-sm transition-all">Delete</button>
       </div>
     </div>
   </div>
 
-  <!-- 6. GLOBAL NOTIFICATION SYSTEM -->
-  <div id="toast-container" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 space-y-2">
-    <!-- Populated dynamically -->
-  </div>
+  <!-- 6. TOAST NOTIFICATIONS -->
+  <div id="toast-container" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 space-y-2"></div>
 
-  <!-- 7. APPLICATION LOGIC ENGINE -->
+  <!-- 7. APPLICATION LOGIC -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
     import { getFirestore, collection, doc, getDocs, addDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
@@ -784,370 +719,198 @@
       localStorage.setItem('art_db_lang', db.session.lang);
     }
 
-    // MULTI-LANGUAGE RESOURCE DICTIONARY
     const LANG_DATA = {
       en: {
-        navHome: "Home",
-        navGallery: "Gallery",
-        navServices: "Services",
-        navContact: "Contact",
+        navHome: "Home", navGallery: "Gallery", navServices: "Services", navContact: "Contact",
         heroBadge: "🎨 Professional Artist Portfolio",
         heroTitle: "Santhosh <br><span class='text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-yellow-600'>Sketch Creations</span>",
         heroDesc: "Specializing in Graphite, Charcoal, and dynamic sketches. Bring your memories to life with a living portrait on canvas.",
-        heroBtnGallery: "Explore Gallery",
-        heroBtnContact: "Order Art Work",
-        specialWorks: "Santhosh's Featured Works",
-        specialWorksDesc: "Browse original graphite studies & precise pencil portraits.",
-        viewAll: "View All",
-        emptySlateTitle: "No Artworks Uploaded Yet",
+        heroBtnGallery: "Explore Gallery", heroBtnContact: "Order Art Work",
+        specialWorks: "Santhosh's Featured Works", specialWorksDesc: "Browse original graphite studies & precise pencil portraits.",
+        viewAll: "View All", emptySlateTitle: "No Artworks Uploaded Yet",
         emptySlateDesc: "To upload your original art masterpieces directly, click the 'Santhosh Art' logo 3 times.",
-        galleryTitle: "Artworks Gallery",
-        galleryDesc: "Explore portrait sketches, high precision drawings, wall accents, and dynamic custom works.",
-        searchPlaceholder: "Search artworks...",
-        emptyGallery: "No artworks found in this category.",
-        servicesTitle: "Art Services & Options",
-        servicesDesc: "Every artwork is crafted with extreme precision, dedication, and passion.",
-        service1Title: "Pencil Sketches",
-        service1Desc: "Highly detailed graphite pencil sketches capturing flawless expressions and realistic skin textures.",
-        service2Title: "Portrait Drawings",
-        service2Desc: "Timeless, deep charcoal portrait drawings recreated beautifully from your favorite photographs.",
-        service3Title: "Wall Art",
-        service3Desc: "Large scale paintings and mural charcoal illustrations customized specifically to elevate living rooms or offices.",
-        service4Title: "Custom Artwork",
-        service4Desc: "Your imaginative and conceptual art requirements sketched onto premium-grade archival papers.",
-        service5Title: "Gift Sketches",
-        service5Desc: "The perfect customized gift for birthdays, weddings, anniversaries, and precious lifetime milestones.",
+        galleryTitle: "Artworks Gallery", galleryDesc: "Explore portrait sketches, high precision drawings, wall accents, and dynamic custom works.",
+        searchPlaceholder: "Search artworks...", emptyGallery: "No artworks found in this category.",
+        servicesTitle: "Art Services & Options", servicesDesc: "Every artwork is crafted with extreme precision, dedication, and passion.",
+        service1Title: "Pencil Sketches", service1Desc: "Highly detailed graphite pencil sketches capturing flawless expressions and realistic skin textures.",
+        service2Title: "Portrait Drawings", service2Desc: "Timeless, deep charcoal portrait drawings recreated beautifully from your favorite photographs.",
+        service3Title: "Wall Art", service3Desc: "Large scale paintings and mural charcoal illustrations customized specifically to elevate living rooms or offices.",
+        service4Title: "Custom Artwork", service4Desc: "Your imaginative and conceptual art requirements sketched onto premium-grade archival papers.",
+        service5Title: "Gift Sketches", service5Desc: "The perfect customized gift for birthdays, weddings, anniversaries, and precious lifetime milestones.",
         serviceReqBtn: "Request Service",
-        contactTitle: "Commission Artwork",
-        contactDesc: "Submit your specific requirement details below to discuss a customized commission directly with Santhosh.",
-        contactPhoneLabel: "Direct Contact Mobile",
-        contactSupportLabel: "Live Support Chat",
-        contactSupportSub: "WhatsApp Communication",
-        contactSupportBtn: "Chat Now",
-        formTitle: "Project Specification Form",
-        formName: "Your Name *",
-        formPhone: "Mobile Phone Number *",
-        formCategory: "Artwork Category",
-        formSpecs: "Project Specifications *",
+        contactTitle: "Commission Artwork", contactDesc: "Submit your specific requirement details below to discuss a customized commission directly with Santhosh.",
+        contactPhoneLabel: "Direct Contact Mobile", contactSupportLabel: "Live Support Chat",
+        contactSupportSub: "WhatsApp Communication", contactSupportBtn: "Chat Now",
+        formTitle: "Project Specification Form", formName: "Your Name *", formPhone: "Mobile Phone Number *",
+        formCategory: "Artwork Category", formSpecs: "Project Specifications *",
         formSpecsPlt: "Detail your requirement (Size, Medium, custom frames layout details, etc.)",
         formSubmit: "Submit Order Requirement",
-        detailBack: "Back to Gallery",
-        detailOrderBtn: "Order This Artwork (WhatsApp)",
-        detailShareBtn: "Copy Share Link",
-        detailCommentsTitle: "User Reviews & Opinions",
-        detailCommentsPlt: "Write your opinion...",
+        detailBack: "Back to Gallery", detailOrderBtn: "Order This Artwork (WhatsApp)", detailShareBtn: "Copy Share Link",
+        detailCommentsTitle: "User Reviews & Opinions", detailCommentsPlt: "Write your opinion...",
         detailNoComments: "Be the first to share your thoughts on this masterpiece!",
-        adminTitle: "Admin Login Panel",
-        adminSub: "Secure system authorization access",
-        adminPassPlt: "Password PIN Code",
-        adminLoginBtn: "Access Authorization (Login)",
-        adminWelcome: "Welcome, Santhosh garu!",
-        adminStatsTab: "Dashboard Overview",
-        adminArtworksTab: "Artworks List",
-        adminUploadTab: "Upload New Sketch",
-        adminInboxTab: "Order Requests",
-        adminCommentsTab: "Review Comments",
-        adminSettingsTab: "Security PIN Settings",
-        adminStatArtworks: "Sketches Count",
-        adminStatLikes: "Total Likes",
-        adminStatInbox: "Inbox Requests",
-        adminStatComments: "Total Comments",
-        adminUploadTitle: "Upload New Sketch",
-        adminCancelEdit: "Cancel Edit Mode",
-        adminUpTitleLabel: "Artwork Title *",
-        adminUpFileLabel: "Upload Image File (Drag & Drop or Local select)",
-        adminUpFileSub: "Choose file or drag it here",
-        adminUpFileWarn: "Image conversion securely processes inside client application",
-        adminUpCatLabel: "Category Select",
-        adminUpDescLabel: "Artwork Description",
-        adminUpBtnPublish: "Publish Live Artwork",
-        adminUpBtnUpdate: "Update Artwork Details",
-        adminCommentReplyPlt: "Reply strictly as Santhosh Admin...",
-        adminCommentReplyBtn: "Submit Reply",
-        settingsFormTitle: "Security PIN Customization",
-        settingsOldLabel: "Old Security PIN",
-        settingsNewLabel: "New Security PIN",
-        settingsSubmitBtn: "Update Admin PIN Key",
-        confirmDeleteTitle: "Confirm Deletion",
-        confirmDeleteDesc: "This action cannot be undone. This item will be permanently removed.",
-        confirmDeleteCancel: "Cancel",
-        confirmDeleteAction: "Delete",
-        copiedToast: "Link successfully copied!",
-        requiredToast: "Required fields cannot be empty!",
-        saveSuccessToast: "Saved successfully!",
-        commentSuccessToast: "Review added successfully!",
-        deletedToast: "Permanently deleted!",
-        hiddenToast: "Artwork hidden from public gallery!",
-        visibleToast: "Artwork published publicly!",
-        pinErrorToast: "Incorrect Security PIN Key!",
+        adminTitle: "Admin Login Panel", adminSub: "Secure system authorization access", adminPassPlt: "Password PIN Code",
+        adminLoginBtn: "Access Authorization (Login)", adminWelcome: "Welcome, Santhosh garu!",
+        adminStatsTab: "Dashboard Overview", adminArtworksTab: "Artworks List", adminUploadTab: "Upload New Sketch",
+        adminInboxTab: "Order Requests", adminCommentsTab: "Review Comments", adminSettingsTab: "Security PIN Settings",
+        adminStatArtworks: "Sketches Count", adminStatLikes: "Total Likes", adminStatInbox: "Inbox Requests", adminStatComments: "Total Comments",
+        adminUploadTitle: "Upload New Sketch", adminCancelEdit: "Cancel Edit Mode",
+        adminUpTitleLabel: "Artwork Title *", adminUpFileLabel: "Upload Image File (Drag & Drop or Local select)",
+        adminUpFileSub: "Choose file or drag it here", adminUpFileWarn: "Image conversion securely processes inside client application",
+        adminUpCatLabel: "Category Select", adminUpDescLabel: "Artwork Description",
+        adminUpBtnPublish: "Publish Live Artwork", adminUpBtnUpdate: "Update Artwork Details",
+        adminCommentReplyPlt: "Reply strictly as Santhosh Admin...", adminCommentReplyBtn: "Submit Reply",
+        settingsFormTitle: "Security PIN Customization", settingsOldLabel: "Old Security PIN",
+        settingsNewLabel: "New Security PIN", settingsSubmitBtn: "Update Admin PIN Key",
+        confirmDeleteTitle: "Confirm Deletion", confirmDeleteDesc: "This action cannot be undone. This item will be permanently removed.",
+        confirmDeleteCancel: "Cancel", confirmDeleteAction: "Delete",
+        copiedToast: "Link successfully copied!", requiredToast: "Required fields cannot be empty!",
+        saveSuccessToast: "Saved successfully!", commentSuccessToast: "Review added successfully!",
+        deletedToast: "Permanently deleted!", hiddenToast: "Artwork hidden from public gallery!",
+        visibleToast: "Artwork published publicly!", pinErrorToast: "Incorrect Security PIN Key!",
         pinSuccessToast: "PIN updated successfully!",
         footerText: "© 2026 Santhosh Artworks. All rights reserved.",
         footerSubText: "Live Active Portal connected to WhatsApp Redirection Systems.",
-        simBadge: "⚡ Interactive AI Sketch Simulator",
-        simTitle: "Try the Santhosh Sketch Filter!",
+        simBadge: "⚡ Interactive AI Sketch Simulator", simTitle: "Try the Santhosh Sketch Filter!",
         simDesc: "Upload your portrait photo below to instantly simulate how Santhosh's hand-drawn pencil/charcoal sketch would look on textured canvas!",
-        simUploadBtn: "Upload Your Photo",
-        simResetBtn: "Reset Canvas",
-        simPlaceholderText: "Your processed sketch preview will load here",
-        reviewsTitle: "Happy Clients & Reviews",
-        reviewsDesc: "See what people say about Santhosh's custom drawings.",
-        faqHeader: "Frequently Asked Questions",
-        calcTitle: "Estimated Sketch Price Calculator",
-        calcDesc: "Adjust requirements below to estimate pricing for custom sketch commissions.",
-        calcSizeLbl: "Paper Canvas Size",
-        calcFacesLbl: "Number of Faces (Portraits)",
-        calcFrameLbl: "Glass Frame & Custom Layout",
-        calcPriceLbl: "Estimated Cost",
-        calcOrderBtn: "Book Custom Commission Sketch"
+        simUploadBtn: "Upload Your Photo", simResetBtn: "Reset Canvas", simPlaceholderText: "Your processed sketch preview will load here",
+        reviewsTitle: "Happy Clients & Reviews", reviewsDesc: "See what people say about Santhosh's custom drawings.",
+        calcTitle: "Estimated Sketch Price Calculator", calcDesc: "Adjust requirements below to estimate pricing for custom sketch commissions.",
+        calcSizeLbl: "Paper Canvas Size", calcFacesLbl: "Number of Faces (Portraits)", calcFrameLbl: "Glass Frame & Custom Layout",
+        calcPriceLbl: "Estimated Cost", calcOrderBtn: "Book Custom Commission Sketch"
       },
       te: {
-        navHome: "ఇల్లు",
-        navGallery: "ప్రదర్శన",
-        navServices: "సేవలు",
-        navContact: "సంప్రదించండి",
+        navHome: "ఇల్లు", navGallery: "ప్రదర్శన", navServices: "సేవలు", navContact: "సంప్రదించండి",
         heroBadge: "🎨 ప్రొఫెషనల్ ఆర్టిస్ట్ పోర్ట్‌ఫోలియో",
         heroTitle: "సంతోష్ <br><span class='text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-yellow-600'>స్కెచ్ క్రియేషన్స్</span>",
         heroDesc: "గ్రాఫైట్, చార్కోల్ మరియు డైనమిక్ స్కెచ్‌ల రూపకల్పనలో ప్రత్యేక నైపుణ్యం. మీ మధుర జ్ఞాపకాలకు కాన్వాస్‌పై సజీవ చిత్రంగా ప్రాణం పోయండి.",
-        heroBtnGallery: "గ్యాలరీ చూడండి",
-        heroBtnContact: "ఆర్ట్ ఆర్డర్ చేయండి",
-        specialWorks: "సంతోష్ ప్రత్యేక చిత్రాలు",
-        specialWorksDesc: "నిజ సమయ చార్కోల్ స్టడీస్ మరియు ఖచ్చితమైన పెన్సిల్ పోర్ట్రెయిట్స్.",
-        viewAll: "అన్నీ చూడండి",
-        emptySlateTitle: "ఇంకా చిత్రాలు అప్‌లోడ్ చేయలేదు",
+        heroBtnGallery: "గ్యాలరీ చూడండి", heroBtnContact: "ఆర్ట్ ఆర్డర్ చేయండి",
+        specialWorks: "సంతోష్ ప్రత్యేక చిత్రాలు", specialWorksDesc: "నిజ సమయ చార్కోల్ స్టడీస్ మరియు ఖచ్చితమైన పెన్సిల్ పోర్ట్రెయిట్స్.",
+        viewAll: "అన్నీ చూడండి", emptySlateTitle: "ఇంకా చిత్రాలు అప్‌లోడ్ చేయలేదు",
         emptySlateDesc: "మీ కళాఖండాలను నేరుగా అప్‌లోడ్ చేయడానికి, 'Santhosh Art' లోగోపై 3 సార్లు క్లిక్ చేయండి.",
-        galleryTitle: "కళాఖండాల గ్యాలరీ",
-        galleryDesc: "చేతితో గీసిన పెన్సిల్ మరియు చార్కోల్ స్కెచ్‌లు, రంగు రంగుల వాల్ ఆర్ట్, మరియు బ్యూటిఫుల్ గిఫ్ట్ చిత్రాల ప్రదర్శన.",
-        searchPlaceholder: "చిత్రాలను వెతకండి...",
-        emptyGallery: "ఈ విభాగంలో ఎటువంటి చిత్రాలు లేవు.",
-        servicesTitle: "కళా సేవలు మరియు ఎంపికలు",
-        servicesDesc: "సంతోష్ గారు ప్రతి స్కెచ్‌ను ఎంతో శ్రద్ధతో, వాస్తవికతకు దగ్గరగా రూపొందిస్తారు.",
-        service1Title: "పెన్సిల్ స్కెచ్‌లు",
-        service1Desc: "ముఖ హావభావాలను మరియు చర్మ నైపుణ్యాలను ఖచ్చితంగా ప్రతిబింబించేలా అత్యంత వివరమైన గ్రాఫైట్ పెన్సిల్ స్కెచ్‌లు.",
-        service2Title: "పోర్ట్రెయిట్ డ్రాయింగ్స్",
-        service2Desc: "మీకు ఇష్టమైన ఫోటోల ఆధారంగా పునఃసృష్టించబడే అద్భుతమైన మరియు శాశ్వతమైన చార్కోల్ పోర్ట్రెయిట్స్.",
-        service3Title: "వాల్ ఆర్ట్",
-        service3Desc: "మీ ఇల్లు లేదా ఆఫీస్ గోడల అందాన్ని మరింత పెంచే పెద్ద పరిమాణ వాల్ పెయింటింగ్స్ మరియు చార్కోల్ ఆర్ట్.",
-        service4Title: "కస్టమ్ ఆర్ట్‌వర్క్",
-        service4Desc: "మీ ఊహలకు మరియు ఆలోచనలకు అనుగుణంగా నాణ్యమైన పేపర్‌పై గీసే అద్భుతమైన ప్రత్యేక చిత్రాలు.",
-        service5Title: "గిఫ్ట్ స్కెచ్‌లు",
-        service5Desc: "పుట్టినరోజులు, వివాహాలు, వార్షికోత్సవాలు మరియు ప్రత్యేక సందర్భాల కోసం అద్భుతమైన బహుమతి పోర్ట్రెయిట్ స్కెచ్‌లు.",
+        galleryTitle: "కళాఖండాల గ్యాలరీ", galleryDesc: "చేతితో గీసిన పెన్సిల్ మరియు చార్కోల్ స్కెచ్‌లు, రంగు రంగుల వాల్ ఆర్ట్, మరియు బ్యూటిఫుల్ గిఫ్ట్ చిత్రాల ప్రదర్శన.",
+        searchPlaceholder: "చిత్రాలను వెతకండి...", emptyGallery: "ఈ విభాగంలో ఎటువంటి చిత్రాలు లేవు.",
+        servicesTitle: "కళా సేవలు మరియు ఎంపికలు", servicesDesc: "సంతోష్ గారు ప్రతి స్కెచ్‌ను ఎంతో శ్రద్ధతో, వాస్తవికతకు దగ్గరగా రూపొందిస్తారు.",
+        service1Title: "పెన్సిల్ స్కెచ్‌లు", service1Desc: "ముఖ హావభావాలను మరియు చర్మ నైపుణ్యాలను ఖచ్చితంగా ప్రతిబింబించేలా అత్యంత వివరమైన గ్రాఫైట్ పెన్సిల్ స్కెచ్‌లు.",
+        service2Title: "పోర్ట్రెయిట్ డ్రాయింగ్స్", service2Desc: "మీకు ఇష్టమైన ఫోటోల ఆధారంగా పునఃసృష్టించబడే అద్భుతమైన మరియు శాశ్వతమైన చార్కోల్ పోర్ట్రెయిట్స్.",
+        service3Title: "వాల్ ఆర్ట్", service3Desc: "మీ ఇల్లు లేదా ఆఫీస్ గోడల అందాన్ని మరింత పెంచే పెద్ద పరిమాణ వాల్ పెయింటింగ్స్ మరియు చార్కోల్ ఆర్ట్.",
+        service4Title: "కస్టమ్ ఆర్ట్‌వర్క్", service4Desc: "మీ ఊహలకు మరియు ఆలోచనలకు అనుగుణంగా నాణ్యమైన పేపర్‌పై గీసే అద్భుతమైన ప్రత్యేక చిత్రాలు.",
+        service5Title: "గిఫ్ట్ స్కెచ్‌లు", service5Desc: "పుట్టినరోజులు, వివాహాలు, వార్షికోత్సవాలు మరియు ప్రత్యేక సందర్భాల కోసం అద్భుతమైన బహుమతి పోర్ట్రెయిట్ స్కెచ్‌లు.",
         serviceReqBtn: "సేవను అభ్యర్థించండి",
-        contactTitle: "ఆర్ట్ ఆర్డర్ అభ్యర్థన",
-        contactDesc: "కళాఖండాల గురించి నేరుగా సంతోష్ గారితో మాట్లాడటానికి ఈ వివరాల ఫారమ్‌ను సమర్పించండి.",
-        contactPhoneLabel: "నేరుగా సంప్రదించే మొబైల్ నంబర్",
-        contactSupportLabel: "లైవ్ సపోర్ట్ చాట్",
-        contactSupportSub: "వాట్సాప్ ద్వారా సులభ సంభాషణ",
-        contactSupportBtn: "నేరుగా చాట్ చేయండి",
-        formTitle: "ప్రాజెక్ట్ వివరాల అభ్యర్థన ఫారమ్",
-        formName: "మీ పేరు *",
-        formPhone: "మొబైల్ ఫోన్ నంబర్ *",
-        formCategory: "చిత్రం యొక్క విభాగం",
-        formSpecs: "చిత్రం యొక్క ప్రత్యేక వివరాలు *",
+        contactTitle: "ఆర్ట్ ఆర్డర్ అభ్యర్థన", contactDesc: "కళాఖండాల గురించి నేరుగా సంతోష్ గారితో మాట్లాడటానికి ఈ వివరాల ఫారమ్‌ను సమర్పించండి.",
+        contactPhoneLabel: "నేరుగా సంప్రదించే మొబైల్ నంబర్", contactSupportLabel: "లైవ్ సపోర్ట్ చాట్",
+        contactSupportSub: "వాట్సాప్ ద్వారా సులభ సంభాషణ", contactSupportBtn: "నేరుగా చాట్ చేయండి",
+        formTitle: "ప్రాజెక్ట్ వివరాల అభ్యర్థన ఫారమ్", formName: "మీ పేరు *", formPhone: "మొబైల్ ఫోన్ నంబర్ *",
+        formCategory: "చిత్రం యొక్క విభాగం", formSpecs: "చిత్రం యొక్క ప్రత్యేక వివరాలు *",
         formSpecsPlt: "వివరాలను వివరించండి (సైజు, రకం, కస్టమ్ ఫ్రేమింగ్, మరియు బోర్డర్ వివరాలు)",
         formSubmit: "ఆర్డర్ వివరాలను సమర్పించండి",
-        detailBack: "తిరిగి గ్యాలరీకి",
-        detailOrderBtn: "దీనిని ఆర్డర్ చేయండి (WhatsApp)",
-        detailShareBtn: "లింక్ కాపీ చేయండి",
-        detailCommentsTitle: "అభిప్రాయాలు మరియు సమీక్షలు",
-        detailCommentsPlt: "మీ అభిప్రాయాన్ని రాయండి...",
+        detailBack: "తిరిగి గ్యాలరీకి", detailOrderBtn: "దీనిని ఆర్డర్ చేయండి (WhatsApp)", detailShareBtn: "లింక్ కాపీ చేయండి",
+        detailCommentsTitle: "అభిప్రాయాలు మరియు సమీక్షలు", detailCommentsPlt: "మీ అభిప్రాయాన్ని రాయండి...",
         detailNoComments: "మీ అభిప్రాయాన్ని పంచుకునే మొదటి వ్యక్తి అవ్వండి!",
-        adminTitle: "అడ్మిన్ లాగిన్ ప్యానెల్",
-        adminSub: "సురక్షిత వ్యవస్థ ప్రామాణీకరణ ప్రాప్యత",
-        adminPassPlt: "పాసవర్డ్ పిన్ కోడ్",
-        adminLoginBtn: "ప్రామాణీకరణ లాగిన్",
-        adminWelcome: "స్వాగతం, సంతోష్ గారు!",
-        adminStatsTab: "డాష్‌బోర్డ్ అవలోకనం",
-        adminArtworksTab: "చిత్రాల జాబితా",
-        adminUploadTab: "కొత్త చిత్రం అప్‌లోడ్",
-        adminInboxTab: "ఆర్డర్ అభ్యర్థనలు",
-        adminCommentsTab: "అభిప్రాయాల సమీక్ష",
-        adminSettingsTab: "సెక్యూరిటీ పిన్ సెట్టింగ్స్",
-        adminStatArtworks: "మొత్తం చిత్రాలు",
-        adminStatLikes: "మొత్తం లైక్‌లు",
-        adminStatInbox: "ఇన్బాక్స్ అభ్యర్థనలు",
-        adminStatComments: "మొత్తం కామెంట్లు",
-        adminUploadTitle: "కొత్త చిత్రాన్ని అప్‌లోడ్ చేయండి",
-        adminCancelEdit: "సవరణను రద్దు చేయి",
-        adminUpTitleLabel: "చిత్రం పేరు *",
-        adminUpFileLabel: "చిత్రం ఫైల్ ఎంచుకోండి (డ్రాగ్ & డ్రాప్ లేదా క్లిక్ చేయండి)",
-        adminUpFileSub: "ఫైల్ ఎంచుకోండి లేదా ఇక్కడకు లాగండి",
-        adminUpFileWarn: "చిత్రం సురక్షితంగా బ్రౌజర్‌లోనే ప్రాసెస్ చేయబడుతుంది",
-        adminUpCatLabel: "విభాగాన్ని ఎంచుకోండి",
-        adminUpDescLabel: "చిత్రం యొక్క వివరణ",
-        adminUpBtnPublish: "చిత్రాన్ని ప్రచురించు",
-        adminUpBtnUpdate: "వివరాలను నవీకరించు",
-        adminCommentReplyPlt: "సంతోష్ అడ్మిన్‌గా ప్రత్యుత్తరం ఇవ్వండి...",
-        adminCommentReplyBtn: "ప్రత్యుత్తరం పంపు",
-        settingsFormTitle: "సెక్యూరిటీ పిన్ అనుకూలీకరణ",
-        settingsOldLabel: "పాత సెక్యూరిటీ పిన్",
-        settingsNewLabel: "కొత్త సెక్యూరిటీ పిన్",
-        settingsSubmitBtn: "అడ్మిన్ పిన్ నవీకరించు",
-        confirmDeleteTitle: "తొలగింపును ధృవీకరించండి",
-        confirmDeleteDesc: "ఈ చర్యను తిరిగి పొందలేము. ఈ ఐటెమ్ శాశ్వతంగా తొలగించబడుతుంది.",
-        confirmDeleteCancel: "రద్దు చేయి",
-        confirmDeleteAction: "తొలగించు",
-        copiedToast: "లింక్ విజయవంతంగా కాపీ చేయబడింది!",
-        requiredToast: "అవసరమైన వివరాలను తప్పనిసరిగా పూరించాలి!",
-        saveSuccessToast: "విజయవంతంగా సేవ్ చేయబడింది!",
-        commentSuccessToast: "అభిప్రాయం విజయవంతంగా జోడించబడింది!",
-        deletedToast: "విజయవంతంగా తొలగించబడింది!",
-        hiddenToast: "చిత్రం విజయవంతంగా దాచబడింది!",
-        visibleToast: "చిత్రం విజయవంతంగా ప్రచురించబడింది!",
-        pinErrorToast: "తప్పుడు సెక్యూరిటీ పిన్ కీ!",
+        adminTitle: "అడ్మిన్ లాగిన్ ప్యానెల్", adminSub: "సురక్షిత వ్యవస్థ ప్రామాణీకరణ ప్రాప్యత", adminPassPlt: "పాసవర్డ్ పిన్ కోడ్",
+        adminLoginBtn: "ప్రామాణీకరణ లాగిన్", adminWelcome: "స్వాగతం, సంతోష్ గారు!",
+        adminStatsTab: "డాష్‌బోర్డ్ అవలోకనం", adminArtworksTab: "చిత్రాల జాబితా", adminUploadTab: "కొత్త చిత్రం అప్‌లోడ్",
+        adminInboxTab: "ఆర్డర్ అభ్యర్థనలు", adminCommentsTab: "అభిప్రాయాల సమీక్ష", adminSettingsTab: "సెక్యూరిటీ పిన్ సెట్టింగ్స్",
+        adminStatArtworks: "మొత్తం చిత్రాలు", adminStatLikes: "మొత్తం లైక్‌లు", adminStatInbox: "ఇన్బాక్స్ అభ్యర్థనలు", adminStatComments: "మొత్తం కామెంట్లు",
+        adminUploadTitle: "కొత్త చిత్రాన్ని అప్‌లోడ్ చేయండి", adminCancelEdit: "సవరణను రద్దు చేయి",
+        adminUpTitleLabel: "చిత్రం పేరు *", adminUpFileLabel: "చిత్రం ఫైల్ ఎంచుకోండి (డ్రాగ్ & డ్రాప్ లేదా క్లిక్ చేయండి)",
+        adminUpFileSub: "ఫైల్ ఎంచుకోండి లేదా ఇక్కడకు లాగండి", adminUpFileWarn: "చిత్రం సురక్షితంగా బ్రౌజర్‌లోనే ప్రాసెస్ చేయబడుతుంది",
+        adminUpCatLabel: "విభాగాన్ని ఎంచుకోండి", adminUpDescLabel: "చిత్రం యొక్క వివరణ",
+        adminUpBtnPublish: "చిత్రాన్ని ప్రచురించు", adminUpBtnUpdate: "వివరాలను నవీకరించు",
+        adminCommentReplyPlt: "సంతోష్ అడ్మిన్‌గా ప్రత్యుత్తరం ఇవ్వండి...", adminCommentReplyBtn: "ప్రత్యుత్తరం పంపు",
+        settingsFormTitle: "సెక్యూరిటీ పిన్ అనుకూలీకరణ", settingsOldLabel: "పాత సెక్యూరిటీ పిన్",
+        settingsNewLabel: "కొత్త సెక్యూరిటీ పిన్", settingsSubmitBtn: "అడ్మిన్ పిన్ నవీకరించు",
+        confirmDeleteTitle: "తొలగింపును ధృవీకరించండి", confirmDeleteDesc: "ఈ చర్యను తిరిగి పొందలేము. ఈ ఐటెమ్ శాశ్వతంగా తొలగించబడుతుంది.",
+        confirmDeleteCancel: "రద్దు చేయి", confirmDeleteAction: "తొలగించు",
+        copiedToast: "లింక్ విజయవంతంగా కాపీ చేయబడింది!", requiredToast: "అవసరమైన వివరాలను తప్పనిసరిగా పూరించాలి!",
+        saveSuccessToast: "విజయవంతంగా సేవ్ చేయబడింది!", commentSuccessToast: "అభిప్రాయం విజయవంతంగా జోడించబడింది!",
+        deletedToast: "విజయవంతంగా తొలగించబడింది!", hiddenToast: "చిత్రం విజయవంతంగా దాచబడింది!",
+        visibleToast: "చిత్రం విజయవంతంగా ప్రచురించబడింది!", pinErrorToast: "తప్పుడు సెక్యూరిటీ పిన్ కీ!",
         pinSuccessToast: "పిన్ విజయవంతంగా నవీకరించబడింది!",
         footerText: "© 2026 సంతోష్ ఆర్ట్‌వర్క్స్. సర్వ హక్కులూ ప్రత్యేకించబడినవి.",
         footerSubText: "లైవ్ యాక్టివ్ పోర్టల్ నేరుగా వాట్సాప్ రీడైరెక్షన్ సిస్టమ్స్‌తో అనుసంధానించబడింది.",
-        simBadge: "⚡ లైవ్ స్కెచ్ సిమ్యులేటర్",
-        simTitle: "సంతోష్ స్కెచ్ ఫిల్టర్ ప్రయత్నించండి!",
+        simBadge: "⚡ లైవ్ స్కెచ్ సిమ్యులేటర్", simTitle: "సంతోష్ స్కెచ్ ఫిల్టర్ ప్రయత్నించండి!",
         simDesc: "మీ ఫోటోను ఇక్కడ అప్‌లోడ్ చేసి, అది అందమైన హ్యాండ్-మేడ్ స్కెచ్‌గా మారితే ఎలా ఉంటుందో లైవ్‌లో చూడండి!",
-        simUploadBtn: "మీ ఫోటో ఎంచుకోండి",
-        simResetBtn: "రీసెట్ చేయి",
-        simPlaceholderText: "మీ స్కెచ్ ఇక్కడ కనిపిస్తుంది",
-        reviewsTitle: "కస్టమర్ల అభిప్రాయాలు (Reviews)",
-        reviewsDesc: "సంతోష్ గారి చిత్రకళ గురించి వినియోగదారులు ఏమంటున్నారో చూడండి.",
-        faqHeader: "సాధారణ సందేహాలు (FAQ)",
-        calcTitle: "ధర అంచనా కాలిక్యులేటర్",
-        calcDesc: "మీ అవసరాలకు సరిపోయే ధరను ఇక్కడే అంచనా వేసుకోండి.",
-        calcSizeLbl: "పేపర్ సైజు",
-        calcFacesLbl: "ముఖాల సంఖ్య (పోర్ట్రెయిట్స్)",
-        calcFrameLbl: "గ్లాస్ ఫ్రేమింగ్ ఎంపిక",
-        calcPriceLbl: "అంచనా ధర",
-        calcOrderBtn: "కస్టమ్ స్కెచ్ బుక్ చేసుకోండి"
+        simUploadBtn: "మీ ఫోటో ఎంచుకోండి", simResetBtn: "రీసెట్ చేయి", simPlaceholderText: "మీ స్కెచ్ ఇక్కడ కనిపిస్తుంది",
+        reviewsTitle: "కస్టమర్ల అభిప్రాయాలు (Reviews)", reviewsDesc: "సంతోష్ గారి చిత్రకళ గురించి వినియోగదారులు ఏమంటున్నారో చూడండి.",
+        calcTitle: "ధర అంచనా కాలిక్యులేటర్", calcDesc: "మీ అవసరాలకు సరిపోయే ధరను ఇక్కడే అంచనా వేసుకోండి.",
+        calcSizeLbl: "పేపర్ సైజు", calcFacesLbl: "ముఖాల సంఖ్య (పోర్ట్రెయిట్స్)", calcFrameLbl: "గ్లాస్ ఫ్రేమింగ్ ఎంపిక",
+        calcPriceLbl: "అంచనా ధర", calcOrderBtn: "కస్టమ్ స్కెచ్ బుక్ చేసుకోండి"
       },
       hi: {
-        navHome: "होम",
-        navGallery: "गैलरी",
-        navServices: "सेवाएं",
-        navContact: "संपर्क",
+        navHome: "होम", navGallery: "गैलरी", navServices: "सेवाएं", navContact: "संपर्क",
         heroBadge: "🎨 पेशेवर कलाकार पोर्टफोलियो",
         heroTitle: "संतोष <br><span class='text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-yellow-600'>स्केच क्रिएशंस</span>",
         heroDesc: "ग्रेफाइट, चारकोल और व्यक्तिगत रेखाचित्रों में विशेषज्ञता। कैनवास पर एक जीवंत चित्र के साथ अपनी यादों को जीवंत बनाएं।",
-        heroBtnGallery: "गैलरी देखें",
-        heroBtnContact: "कलाकृति ऑर्डर करें",
-        specialWorks: "संतोष की विशेष कृतियाँ",
-        specialWorksDesc: "मूल ग्रेफाइट अध्ययन and सटीक पेंसिल चित्रों को ब्राउज़ करें.",
-        viewAll: "सभी देखें",
-        emptySlateTitle: "अभी तक कोई कलाकृति अपलोड नहीं की गई है",
+        heroBtnGallery: "गैलरी देखें", heroBtnContact: "कलाकृति ऑर्डर करें",
+        specialWorks: "संतोष की विशेष कृतियाँ", specialWorksDesc: "मूल ग्रेफाइट अध्ययन और सटीक पेंसिल चित्रों को ब्राउज़ करें.",
+        viewAll: "सभी देखें", emptySlateTitle: "अभी तक कोई कलाकृति अपलोड नहीं की गई है",
         emptySlateDesc: "मूल कला कृतियों को सीधे अपलोड करने के लिए, 'Santhosh Art' लोगो पर 3 बार क्लिक करें।",
-        galleryTitle: "कलाकृतियों की गैलरी",
-        galleryDesc: "हाथ से बने पेंसिल और चारकोल स्केच, जीवंत दीवार कला, और सुंदर उपहार चित्रों का संग्रह।",
-        searchPlaceholder: "कलाकृतियाँ खोजें...",
-        emptyGallery: "इस श्रेणी में कोई कलाकृति नहीं मिली।",
-        servicesTitle: "कला सेवाएं and विकल्प",
-        servicesDesc: "हर कलाकृति अत्यंत सटीकता, समर्पण and जुनून के साथ बनाई गई है।",
-        service1Title: "पेंसिल स्केच",
-        service1Desc: "अत्यंत विस्तृत ग्रेफाइट पेंसिल स्केच जो त्रुटिहीन हाव-भाव and यथार्थवादी त्वचा की बनावट को दर्शाते हैं।",
-        service2Title: "पोर्ट्रेट चित्र",
-        service2Desc: "आपकी पसंदीदा तस्वीरों से खूबसूरती से बनाए गए शाश्वत, गहरे चारकोल पोर्ट्रेट चित्र।",
-        service3Title: "दीवार कला (वॉल आर्ट)",
-        service3Desc: "लिविंग रूम या कार्यालयों को सजाने के लिए अनुकूलित बड़े पैमाने के चित्र and भित्ति चारकोल कला।",
-        service4Title: "कस्टम कलाकृति",
-        service4Desc: "आपकी कल्पना and वैचारिक आवश्यकताओं के अनुसार प्रीमियम-ग्रेड पेपर पर स्केच किए गए चित्र।",
-        service5Title: "उपहार स्केच",
-        service5Desc: "जन्मदिन, शादियों, वर्षगांठों and जीवन के अनमोल पलों के लिए एकदम सही अनुकूलित उपहार।",
+        galleryTitle: "कलाकृतियों की गैलरी", galleryDesc: "हाथ से बने पेंसिल और चारकोल स्केच, जीवंत दीवार कला, और सुंदर उपहार चित्रों का संग्रह।",
+        searchPlaceholder: "कलाकृतियाँ खोजें...", emptyGallery: "इस श्रेणी में कोई कलाकृति नहीं मिली।",
+        servicesTitle: "कला सेवाएं और विकल्प", servicesDesc: "हर कलाकृति अत्यंत सटीकता, समर्पण और जुनून के साथ बनाई गई है।",
+        service1Title: "पेंसिल स्केच", service1Desc: "अत्यंत विस्तृत ग्रेफाइट पेंसिल स्केच जो त्रुटिहीन हाव-भाव और यथार्थवादी त्वचा की बनावट को दर्शाते हैं।",
+        service2Title: "पोर्ट्रेट चित्र", service2Desc: "आपकी पसंदीदा तस्वीरों से खूबसूरती से बनाए गए शाश्वत, गहरे चारकोल पोर्ट्रेट चित्र।",
+        service3Title: "दीवार कला (वॉल आर्ट)", service3Desc: "लिविंग रूम या कार्यालयों को सजाने के लिए अनुकूलित बड़े पैमाने के चित्र और भित्ति चारकोल कला।",
+        service4Title: "कस्टम कलाकृति", service4Desc: "आपकी कल्पना और वैचारिक आवश्यकताओं के अनुसार प्रीमियम-ग्रेड पेपर पर स्केच किए गए चित्र।",
+        service5Title: "उपहार स्केच", service5Desc: "जन्मदिन, शादियों, वर्षगांठों और जीवन के अनमोल पलों के लिए एकदम सही अनुकूलित उपहार।",
         serviceReqBtn: "सेवा के लिए अनुरोध करें",
-        contactTitle: "कलाकृति कमीशन करें",
-        contactDesc: "संतोष के साथ सीधे चर्चा करने के लिए नीचे अपनी विशिष्ट आवश्यकताओं का विवरण जमा करें।",
-        contactPhoneLabel: "सीधा संपर्क मोबाइल",
-        contactSupportLabel: "लाइव सहायता चैट",
-        contactSupportSub: "व्हाट्सएप संचार",
-        contactSupportBtn: "अभी चैट करें",
-        formTitle: "परियोजना विशिष्टता फॉर्म",
-        formName: "आपका नाम *",
-        formPhone: "मोबाइल फोन नंबर *",
-        formCategory: "कलाकृति की श्रेणी",
-        formSpecs: "परियोजना की विशिष्टताएँ *",
+        contactTitle: "कलाकृति कमीशन करें", contactDesc: "संतोष के साथ सीधे चर्चा करने के लिए नीचे अपनी विशिष्ट आवश्यकताओं का विवरण जमा करें।",
+        contactPhoneLabel: "सीधा संपर्क मोबाइल", contactSupportLabel: "लाइव सहायता चैट",
+        contactSupportSub: "व्हाट्सएप संचार", contactSupportBtn: "अभी चैट करें",
+        formTitle: "परियोजना विशिष्टता फॉर्म", formName: "आपका नाम *", formPhone: "मोबाइल फोन नंबर *",
+        formCategory: "कलाकृति की श्रेणी", formSpecs: "परियोजना की विशिष्टताएँ *",
         formSpecsPlt: "अपनी आवश्यकता का विवरण दें (आकार, माध्यम, कस्टम फ्रेम लेआउट विवरण आदि)",
         formSubmit: "ऑर्डर सबमिट करें",
-        detailBack: "गैलरी में वापस जाएँ",
-        detailOrderBtn: "यह कलाकृति ऑर्डर करें (व्हाट्सएप)",
-        detailShareBtn: "शेयर लिंक कॉपी करें",
-        detailCommentsTitle: "उपयोगकर्ता समीक्षाएं",
-        detailCommentsPlt: "अपनी राय लिखें...",
+        detailBack: "गैलरी में वापस जाएँ", detailOrderBtn: "यह कलाकृति ऑर्डर करें (व्हाट्सएप)", detailShareBtn: "शेयर लिंक कॉपी करें",
+        detailCommentsTitle: "उपयोगकर्ता समीक्षाएं", detailCommentsPlt: "अपनी राय लिखें...",
         detailNoComments: "इस उत्कृष्ट कृति पर अपने विचार साझा करने वाले पहले व्यक्ति बनें!",
-        adminTitle: "एडमिन लॉगिन पैनल",
-        adminSub: "सुरक्षित प्रणाली प्राधिकरण पहुंच",
-        adminPassPlt: "पासवर्ड पिन कोड",
-        adminLoginBtn: "लॉगिन करें",
-        adminWelcome: "स्वागत है, संतोष जी!",
-        adminStatsTab: "डैशबोर्ड अवलोकन",
-        adminArtworksTab: "कलाकृतियों की सूची",
-        adminUploadTab: "नया स्केच अपलोड",
-        adminInboxTab: "ऑर्डर के अनुरोध",
-        adminCommentsTab: "टिप्पणियों की समीक्षा",
-        adminSettingsTab: "सुरक्षा पिन सेटिंग्स",
-        adminStatArtworks: "कुल स्केच",
-        adminStatLikes: "कुल लाइक्स",
-        adminStatInbox: "इनबॉक्स अनुरोध",
-        adminStatComments: "कुल टिप्पणियाँ",
-        adminUploadTitle: "नया स्केच अपलोड करें",
-        adminCancelEdit: "संपादित मोड रद्द करें",
-        adminUpTitleLabel: "कलाकृति का शीर्षक *",
-        adminUpFileLabel: "छवि फ़ाइल अपलोड करें (खींचें and छोड़ें या स्थानीय चयन करें)",
-        adminUpFileSub: "फ़ाइल चुनें या यहाँ खींचें",
-        adminUpFileWarn: "छवि रूपांतरण सुरक्षित रूप से क्लाइंट के भीतर संसाधित होता है",
-        adminUpCatLabel: "श्रेणी चयन",
-        adminUpDescLabel: "कलाकृति का विवरण",
-        adminUpBtnPublish: "कलाकृति प्रकाशित करें",
-        adminUpBtnUpdate: "विवरण अपडेट करें",
-        adminCommentReplyPlt: "संतोष एडमिन के रूप में उत्तर दें...",
-        adminCommentReplyBtn: "उत्तर सबमिट करें",
-        settingsFormTitle: "सुरक्षा पिन अनुकूलन",
-        settingsOldLabel: "पुराना सुरक्षा पिन",
-        settingsNewLabel: "नया सुरक्षा पिन",
-        settingsSubmitBtn: "एडमिन पिन अपडेट करें",
-        confirmDeleteTitle: "हटाने की पुष्टि करें",
-        confirmDeleteDesc: "इस कार्रवाई को वापस नहीं लिया जा सकता। यह आइटम स्थायी रूप से हटा दिया जाएगा।",
-        confirmDeleteCancel: "रद्द करें",
-        confirmDeleteAction: "हटाएं",
-        copiedToast: "लिंक सफलतापूर्वक कॉपी किया गया!",
-        requiredToast: "आवश्यक फ़ील्ड खाली नहीं हो सकते!",
-        saveSuccessToast: "सफलतापूर्वक सहेज लिया गया!",
-        commentSuccessToast: "समीक्षा सफलतापूर्वक जोड़ी गई!",
-        deletedToast: "स्थायी रूप से हटा दिया गया!",
-        hiddenToast: "कलाकृति सार्वजनिक गैलरी से छिपा दी गई!",
-        visibleToast: "कलाकृति सार्वजनिक रूप से प्रकाशित!",
-        pinErrorToast: "गलत सुरक्षा पिन कुंजी!",
+        adminTitle: "एडमिन लॉगिन पैनल", adminSub: "सुरक्षित प्रणाली प्राधिकरण पहुंच", adminPassPlt: "पासवर्ड पिन कोड",
+        adminLoginBtn: "लॉगिन करें", adminWelcome: "स्वागत है, संतोष जी!",
+        adminStatsTab: "डैशबोर्ड अवलोकन", adminArtworksTab: "कलाकृतियों की सूची", adminUploadTab: "नया स्केच अपलोड",
+        adminInboxTab: "ऑर्डर के अनुरोध", adminCommentsTab: "टिप्पणियों की समीक्षा", adminSettingsTab: "सुरक्षा पिन सेटिंग्स",
+        adminStatArtworks: "कुल स्केच", adminStatLikes: "कुल लाइक्स", adminStatInbox: "इनबॉक्स अनुरोध", adminStatComments: "कुल टिप्पणियाँ",
+        adminUploadTitle: "नया स्केच अपलोड करें", adminCancelEdit: "संपादित मोड रद्द करें",
+        adminUpTitleLabel: "कलाकृति का शीर्षक *", adminUpFileLabel: "छवि फ़ाइल अपलोड करें (खींचें और छोड़ें या स्थानीय चयन करें)",
+        adminUpFileSub: "फ़ाइल चुनें या यहाँ खींचें", adminUpFileWarn: "छवि रूपांतरण सुरक्षित रूप से क्लाइंट के भीतर संसाधित होता है",
+        adminUpCatLabel: "श्रेणी चयन", adminUpDescLabel: "कलाकृति का विवरण",
+        adminUpBtnPublish: "कलाकृति प्रकाशित करें", adminUpBtnUpdate: "विवरण अपडेट करें",
+        adminCommentReplyPlt: "संतोष एडमिन के रूप में उत्तर दें...", adminCommentReplyBtn: "उत्तर सबमिट करें",
+        settingsFormTitle: "सुरक्षा पिन अनुकूलन", settingsOldLabel: "पुराना सुरक्षा पिन",
+        settingsNewLabel: "नया सुरक्षा पिन", settingsSubmitBtn: "एडमिन पिन अपडेट करें",
+        confirmDeleteTitle: "हटाने की पुष्टि करें", confirmDeleteDesc: "इस कार्रवाई को वापस नहीं लिया जा सकता। यह आइटम स्थायी रूप से हटा दिया जाएगा।",
+        confirmDeleteCancel: "रद्द करें", confirmDeleteAction: "हटाएं",
+        copiedToast: "लिंक सफलतापूर्वक कॉपी किया गया!", requiredToast: "आवश्यक फ़ील्ड खाली नहीं हो सकते!",
+        saveSuccessToast: "सफलतापूर्वक सहेज लिया गया!", commentSuccessToast: "समीक्षा सफलतापूर्वक जोड़ी गई!",
+        deletedToast: "स्थायी रूप से हटा दिया गया!", hiddenToast: "कलाकृति सार्वजनिक गैलरी से छिपा दी गई!",
+        visibleToast: "कलाकृति सार्वजनिक रूप से प्रकाशित!", pinErrorToast: "गलत सुरक्षा पिन कुंजी!",
         pinSuccessToast: "पिन सफलतापूर्वक अपडेट किया गया!",
         footerText: "© 2026 संतोष आर्टवर्क्स। सर्वाधिकार सुरक्षित।",
         footerSubText: "लाइव सक्रिय पोर्टल सीधे व्हाट्सएप रीडायरेक्शन सिस्टम से जुड़ा है।",
-        simBadge: "⚡ लाइव स्केच सिम्युलेटर",
-        simTitle: "संतोष स्केच फ़िल्टर आज़माएं!",
-        simDesc: "नीचे अपना फोटो अपलोड करें and तुरंत देखें कि हाथ से बना पेंसिल स्केच कैसा दिखेगा!",
-        simUploadBtn: "अपना फोटो अपलोड करें",
-        simResetBtn: "रीसेट करें",
-        simPlaceholderText: "आपका संसाधित स्केच यहाँ दिखाई देगा",
-        reviewsTitle: "संतुष्ट ग्राहक and समीक्षाएं",
-        reviewsDesc: "देखें कि लोग संतोष की कस्टम कलाकृतियों के बारे में क्या कहते हैं।",
-        faqHeader: "अक्सर पूछे जाने वाले प्रश्न",
-        calcTitle: "अनुमानित मूल्य कनवर्टर",
-        calcDesc: "अपनी आवश्यकताओं के अनुसार स्केच का अनुमानित मूल्य जानें।",
-        calcSizeLbl: "कागज का आकार",
-        calcFacesLbl: "चित्रों (चेहरों) की संख्या",
-        calcFrameLbl: "ग्लास फ्रेमिंग विकल्प",
-        calcPriceLbl: "अनुमानित लागत",
-        calcOrderBtn: "कस्टम स्केच ऑर्डर बुक करें"
+        simBadge: "⚡ लाइव स्केच सिम्युलेटर", simTitle: "संतोष स्केच फ़िल्टर आज़माएं!",
+        simDesc: "नीचे अपना फोटो अपलोड करें और तुरंत देखें कि हाथ से बना पेंसिल स्केच कैसा दिखेगा!",
+        simUploadBtn: "अपना फोटो अपलोड करें", simResetBtn: "रीसेट करें", simPlaceholderText: "आपका संसाधित स्केच यहाँ दिखाई देगा",
+        reviewsTitle: "संतुष्ट ग्राहक और समीक्षाएं", reviewsDesc: "देखें कि लोग संतोष की कस्टम कलाकृतियों के बारे में क्या कहते हैं।",
+        calcTitle: "अनुमानित मूल्य कनवर्टर", calcDesc: "अपनी आवश्यकताओं के अनुसार स्केच का अनुमानित मूल्य जानें।",
+        calcSizeLbl: "कागज का आकार", calcFacesLbl: "चित्रों (चेहरों) की संख्या", calcFrameLbl: "ग्लास फ्रेमिंग विकल्प",
+        calcPriceLbl: "अनुमानित लागत", calcOrderBtn: "कस्टम स्केच ऑर्डर बुक करें"
       }
     };
 
     const TESTIMONIALS_DATA = [
       {
-        name: "Ramesh Kumar (Vijayawada)",
-        stars: 5,
+        name: "Ramesh Kumar (Vijayawada)", stars: 5,
         review: "Santhosh garu draw chesina portrait sketches exact ga photolage unnai. Premium framing build quality is superb. Highly recommended for family gifts!",
         reviewTe: "సంతోష్ గారు గీసిన పోర్ట్రెయిట్ స్కెచ్‌లు ఫోటోలాగే అచ్చుగుద్దినట్లు ఉన్నాయి. క్వాలిటీ చాలా బాగుంది!",
         reviewHi: "संतोष जी द्वारा बनाए गए चित्र बिल्कुल असली फोटो जैसे दिखते हैं। फ्रेम की गुणवत्ता उत्कृष्ट है।"
       },
       {
-        name: "Anjali Sharma (Hyderabad)",
-        stars: 5,
+        name: "Anjali Sharma (Hyderabad)", stars: 5,
         review: "Ordered a charcoal wall sketch of Lord Shiva. The depth and precision of line drawing is world-class. Quick delivery via courier too.",
         reviewTe: "శివుని వాల్ చార్కోల్ స్కెచ్ ఆర్డర్ చేసాను. గీతలలోని లోతు మరియు నైపుణ్యం అద్భుతంగా ఉన్నాయి.",
         reviewHi: "भगवान शिव का चारकोल स्केच ऑर्डर किया था। रेखाचित्र की गहराई और शुद्धता विश्वस्तरीय है।"
       },
       {
-        name: "Vikram Reddy (Guntur)",
-        stars: 5,
+        name: "Vikram Reddy (Guntur)", stars: 5,
         review: "Fabulous gift sketch for my parents wedding anniversary. Santhosh suggested A3 size frame and it is now the pride of our living room.",
         reviewTe: "మా తల్లిదండ్రుల పెళ్లి వార్షికోత్సవం కోసం అద్భుతమైన గిఫ్ట్ స్కెచ్. ఇది మా లివింగ్ రూమ్‌కే అందాన్ని తెచ్చింది.",
         reviewHi: "माता-पिता की शादी की सालगिरह के लिए शानदार उपहार। यह अब हमारे लिविंग रूम की शान है।"
@@ -1155,62 +918,41 @@
     ];
 
     async function syncFromFirebase() {
-      if (!currentUser) return; // Prevent unauthenticated queries (RULE 3)
-
+      if (!currentUser) return;
       try {
-        // 1. Fetch Artworks
         const artSnap = await getDocs(collection(db_fs, 'artifacts', appId, 'public', 'data', 'artworks'));
         db.artworks = artSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-
-        // Fallback: If empty database, pre-seed Santhosh Art portfolio so it is never empty
         if (db.artworks.length === 0) {
           const colRef = collection(db_fs, 'artifacts', appId, 'public', 'data', 'artworks');
-          for (const art of INITIAL_ARTWORKS) {
-            await addDoc(colRef, art);
-          }
-          // Re-fetch seeded data
+          for (const art of INITIAL_ARTWORKS) { await addDoc(colRef, art); }
           const freshSnap = await getDocs(collection(db_fs, 'artifacts', appId, 'public', 'data', 'artworks'));
           db.artworks = freshSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         }
-
-        // 2. Fetch Comments
         const commentSnap = await getDocs(collection(db_fs, 'artifacts', appId, 'public', 'data', 'comments'));
         db.comments = commentSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-
-        // 3. Fetch Messages
         const msgSnap = await getDocs(collection(db_fs, 'artifacts', appId, 'public', 'data', 'messages'));
         db.messages = msgSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        
-        // Local Javascript Sort to avoid compound indexing issues (RULE 2)
         db.messages.sort((a, b) => b.createdAt - a.createdAt);
-
       } catch (error) {
         console.error("Error syncing from Firestore: ", error);
-        // Resilient in-memory fallback
-        if (db.artworks.length === 0) {
-          db.artworks = [...INITIAL_ARTWORKS];
-        }
+        if (db.artworks.length === 0) db.artworks = [...INITIAL_ARTWORKS];
       }
     }
 
-    // MULTI-LANGUAGE HELPER
     function getText(key) {
       const activeLang = db.session.lang || 'en';
       return LANG_DATA[activeLang][key] || LANG_DATA['en'][key] || '';
     }
 
-    // THEME CONTROLLER
     function toggleTheme() {
       const isDark = document.documentElement.classList.toggle('dark');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     }
 
-    // hamburger MOBILE MENU TOGGLE
     function toggleMobileMenu() {
       const menu = document.getElementById('mobile-menu');
       const openIcon = document.getElementById('menu-icon-open');
       const closeIcon = document.getElementById('menu-icon-close');
-      
       if (menu.classList.contains('hidden')) {
         menu.classList.remove('hidden');
         openIcon.classList.add('hidden');
@@ -1222,7 +964,6 @@
       }
     }
 
-    // Secret Admin Gatekeeper (Triple-click)
     let logoClickCount = 0;
     let logoClickTimer;
     function handleLogoClick() {
@@ -1234,60 +975,33 @@
         showNotification("Nirvahana secret portal unlocked!", "success");
         return;
       }
-      logoClickTimer = setTimeout(() => {
-        logoClickCount = 0;
-        navigate('/');
-      }, 800);
+      logoClickTimer = setTimeout(() => { logoClickCount = 0; navigate('/'); }, 800);
     }
 
-    // LANGUAGE SWITCH SYSTEM
     function changeLanguage(lang) {
       db.session.lang = lang;
       saveStateToLocal();
       translateUI();
-      
-      if (currentRoute === '/') {
-        renderHomeFeatured();
-      } else if (currentRoute === '/gallery') {
-        renderGallery();
-      } else if (currentRoute.startsWith('/artwork/')) {
-        const artId = currentRoute.split('/')[2];
-        renderArtworkDetail(artId);
-      } else if (currentRoute === '/admin') {
-        setAdminTab(activeAdminTab);
-      }
+      if (currentRoute === '/') { renderHomeFeatured(); }
+      else if (currentRoute === '/gallery') { renderGallery(); }
+      else if (currentRoute.startsWith('/artwork/')) { renderArtworkDetail(currentRoute.split('/')[2]); }
+      else if (currentRoute === '/admin') { setAdminTab(activeAdminTab); }
     }
 
-    // TRANSLATE AND GENERATE DOM ELEMENTS
     function translateUI() {
-      const safeSetText = (id, val) => {
-        const el = document.getElementById(id);
-        if (el) el.innerText = val;
-      };
-      
-      const safeSetHTML = (id, val) => {
-        const el = document.getElementById(id);
-        if (el) el.innerHTML = val;
-      };
-
-      const safeSetPlaceholder = (id, val) => {
-        const el = document.getElementById(id);
-        if (el) el.placeholder = val;
-      };
+      const safeSetText = (id, val) => { const el = document.getElementById(id); if (el) el.innerText = val; };
+      const safeSetHTML = (id, val) => { const el = document.getElementById(id); if (el) el.innerHTML = val; };
+      const safeSetPlaceholder = (id, val) => { const el = document.getElementById(id); if (el) el.placeholder = val; };
 
       const navH = document.getElementById('nav-home');
       if (navH && navH.querySelector('.nav-text')) navH.querySelector('.nav-text').innerText = getText('navHome');
-
       const navG = document.getElementById('nav-gallery');
       if (navG && navG.querySelector('.nav-text')) navG.querySelector('.nav-text').innerText = getText('navGallery');
-
       const navS = document.getElementById('nav-services');
       if (navS && navS.querySelector('.nav-text')) navS.querySelector('.nav-text').innerText = getText('navServices');
-
       const navC = document.getElementById('nav-contact');
       if (navC && navC.querySelector('.nav-text')) navC.querySelector('.nav-text').innerText = getText('navContact');
 
-      // Mobile Navbar Rebuild
       const mobileMenu = document.getElementById('mobile-menu');
       if (mobileMenu) {
         mobileMenu.innerHTML = `
@@ -1304,11 +1018,9 @@
             <button onclick="navigate('/contact'); toggleMobileMenu();" class="flex items-center gap-3 w-full px-4 py-3 rounded-xl font-medium text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.79 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> ${getText('navContact')}
             </button>
-          </div>
-        `;
+          </div>`;
       }
 
-      // Home View Labels
       safeSetHTML('hero-badge', getText('heroBadge'));
       safeSetHTML('hero-title', getText('heroTitle'));
       safeSetText('hero-desc', getText('heroDesc'));
@@ -1318,30 +1030,21 @@
       safeSetText('special-works-desc', getText('specialWorksDesc'));
       safeSetText('featured-empty-slate-title', getText('emptySlateTitle'));
       safeSetText('featured-empty-slate-desc', getText('emptySlateDesc'));
-
-      // AI Simulator Labels
       safeSetText('sim-badge', getText('simBadge'));
       safeSetText('sim-title', getText('simTitle'));
       safeSetText('sim-desc', getText('simDesc'));
       safeSetText('sim-upload-btn', getText('simUploadBtn'));
       safeSetText('sim-reset-btn', getText('simResetBtn'));
       safeSetText('sim-placeholder-text', getText('simPlaceholderText'));
-
-      // Review Header & FAQs Localization
       safeSetText('reviews-section-title', getText('reviewsTitle'));
       safeSetText('reviews-section-desc', getText('reviewsDesc'));
-
-      // Gallery View Labels
       safeSetText('gallery-title', getText('galleryTitle'));
       safeSetText('gallery-desc', getText('galleryDesc'));
       safeSetPlaceholder('gallery-search', getText('searchPlaceholder'));
       safeSetText('gallery-empty-state-title', getText('emptyGallery'));
-
-      // Services View Labels & Pricing Config
       safeSetText('services-title', getText('servicesTitle'));
       safeSetText('services-desc', getText('servicesDesc'));
       renderServicesGrid();
-
       safeSetText('calc-title', getText('calcTitle'));
       safeSetText('calc-desc', getText('calcDesc'));
       safeSetText('calc-size-lbl', getText('calcSizeLbl'));
@@ -1349,8 +1052,6 @@
       safeSetText('calc-frame-lbl', getText('calcFrameLbl'));
       safeSetText('calc-price-lbl', getText('calcPriceLbl'));
       safeSetText('calc-order-btn', getText('calcOrderBtn'));
-
-      // Contact Form Labels
       safeSetText('contact-title', getText('contactTitle'));
       safeSetText('contact-desc', getText('contactDesc'));
       safeSetText('contact-phone-label', getText('contactPhoneLabel'));
@@ -1362,22 +1063,16 @@
       safeSetText('contact-form-phone-label', getText('formPhone'));
       safeSetText('contact-form-category-label', getText('formCategory'));
       safeSetText('contact-form-specs-label', getText('formSpecs'));
-      
       const formNm = document.getElementById('form-name');
       if (formNm) formNm.placeholder = getText('formName').replace(' *', '');
-      
       const formMsg = document.getElementById('form-message');
       if (formMsg) formMsg.placeholder = getText('formSpecsPlt');
-      
       safeSetHTML('form-submit-btn', getText('formSubmit'));
       populateFormCategories();
-
-      // Admin Controls Panels
       safeSetText('admin-login-title-h2', getText('adminTitle'));
       safeSetText('admin-login-sub-p', getText('adminSub'));
       safeSetPlaceholder('admin-password', getText('adminPassPlt'));
       safeSetText('admin-login-btn-h2', getText('adminLoginBtn'));
-
       safeSetText('admin-welcome-text', getText('adminWelcome'));
       safeSetText('admin-stats-tab-btn', getText('adminStatsTab'));
       safeSetText('admin-artworks-tab-btn', getText('adminArtworksTab'));
@@ -1389,7 +1084,6 @@
       safeSetText('stat-likes-label', getText('adminStatLikes'));
       safeSetText('stat-messages-label', getText('adminStatInbox'));
       safeSetText('stat-comments-label', getText('adminStatComments'));
-
       safeSetText('upload-form-title-h2', getText('adminUploadTitle'));
       safeSetText('admin-cancel-edit-btn', getText('adminCancelEdit'));
       safeSetText('admin-up-title-label', getText('adminUpTitleLabel'));
@@ -1399,23 +1093,17 @@
       safeSetText('admin-up-cat-label', getText('adminUpCatLabel'));
       safeSetText('admin-up-desc-label', getText('adminUpDescLabel'));
       populateUploadCategories();
-
-      // Verbatim reference to image_743e7c.png: Resolving missing submit button names on load or translation lifecycle
       const submitArtBtn = document.getElementById('btn-submit-artwork');
       if (submitArtBtn) {
         const isEditMode = document.getElementById('upload-art-id') ? document.getElementById('upload-art-id').value : '';
-        submitArtBtn.innerHTML = isEditMode 
+        submitArtBtn.innerHTML = isEditMode
           ? `<i data-lucide="check" class="w-5 h-5"></i> ` + getText('adminUpBtnUpdate')
           : `<i data-lucide="plus" class="w-5 h-5"></i> ` + getText('adminUpBtnPublish');
       }
-
-      // PIN System Panel
       safeSetText('settings-form-title', getText('settingsFormTitle'));
       safeSetText('settings-old-label', getText('settingsOldLabel'));
       safeSetText('settings-new-label', getText('settingsNewLabel'));
       safeSetText('btn-submit-settings', getText('settingsSubmitBtn'));
-
-      // Modals
       safeSetText('confirm-delete-title', getText('confirmDeleteTitle'));
       safeSetText('confirm-delete-desc', getText('confirmDeleteDesc'));
       safeSetText('btn-confirm-delete-cancel', getText('confirmDeleteCancel'));
@@ -1423,120 +1111,47 @@
 
       const footer = document.getElementById('app-footer');
       if (footer) {
-        footer.innerHTML = `
-          <p class="font-serif tracking-wider font-bold text-gray-900 dark:text-gray-300">${getText('footerText')}</p>
-          <p class="text-xs mt-2 text-gray-500">${getText('footerSubText')}</p>
-        `;
+        footer.innerHTML = `<p class="font-serif tracking-wider font-bold text-gray-900 dark:text-gray-300">${getText('footerText')}</p><p class="text-xs mt-2 text-gray-500">${getText('footerSubText')}</p>`;
       }
-
-      const lSel = document.getElementById('lang-selector');
-      if (lSel) lSel.value = db.session.lang;
-
-      const lSelM = document.getElementById('lang-selector-mobile');
       document.getElementById('lang-selector').value = db.session.lang;
       document.getElementById('lang-selector-mobile').value = db.session.lang;
-
       renderTestimonials();
       calculatePrice();
-
-      try {
-        if (typeof lucide !== 'undefined') lucide.createIcons();
-      } catch (e) {
-        console.error("Lucide rendering exception: ", e);
-      }
+      try { if (typeof lucide !== 'undefined') lucide.createIcons(); } catch (e) {}
     }
 
     function renderServicesGrid() {
       const grid = document.getElementById('services-grid');
       if (!grid) return;
-      grid.innerHTML = `
+      const services = [
+        { key: 'service1', img: 'https://images.unsplash.com/photo-1580136608260-4eb11f4b24fe?w=500', alt: 'Pencil Sketches' },
+        { key: 'service2', img: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=500', alt: 'Portrait Drawings' },
+        { key: 'service3', img: 'https://images.unsplash.com/photo-1506806732259-39c2d0268443?w=500', alt: 'Wall Art' },
+        { key: 'service4', img: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=500', alt: 'Custom Artwork' },
+        { key: 'service5', img: 'https://images.unsplash.com/photo-1544441893-675973e31985?w=500', alt: 'Gift Sketches' },
+      ];
+      grid.innerHTML = services.map(s => `
         <div class="rounded-3xl overflow-hidden shadow-xl flex flex-col border bg-white border-gray-150 dark:bg-gray-900/30 dark:border-gray-800/80 hover:border-amber-500/30 transition-all duration-300">
           <div class="h-52 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1580136608260-4eb11f4b24fe?w=500" alt="Pencil Sketches" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+            <img src="${s.img}" alt="${s.alt}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
           </div>
           <div class="p-8 flex-1 flex flex-col justify-between">
             <div>
-              <h3 class="text-2xl font-bold mb-3">${getText('service1Title')}</h3>
-              <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">${getText('service1Desc')}</p>
+              <h3 class="text-2xl font-bold mb-3">${getText(s.key + 'Title')}</h3>
+              <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">${getText(s.key + 'Desc')}</p>
             </div>
-            <button onclick="requestService('${getText('service1Title')}')" class="w-full py-3 rounded-xl font-bold bg-amber-500/10 hover:bg-amber-500 text-amber-500 hover:text-black dark:bg-amber-500/5 dark:text-amber-400 transition-all">
+            <button onclick="requestService('${getText(s.key + 'Title')}')" class="w-full py-3 rounded-xl font-bold bg-amber-500/10 hover:bg-amber-500 text-amber-500 hover:text-black dark:bg-amber-500/5 dark:text-amber-400 transition-all">
               ${getText('serviceReqBtn')}
             </button>
           </div>
-        </div>
-
-        <div class="rounded-3xl overflow-hidden shadow-xl flex flex-col border bg-white border-gray-150 dark:bg-gray-900/30 dark:border-gray-800/80 hover:border-amber-500/30 transition-all duration-300">
-          <div class="h-52 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=500" alt="Portrait Drawings" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-          <div class="p-8 flex-1 flex flex-col justify-between">
-            <div>
-              <h3 class="text-2xl font-bold mb-3">${getText('service2Title')}</h3>
-              <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">${getText('service2Desc')}</p>
-            </div>
-            <button onclick="requestService('${getText('service2Title')}')" class="w-full py-3 rounded-xl font-bold bg-amber-500/10 hover:bg-amber-500 text-amber-500 hover:text-black dark:bg-amber-500/5 dark:text-amber-400 transition-all">
-              ${getText('serviceReqBtn')}
-            </button>
-          </div>
-        </div>
-
-        <div class="rounded-3xl overflow-hidden shadow-xl flex flex-col border bg-white border-gray-150 dark:bg-gray-900/30 dark:border-gray-800/80 hover:border-amber-500/30 transition-all duration-300">
-          <div class="h-52 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443?w=500" alt="Wall Art" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-          <div class="p-8 flex-1 flex flex-col justify-between">
-            <div>
-              <h3 class="text-2xl font-bold mb-3">${getText('service3Title')}</h3>
-              <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">${getText('service3Desc')}</p>
-            </div>
-            <button onclick="requestService('${getText('service3Title')}')" class="w-full py-3 rounded-xl font-bold bg-amber-500/10 hover:bg-amber-500 text-amber-500 hover:text-black dark:bg-amber-500/5 dark:text-amber-400 transition-all">
-              ${getText('serviceReqBtn')}
-            </button>
-          </div>
-        </div>
-
-        <div class="rounded-3xl overflow-hidden shadow-xl flex flex-col border bg-white border-gray-150 dark:bg-gray-900/30 dark:border-gray-800/80 hover:border-amber-500/30 transition-all duration-300">
-          <div class="h-52 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=500" alt="Custom Artwork" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-          <div class="p-8 flex-1 flex flex-col justify-between">
-            <div>
-              <h3 class="text-2xl font-bold mb-3">${getText('service4Title')}</h3>
-              <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">${getText('service4Desc')}</p>
-            </div>
-            <button onclick="requestService('${getText('service4Title')}')" class="w-full py-3 rounded-xl font-bold bg-amber-500/10 hover:bg-amber-500 text-amber-500 hover:text-black dark:bg-amber-500/5 dark:text-amber-400 transition-all">
-              ${getText('serviceReqBtn')}
-            </button>
-          </div>
-        </div>
-
-        <div class="rounded-3xl overflow-hidden shadow-xl flex flex-col border bg-white border-gray-150 dark:bg-gray-900/30 dark:border-gray-800/80 hover:border-amber-500/30 transition-all duration-300">
-          <div class="h-52 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=500" alt="Gift Sketches" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-          <div class="p-8 flex-1 flex flex-col justify-between">
-            <div>
-              <h3 class="text-2xl font-bold mb-3">${getText('service5Title')}</h3>
-              <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">${getText('service5Desc')}</p>
-            </div>
-            <button onclick="requestService('${getText('service5Title')}')" class="w-full py-3 rounded-xl font-bold bg-amber-500/10 hover:bg-amber-500 text-amber-500 hover:text-black dark:bg-amber-500/5 dark:text-amber-400 transition-all">
-              ${getText('serviceReqBtn')}
-            </button>
-          </div>
-        </div>
-      `;
+        </div>`).join('');
     }
 
     function populateFormCategories() {
       const select = document.getElementById('form-category');
       if (!select) return;
-      select.innerHTML = `
-        <option value="${getText('service1Title')}">${getText('service1Title')}</option>
-        <option value="${getText('service2Title')}">${getText('service2Title')}</option>
-        <option value="${getText('service3Title')}">${getText('service3Title')}</option>
-        <option value="${getText('service4Title')}">${getText('service4Title')}</option>
-        <option value="${getText('service5Title')}">${getText('service5Title')}</option>
-      `;
+      select.innerHTML = ['service1Title','service2Title','service3Title','service4Title','service5Title']
+        .map(k => `<option value="${getText(k)}">${getText(k)}</option>`).join('');
     }
 
     function populateUploadCategories() {
@@ -1550,7 +1165,6 @@
         else if (c === "Wall Art") translatedCat = getText('service3Title');
         else if (c === "Custom Artwork") translatedCat = getText('service4Title');
         else if (c === "Gift Sketches") translatedCat = getText('service5Title');
-
         select.innerHTML += `<option value="${c}">${translatedCat}</option>`;
       });
     }
@@ -1559,28 +1173,21 @@
       const container = document.getElementById('testimonials-container');
       if (!container) return;
       container.innerHTML = '';
-
       TESTIMONIALS_DATA.forEach(item => {
         let activeReview = item.review;
         if (db.session.lang === 'te') activeReview = item.reviewTe;
         else if (db.session.lang === 'hi') activeReview = item.reviewHi;
-
         const card = document.createElement('div');
         card.className = 'p-8 rounded-3xl border bg-white border-gray-150 dark:bg-gray-900/30 dark:border-gray-800 flex flex-col justify-between hover:border-amber-500/20 transition-all';
         card.innerHTML = `
           <div>
-            <div class="flex gap-1 text-amber-500 mb-4">
-              ${'<i data-lucide="star" class="w-5 h-5 fill-current text-amber-500"></i>'.repeat(item.stars)}
-            </div>
+            <div class="flex gap-1 text-amber-500 mb-4">${'<i data-lucide="star" class="w-5 h-5 fill-current text-amber-500"></i>'.repeat(item.stars)}</div>
             <p class="text-gray-600 dark:text-gray-400 font-light leading-relaxed italic mb-6">"${activeReview}"</p>
           </div>
           <div class="flex items-center gap-3">
-            <span class="w-10 h-10 rounded-full bg-gradient-to-r from-amber-500 to-yellow-600 flex items-center justify-center font-bold text-black text-sm uppercase">
-              ${item.name.charAt(0)}
-            </span>
+            <span class="w-10 h-10 rounded-full bg-gradient-to-r from-amber-500 to-yellow-600 flex items-center justify-center font-bold text-black text-sm uppercase">${item.name.charAt(0)}</span>
             <p class="font-bold text-sm text-gray-800 dark:text-white">${item.name}</p>
-          </div>
-        `;
+          </div>`;
         container.appendChild(card);
       });
     }
@@ -1590,28 +1197,21 @@
       const facesEl = document.getElementById('calc-faces');
       const frameEl = document.getElementById('calc-frame');
       if (!sizeEl || !facesEl || !frameEl) return;
-
       const size = sizeEl.value;
       const faces = parseInt(facesEl.value);
       const frame = frameEl.value;
-
-      let basePrice = 1000; 
+      let basePrice = 1000;
       if (size === 'A3') basePrice = 1800;
       else if (size === 'A2') basePrice = 3000;
-
       let faceMultiplier = 1;
       if (faces === 2) faceMultiplier = 1.6;
       else if (faces === 3) faceMultiplier = 2.2;
-
-      let calculated = basePrice * faceMultiplier;
-
+      let calculated = Math.round(basePrice * faceMultiplier);
       if (frame === 'yes') {
         if (size === 'A4') calculated += 400;
         else if (size === 'A3') calculated += 700;
         else if (size === 'A2') calculated += 1200;
       }
-
-      calculated = Math.round(calculated);
       const prcEl = document.getElementById('calc-price');
       if (prcEl) prcEl.innerText = `₹${calculated.toLocaleString('en-IN')}`;
     }
@@ -1621,7 +1221,6 @@
       const faces = document.getElementById('calc-faces').value;
       const frame = document.getElementById('calc-frame').value;
       const price = document.getElementById('calc-price').innerText;
-
       navigate('/contact');
       const msgEl = document.getElementById('form-message');
       if (msgEl) msgEl.value = `Price Calculator Details:\n- Size: ${size}\n- Faces: ${faces}\n- Frame: ${frame === 'yes' ? 'Include Frame' : 'No Frame'}\n- Estimated Quote: ${price}`;
@@ -1635,69 +1234,40 @@
           img.onload = function() {
             const canvas = document.getElementById('simulator-canvas');
             const ctx = canvas.getContext('2d');
-            
-            canvas.width = 600;
-            canvas.height = 600;
-
+            canvas.width = 600; canvas.height = 600;
             let scale = Math.max(canvas.width / img.width, canvas.height / img.height);
             let x = (canvas.width / 2) - (img.width / 2) * scale;
             let y = (canvas.height / 2) - (img.height / 2) * scale;
             ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
-
             const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
             const data = imgData.data;
-
-            const width = canvas.width;
-            const height = canvas.height;
+            const width = canvas.width; const height = canvas.height;
             const grayscale = new Uint8ClampedArray(width * height);
-
             for (let i = 0; i < data.length; i += 4) {
-              const r = data[i];
-              const g = data[i+1];
-              const b = data[i+2];
-              grayscale[i/4] = 0.299 * r + 0.587 * g + 0.114 * b;
+              grayscale[i/4] = 0.299 * data[i] + 0.587 * data[i+1] + 0.114 * data[i+2];
             }
-
             for (let y = 1; y < height - 1; y++) {
               for (let x = 1; x < width - 1; x++) {
                 const idx = y * width + x;
-                const valX = (
-                  -1 * grayscale[idx - width - 1] + 1 * grayscale[idx - width + 1] +
-                  -2 * grayscale[idx - 1] + 2 * grayscale[idx + 1] +
-                  -1 * grayscale[idx + width - 1] + 1 * grayscale[idx + width + 1]
-                );
-                const valY = (
-                  -1 * grayscale[idx - width - 1] - 2 * grayscale[idx - width] - 1 * grayscale[idx - width + 1] +
-                  1 * grayscale[idx + width - 1] + 2 * grayscale[idx + width] + 1 * grayscale[idx + width + 1]
-                );
-
+                const valX = (-1 * grayscale[idx-width-1] + 1 * grayscale[idx-width+1] + -2 * grayscale[idx-1] + 2 * grayscale[idx+1] + -1 * grayscale[idx+width-1] + 1 * grayscale[idx+width+1]);
+                const valY = (-1 * grayscale[idx-width-1] - 2 * grayscale[idx-width] - 1 * grayscale[idx-width+1] + 1 * grayscale[idx+width-1] + 2 * grayscale[idx+width] + 1 * grayscale[idx+width+1]);
                 const magnitude = Math.sqrt(valX * valX + valY * valY);
-                let edge = 255 - magnitude * 1.5;
-                if (edge < 0) edge = 0;
-                if (edge > 255) edge = 255;
-
+                let edge = Math.min(255, Math.max(0, 255 - magnitude * 1.5));
                 const grayColor = grayscale[idx];
                 let finalVal = edge;
-                if (grayColor < 130) {
-                  finalVal = finalVal * (grayColor / 200);
-                }
-
+                if (grayColor < 130) finalVal = finalVal * (grayColor / 200);
                 const pxIdx = idx * 4;
-                data[pxIdx] = finalVal;
-                data[pxIdx + 1] = finalVal;
-                data[pxIdx + 2] = finalVal;
-                data[pxIdx + 3] = 255;
+                data[pxIdx] = data[pxIdx+1] = data[pxIdx+2] = finalVal;
+                data[pxIdx+3] = 255;
               }
             }
-
             ctx.putImageData(imgData, 0, 0);
-
             document.getElementById('simulator-placeholder').classList.add('hidden');
             canvas.classList.remove('hidden');
             showNotification("Sketch Process completed!", "success");
-          }
+          };
           img.src = e.target.result;
-        }
+        };
         reader.readAsDataURL(input.files[0]);
       }
     }
@@ -1713,58 +1283,62 @@
 
     function navigate(route, updateHash = true) {
       currentRoute = route;
-      if (updateHash) {
-        window.location.hash = route;
-      }
-      
-      const sections = document.querySelectorAll('.view-section');
-      sections.forEach(s => s.classList.add('hidden'));
-
-      const links = document.querySelectorAll('.nav-link');
-      links.forEach(l => l.classList.remove('text-amber-500', 'dark:text-amber-400'));
-
+      if (updateHash) window.location.hash = route;
+      document.querySelectorAll('.view-section').forEach(s => s.classList.add('hidden'));
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('text-amber-500', 'dark:text-amber-400'));
       if (route === '/') {
-        const hSec = document.getElementById('view-home');
-        if (hSec) hSec.classList.remove('hidden');
-        const navH = document.getElementById('nav-home');
-        if (navH) navH.classList.add('text-amber-500', 'dark:text-amber-400');
-        renderHomeFeatured();
-        renderTestimonials();
+        document.getElementById('view-home')?.classList.remove('hidden');
+        document.getElementById('nav-home')?.classList.add('text-amber-500', 'dark:text-amber-400');
+        renderHomeFeatured(); renderTestimonials();
       } else if (route === '/gallery') {
-        const gallSec = document.getElementById('view-gallery');
-        if (gallSec) gallSec.classList.remove('hidden');
-        const navG = document.getElementById('nav-gallery');
-        if (navG) navG.classList.add('text-amber-500', 'dark:text-amber-400');
+        document.getElementById('view-gallery')?.classList.remove('hidden');
+        document.getElementById('nav-gallery')?.classList.add('text-amber-500', 'dark:text-amber-400');
         renderGallery();
       } else if (route === '/services') {
-        const servSec = document.getElementById('view-services');
-        if (servSec) servSec.classList.remove('hidden');
-        const navS = document.getElementById('nav-services');
-        if (navS) navS.classList.add('text-amber-500', 'dark:text-amber-400');
+        document.getElementById('view-services')?.classList.remove('hidden');
+        document.getElementById('nav-services')?.classList.add('text-amber-500', 'dark:text-amber-400');
       } else if (route === '/contact') {
-        const contSec = document.getElementById('view-contact');
-        if (contSec) contSec.classList.remove('hidden');
-        const navC = document.getElementById('nav-contact');
-        if (navC) navC.classList.add('text-amber-500', 'dark:text-amber-400');
+        document.getElementById('view-contact')?.classList.remove('hidden');
+        document.getElementById('nav-contact')?.classList.add('text-amber-500', 'dark:text-amber-400');
       } else if (route === '/admin') {
-        const admSec = document.getElementById('view-admin');
-        if (admSec) admSec.classList.remove('hidden');
+        document.getElementById('view-admin')?.classList.remove('hidden');
         renderAdminPortal();
       } else if (route.startsWith('/artwork/')) {
-        const detSec = document.getElementById('view-artwork-detail');
-        if (detSec) detSec.classList.remove('hidden');
-        const artId = route.split('/')[2];
-        renderArtworkDetail(artId);
+        document.getElementById('view-artwork-detail')?.classList.remove('hidden');
+        renderArtworkDetail(route.split('/')[2]);
       }
-
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderHomeFeatured() {
+      const grid = document.getElementById('featured-artworks-grid');
+      const emptySlate = document.getElementById('featured-empty-slate');
+      if (!grid) return;
+      const visible = db.artworks.filter(a => !a.isHidden).slice(0, 3);
+      if (visible.length === 0) {
+        grid.classList.add('hidden');
+        emptySlate?.classList.remove('hidden');
+      } else {
+        grid.classList.remove('hidden');
+        emptySlate?.classList.add('hidden');
+        grid.innerHTML = visible.map(art => `
+          <div class="group rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-900 shadow-xl cursor-pointer hover:border-amber-500/30 transition-all duration-300" onclick="navigate('/artwork/${art.id}')">
+            <div class="h-64 overflow-hidden relative">
+              <img src="${art.imageUrl}" alt="${art.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            </div>
+            <div class="p-6 bg-white dark:bg-gray-950">
+              <h3 class="text-xl font-bold mb-1">${art.title}</h3>
+              <p class="text-xs text-amber-500 font-semibold">${art.category}</p>
+            </div>
+          </div>`).join('');
+      }
+      try { if (typeof lucide !== 'undefined') lucide.createIcons(); } catch(e) {}
     }
 
     function renderGallery() {
       const filterBox = document.getElementById('gallery-category-filters');
       if (!filterBox) return;
       filterBox.innerHTML = '';
-      
       CATEGORIES_LIST.forEach(cat => {
         let displayCat = cat;
         if (cat === "All") displayCat = db.session.lang === 'te' ? 'అన్నీ' : (db.session.lang === 'hi' ? 'सभी' : 'All');
@@ -1773,24 +1347,16 @@
         else if (cat === "Wall Art") displayCat = getText('service3Title');
         else if (cat === "Custom Artwork") displayCat = getText('service4Title');
         else if (cat === "Gift Sketches") displayCat = getText('service5Title');
-
         const btn = document.createElement('button');
-        btn.className = `px-5 py-2.5 rounded-full whitespace-nowrap text-sm font-semibold transition-all ${
-          currentSelectedCategory === cat 
-            ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/20' 
-            : 'bg-gray-200 text-gray-700 dark:bg-gray-900 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-800'
-        }`;
+        btn.className = `px-5 py-2.5 rounded-full whitespace-nowrap text-sm font-semibold transition-all ${currentSelectedCategory === cat ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/20' : 'bg-gray-200 text-gray-700 dark:bg-gray-900 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-800'}`;
         btn.innerText = displayCat;
-        btn.onclick = () => {
-          currentSelectedCategory = cat;
-          renderGallery();
-        };
+        btn.onclick = () => { currentSelectedCategory = cat; renderGallery(); };
         filterBox.appendChild(btn);
       });
 
       const filtered = db.artworks.filter(art => {
         const matchesCategory = currentSelectedCategory === 'All' || art.category === currentSelectedCategory;
-        const matchesSearch = art.title.toLowerCase().includes(searchQueryString.toLowerCase()) || 
+        const matchesSearch = art.title.toLowerCase().includes(searchQueryString.toLowerCase()) ||
                               (art.description && art.description.toLowerCase().includes(searchQueryString.toLowerCase()));
         return !art.isHidden && matchesCategory && matchesSearch;
       });
@@ -1798,7 +1364,6 @@
       const masonry = document.getElementById('gallery-masonry');
       const emptyState = document.getElementById('gallery-empty-state');
       if (!masonry || !emptyState) return;
-      
       masonry.innerHTML = '';
 
       if (filtered.length === 0) {
@@ -1807,112 +1372,69 @@
       } else {
         emptyState.classList.add('hidden');
         masonry.classList.remove('hidden');
-
         filtered.forEach(art => {
           const mItem = document.createElement('div');
           mItem.className = 'masonry-item break-inside-avoid relative group rounded-2xl overflow-hidden shadow border border-transparent dark:hover:border-gray-800';
-          
           let displayCategory = art.category;
           if (art.category === "Pencil Sketches") displayCategory = getText('service1Title');
           else if (art.category === "Portrait Drawings") displayCategory = getText('service2Title');
           else if (art.category === "Wall Art") displayCategory = getText('service3Title');
           else if (art.category === "Custom Artwork") displayCategory = getText('service4Title');
           else if (art.category === "Gift Sketches") displayCategory = getText('service5Title');
-
           mItem.innerHTML = `
-            <img 
-              src="${art.imageUrl}" 
-              alt="${art.title}" 
-              class="w-full h-auto object-cover cursor-pointer"
-              onclick="navigate('/artwork/${art.id}')"
-              loading="lazy"
-            />
+            <img src="${art.imageUrl}" alt="${art.title}" class="w-full h-auto object-cover cursor-pointer" onclick="navigate('/artwork/${art.id}')" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 pointer-events-none">
               <h3 class="text-white font-bold text-xl pointer-events-auto cursor-pointer" onclick="navigate('/artwork/${art.id}')">${art.title}</h3>
               <p class="text-amber-400 text-xs mt-1 font-semibold">${displayCategory}</p>
             </div>
-            <button 
-              onclick="openZoomModal('${art.imageUrl}')"
-              class="absolute top-4 right-4 p-2.5 bg-black/40 backdrop-blur-md rounded-full text-white opacity-0 group-hover:opacity-100 hover:bg-amber-500 hover:text-black transition-all z-10"
-            >
+            <button onclick="openZoomModal('${art.imageUrl}')" class="absolute top-4 right-4 p-2.5 bg-black/40 backdrop-blur-md rounded-full text-white opacity-0 group-hover:opacity-100 hover:bg-amber-500 hover:text-black transition-all z-10">
               <i data-lucide="zoom-in" class="w-4.5 h-4.5"></i>
-            </button>
-          `;
+            </button>`;
           masonry.appendChild(mItem);
         });
       }
-      try {
-        if (typeof lucide !== 'undefined') lucide.createIcons();
-      } catch(e) {}
+      try { if (typeof lucide !== 'undefined') lucide.createIcons(); } catch(e) {}
     }
 
-    function handleSearch(val) {
-      searchQueryString = val;
-      renderGallery();
-    }
-
+    function handleSearch(val) { searchQueryString = val; renderGallery(); }
     function openZoomModal(imgSrc) {
-      const modal = document.getElementById('zoom-modal');
-      const img = document.getElementById('zoom-modal-img');
-      if (img) img.src = imgSrc;
-      if (modal) modal.classList.remove('hidden');
+      document.getElementById('zoom-modal-img').src = imgSrc;
+      document.getElementById('zoom-modal').classList.remove('hidden');
     }
-
-    function closeZoomModal() {
-      const modal = document.getElementById('zoom-modal');
-      if (modal) modal.classList.add('hidden');
-    }
-
-    function requestService(serviceName) {
-      navigate('/contact');
-      const select = document.getElementById('form-category');
-      if (select) select.value = serviceName;
-    }
+    function closeZoomModal() { document.getElementById('zoom-modal').classList.add('hidden'); }
+    function requestService(serviceName) { navigate('/contact'); const select = document.getElementById('form-category'); if (select) select.value = serviceName; }
 
     function renderArtworkDetail(artId) {
       const container = document.getElementById('artwork-detail-container');
       if (!container) return;
       const art = db.artworks.find(a => a.id === artId);
-      
-      if (!art) {
-        container.innerHTML = '<div class="p-12 text-center text-lg">Artwork Not Found!</div>';
-        return;
-      }
-
+      if (!art) { container.innerHTML = '<div class="p-12 text-center text-lg">Artwork Not Found!</div>'; return; }
       const backBtn = document.getElementById('artwork-detail-back-btn');
       if (backBtn) backBtn.innerHTML = `<i data-lucide="chevron-left" class="w-5 h-5"></i> ` + getText('detailBack');
-
       const artLikes = art.likes || [];
       const hasLiked = artLikes.includes(db.session.userId);
       const artComments = db.comments.filter(c => c.artworkId === artId).sort((a,b) => b.createdAt - a.createdAt);
-
       let displayCategory = art.category;
       if (art.category === "Pencil Sketches") displayCategory = getText('service1Title');
       else if (art.category === "Portrait Drawings") displayCategory = getText('service2Title');
       else if (art.category === "Wall Art") displayCategory = getText('service3Title');
       else if (art.category === "Custom Artwork") displayCategory = getText('service4Title');
       else if (art.category === "Gift Sketches") displayCategory = getText('service5Title');
-
       container.innerHTML = `
         <div class="lg:w-3/5 bg-black/80 flex items-center justify-center p-6 border-r border-gray-150 dark:border-gray-900">
-          <img src="${art.imageUrl}" alt="${art.title}" class="max-h-[80vh] object-contain rounded-xl shadow-2xl" onerror="this.src='https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800'" />
+          <img src="${art.imageUrl}" alt="${art.title}" class="max-h-[80vh] object-contain rounded-xl shadow-2xl" />
         </div>
-
-        <div class="lg:w-2/5 p-8 flex flex-col max-h-[85vh] overflow-y-auto custom-scrollbar bg-white dark:bg-gray-950">
+        <div class="lg:w-2/5 p-8 flex flex-col max-h-[85vh] overflow-y-auto bg-white dark:bg-gray-950">
           <div class="mb-6">
             <span class="text-xs font-bold tracking-widest text-amber-500 uppercase">${displayCategory}</span>
             <h1 class="text-3xl sm:text-4xl font-serif font-black mt-2 mb-4 text-gray-900 dark:text-white">${art.title}</h1>
             <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400">${art.description || "Beautiful artistic portrayal."}</p>
           </div>
-
           <button onclick="orderArtworkWhatsApp('${art.id}', '${art.title.replace(/'/g, "\\'")}', '${displayCategory}', '${art.imageUrl}')" class="w-full mb-6 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold rounded-2xl shadow-lg transition-transform hover:scale-105 flex justify-center items-center gap-2">
             <i data-lucide="shopping-cart" class="w-5 h-5"></i> ${getText('detailOrderBtn')}
           </button>
-
           <div class="flex items-center gap-4 py-5 border-y border-gray-200 dark:border-gray-900 mb-8">
-            <button onclick="toggleLike('${art.id}')" class="flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm transition-all ${
-              hasLiked ? 'bg-red-500/10 text-red-500' : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-800'
-            }">
+            <button onclick="toggleLike('${art.id}')" class="flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm transition-all ${hasLiked ? 'bg-red-500/10 text-red-500' : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-800'}">
               <i data-lucide="heart" class="w-4.5 h-4.5 ${hasLiked ? 'fill-current' : ''}"></i>
               <span id="detail-likes-count">${artLikes.length} ${db.session.lang === 'te' ? 'లైకులు' : (db.session.lang === 'hi' ? 'लाइक्स' : 'Likes')}</span>
             </button>
@@ -1920,25 +1442,14 @@
               <i data-lucide="share-2" class="w-4.5 h-4.5"></i> ${getText('detailShareBtn')}
             </button>
           </div>
-
           <div class="flex-1">
             <h3 class="text-lg font-bold mb-6 flex items-center gap-2 text-gray-900 dark:text-white">
               <i data-lucide="message-circle" class="text-amber-500 w-5 h-5"></i> ${getText('detailCommentsTitle')} (${artComments.length})
             </h3>
-            
             <form onsubmit="handleCommentPost(event, '${art.id}')" class="mb-8 relative">
-              <input 
-                type="text" 
-                id="comment-input"
-                placeholder="${getText('detailCommentsPlt')}"
-                required
-                class="w-full pr-12 pl-5 py-4 rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800 dark:text-white text-sm"
-              />
-              <button type="submit" class="absolute right-2 top-1/2 transform -translate-y-1/2 p-2.5 text-amber-500 hover:bg-amber-500/10 rounded-lg">
-                <i data-lucide="send" class="w-4.5 h-4.5"></i>
-              </button>
+              <input type="text" id="comment-input" placeholder="${getText('detailCommentsPlt')}" required class="w-full pr-12 pl-5 py-4 rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800 dark:text-white text-sm" />
+              <button type="submit" class="absolute right-2 top-1/2 transform -translate-y-1/2 p-2.5 text-amber-500 hover:bg-amber-500/10 rounded-lg"><i data-lucide="send" class="w-4.5 h-4.5"></i></button>
             </form>
-
             <div class="space-y-6" id="detail-comments-list">
               ${artComments.map(c => `
                 <div class="p-5 rounded-2xl border bg-gray-50 border-gray-150 dark:bg-gray-900/20 dark:border-gray-900 animate-in fade-in">
@@ -1947,26 +1458,17 @@
                     <span class="text-xs text-gray-400">${new Date(c.createdAt).toLocaleDateString()}</span>
                   </div>
                   <p class="text-sm leading-relaxed text-gray-800 dark:text-gray-300">${c.text}</p>
-                  
                   ${c.replies && c.replies.length > 0 ? c.replies.map(rep => `
                     <div class="mt-4 pt-3 border-t border-gray-200 dark:border-gray-800/40 pl-4 flex gap-2 text-sm">
                       <i data-lucide="corner-down-right" class="w-4.5 h-4.5 text-amber-500 shrink-0 mt-0.5"></i>
-                      <div>
-                        <p class="font-bold text-xs text-amber-400">Santhosh (Admin)</p>
-                        <p class="text-gray-600 dark:text-gray-400 text-xs mt-1">${rep.text}</p>
-                      </div>
-                    </div>
-                  `).join('') : ''}
-                </div>
-              `).join('')}
+                      <div><p class="font-bold text-xs text-amber-400">Santhosh (Admin)</p><p class="text-gray-600 dark:text-gray-400 text-xs mt-1">${rep.text}</p></div>
+                    </div>`).join('') : ''}
+                </div>`).join('')}
               ${artComments.length === 0 ? `<p class="text-gray-500 italic text-sm text-center py-6">${getText('detailNoComments')}</p>` : ''}
             </div>
           </div>
-        </div>
-      `;
-      try {
-        if (typeof lucide !== 'undefined') lucide.createIcons();
-      } catch(e) {}
+        </div>`;
+      try { if (typeof lucide !== 'undefined') lucide.createIcons(); } catch(e) {}
     }
 
     async function handleCommentPost(e, artId) {
@@ -1975,52 +1477,28 @@
       if (!txtIn) return;
       const text = txtIn.value;
       if (!text.trim()) return;
-
-      const userDisplayName = db.session.isAdmin 
-        ? "Santhosh (Admin)" 
-        : (db.session.lang === 'te' ? 'చిత్రకళా ప్రేమికులు' : (db.session.lang === 'hi' ? 'कला प्रेमी' : 'Art Lover (Guest)'));
-
-      const newComment = {
-        artworkId: artId,
-        userName: userDisplayName,
-        text,
-        createdAt: Date.now(),
-        replies: []
-      };
-
+      const userDisplayName = db.session.isAdmin ? "Santhosh (Admin)" : (db.session.lang === 'te' ? 'చిత్రకళా ప్రేమికులు' : (db.session.lang === 'hi' ? 'कला प्रेमी' : 'Art Lover (Guest)'));
+      const newComment = { artworkId: artId, userName: userDisplayName, text, createdAt: Date.now(), replies: [] };
       try {
-        const colRef = collection(db_fs, 'artifacts', appId, 'public', 'data', 'comments');
-        await addDoc(colRef, newComment);
+        await addDoc(collection(db_fs, 'artifacts', appId, 'public', 'data', 'comments'), newComment);
         showNotification(getText('commentSuccessToast'), "success");
         await syncFromFirebase();
         renderArtworkDetail(artId);
-      } catch (err) {
-        console.error("Comment submission failed: ", err);
-      }
+      } catch (err) { console.error("Comment submission failed: ", err); }
     }
 
     async function toggleLike(artId) {
       const art = db.artworks.find(a => a.id === artId);
       if (!art) return;
-
       const artLikes = art.likes || [];
       const idx = artLikes.indexOf(db.session.userId);
-      if (idx > -1) {
-        artLikes.splice(idx, 1);
-        showNotification(db.session.lang === 'te' ? 'లైక్ తీసివేయబడింది' : (db.session.lang === 'hi' ? 'लाइक हटाया गया' : 'Like removed successfully'), 'success');
-      } else {
-        artLikes.push(db.session.userId);
-        showNotification(db.session.lang === 'te' ? 'నచ్చింది!' : (db.session.lang === 'hi' ? 'पसंद आया!' : 'Liked successfully!'), "success");
-      }
-      
+      if (idx > -1) { artLikes.splice(idx, 1); showNotification(db.session.lang === 'te' ? 'లైక్ తీసివేయబడింది' : (db.session.lang === 'hi' ? 'लाइक हटाया गया' : 'Like removed successfully'), 'success'); }
+      else { artLikes.push(db.session.userId); showNotification(db.session.lang === 'te' ? 'నచ్చింది!' : (db.session.lang === 'hi' ? 'पसंद आया!' : 'Liked successfully!'), "success"); }
       try {
-        const artRef = doc(db_fs, 'artifacts', appId, 'public', 'data', 'artworks', artId);
-        await updateDoc(artRef, { likes: artLikes });
+        await updateDoc(doc(db_fs, 'artifacts', appId, 'public', 'data', 'artworks', artId), { likes: artLikes });
         await syncFromFirebase();
         renderArtworkDetail(artId);
-      } catch (err) {
-        console.error("Like toggle synchronization failed: ", err);
-      }
+      } catch (err) { console.error("Like toggle failed: ", err); }
     }
 
     async function handleContactSubmit(e) {
@@ -2029,86 +1507,28 @@
       const phone = document.getElementById('form-phone').value;
       const type = document.getElementById('form-category').value;
       const message = document.getElementById('form-message').value;
-
-      if (!name || !phone || !message) {
-        showNotification(getText('requiredToast'), "error");
-        return;
-      }
-
-      const newMsg = {
-        name,
-        phone,
-        type,
-        message,
-        read: false,
-        createdAt: Date.now()
-      };
-
+      if (!name || !phone || !message) { showNotification(getText('requiredToast'), "error"); return; }
       try {
-        const colRef = collection(db_fs, 'artifacts', appId, 'public', 'data', 'messages');
-        await addDoc(colRef, newMsg);
+        await addDoc(collection(db_fs, 'artifacts', appId, 'public', 'data', 'messages'), { name, phone, type, message, read: false, createdAt: Date.now() });
         showNotification(getText('saveSuccessToast'), "success");
         await syncFromFirebase();
-      } catch (err) {
-        console.error("Contact message submission failed: ", err);
-      }
-
-      let formattedMessage = "";
-      if (db.session.lang === 'te') {
-        formattedMessage = `*🎨 కొత్త ఆర్ట్‌వర్క్ ఆర్డర్ అభ్యర్థన*\n\n` +
-                           `👤 *పేరు:* ${name}\n` +
-                           `📞 *మొబైల్ ఫోన్:* ${phone}\n` +
-                           `🏷️ *విభాగం:* ${type}\n` +
-                           `📝 *వివరాలు:* ${message}`;
-      } else if (db.session.lang === 'hi') {
-        formattedMessage = `*🎨 नई कलाकृति ऑर्डर अनुरोध*\n\n` +
-                           `👤 *नाम:* ${name}\n` +
-                           `📞 *मोबाइल फोन:* ${phone}\n` +
-                           `🏷️ *श्रेणी:* ${type}\n` +
-                           `📝 *विवरण:* ${message}`;
-      } else {
-        formattedMessage = `*🎨 NEW ARTWORK COMMISSION REQUEST*\n\n` +
-                           `👤 *Client Name:* ${name}\n` +
-                           `📞 *Phone Number:* ${phone}\n` +
-                           `🏷️ *Category:* ${type}\n` +
-                           `📝 *Specifications:* ${message}`;
-      }
-
-      const encodedMessage = encodeURIComponent(formattedMessage);
-      const whatsappURL = `https://wa.me/918919904820?text=${encodedMessage}`;
-
-      setTimeout(() => {
-        window.open(whatsappURL, '_blank');
-        const f = document.getElementById('contact-commission-form');
-        if (f) f.reset();
-      }, 1500);
+      } catch (err) { console.error("Contact submission failed: ", err); }
+      let formattedMessage = db.session.lang === 'te'
+        ? `*🎨 కొత్త ఆర్ట్‌వర్క్ ఆర్డర్ అభ్యర్థన*\n\n👤 *పేరు:* ${name}\n📞 *మొబైల్ ఫోన్:* ${phone}\n🏷️ *విభాగం:* ${type}\n📝 *వివరాలు:* ${message}`
+        : db.session.lang === 'hi'
+        ? `*🎨 नई कलाकृति ऑर्डर अनुरोध*\n\n👤 *नाम:* ${name}\n📞 *मोबाइल फोन:* ${phone}\n🏷️ *श्रेणी:* ${type}\n📝 *विवरण:* ${message}`
+        : `*🎨 NEW ARTWORK COMMISSION REQUEST*\n\n👤 *Client Name:* ${name}\n📞 *Phone Number:* ${phone}\n🏷️ *Category:* ${type}\n📝 *Specifications:* ${message}`;
+      setTimeout(() => { window.open(`https://wa.me/918919904820?text=${encodeURIComponent(formattedMessage)}`, '_blank'); document.getElementById('contact-commission-form')?.reset(); }, 1500);
     }
 
     function orderArtworkWhatsApp(artId, title, category, url) {
-      let formattedMessage = "";
       const artDetailLink = window.location.origin + window.location.pathname + '#/artwork/' + artId;
-      if (db.session.lang === 'te') {
-        formattedMessage = `*🎨 చిత్ర ఆర్డర్ అభ్యర్థన*\n\n` +
-                           `నమస్తే సంతోష్ గారు, నేను మీ వెబ్‌సైట్‌లో ఈ అద్భుతమైన స్కెచ్‌ని చూశాను. నాకు ఇలాంటి ఆర్ట్ కావాలి:\n\n` +
-                           `📌 *చిత్రం పేరు:* ${title}\n` +
-                           `🏷️ *విభాగం:* ${category}\n` +
-                           `🔗 *ఆర్ట్ లింక్:* ${artDetailLink}`;
-      } else if (db.session.lang === 'hi') {
-        formattedMessage = `*🎨 स्केच ऑर्डर अनुरोध*\n\n` +
-                           `नमस्ते संतोष जी, मैंने आपकी वेबसाइट पर यह अद्भुत स्केच देखा। मुझे ऐसी ही एक कलाकृति चाहिए:\n\n` +
-                           `📌 *शीर्षक:* ${title}\n` +
-                           `🏷️ *श्रेणी:* ${category}\n` +
-                           `🔗 *लिंक:* ${artDetailLink}`;
-      } else {
-        formattedMessage = `*🎨 SKETCH COMMISSION INQUIRY*\n\n` +
-                           `Hi Santhosh, I loved this sketch artwork from your live portfolio. I'd like to commission a similar work:\n\n` +
-                           `📌 *Artwork Title:* ${title}\n` +
-                           `🏷️ *Category:* ${category}\n` +
-                           `🔗 *Portfolio Link:* ${artDetailLink}`;
-      }
-      
-      const encodedMessage = encodeURIComponent(formattedMessage);
-      window.open(`https://wa.me/918919904820?text=${encodedMessage}`, '_blank');
+      let formattedMessage = db.session.lang === 'te'
+        ? `*🎨 చిత్ర ఆర్డర్ అభ్యర్థన*\n\nనమస్తే సంతోష్ గారు!\n\n📌 *చిత్రం పేరు:* ${title}\n🏷️ *విభాగం:* ${category}\n🔗 *ఆర్ట్ లింక్:* ${artDetailLink}`
+        : db.session.lang === 'hi'
+        ? `*🎨 स्केच ऑर्डर अनुरोध*\n\nनमस्ते संतोष जी!\n\n📌 *शीर्षक:* ${title}\n🏷️ *श्रेणी:* ${category}\n🔗 *लिंक:* ${artDetailLink}`
+        : `*🎨 SKETCH COMMISSION INQUIRY*\n\nHi Santhosh!\n\n📌 *Artwork Title:* ${title}\n🏷️ *Category:* ${category}\n🔗 *Portfolio Link:* ${artDetailLink}`;
+      window.open(`https://wa.me/918919904820?text=${encodeURIComponent(formattedMessage)}`, '_blank');
     }
 
     function copyArtLink() {
@@ -2120,16 +1540,13 @@
         document.execCommand('copy');
         document.body.removeChild(dummy);
         showNotification(getText('copiedToast'), "success");
-      } catch (err) {
-        showNotification("Copy process failed", "error");
-      }
+      } catch (err) { showNotification("Copy process failed", "error"); }
     }
 
     function renderAdminPortal() {
       const loginBox = document.getElementById('admin-login-box');
       const dashBox = document.getElementById('admin-dashboard-box');
       if (!loginBox || !dashBox) return;
-
       if (db.session.isAdmin) {
         loginBox.classList.add('hidden');
         dashBox.classList.remove('hidden');
@@ -2142,18 +1559,14 @@
 
     function handleAdminLogin(e) {
       e.preventDefault();
-      const pwIn = document.getElementById('admin-password');
-      if (!pwIn) return;
-      const pw = pwIn.value;
+      const pw = document.getElementById('admin-password').value;
       const savedPw = localStorage.getItem('art_db_password') || 'santhosh123';
       if (pw === savedPw) {
         db.session.isAdmin = true;
         saveStateToLocal();
         showNotification(getText('adminWelcome'), "success");
         renderAdminPortal();
-      } else {
-        showNotification(getText('pinErrorToast'), "error");
-      }
+      } else { showNotification(getText('pinErrorToast'), "error"); }
     }
 
     function handleAdminLogout() {
@@ -2166,58 +1579,31 @@
     let activeAdminTab = 'stats';
     function setAdminTab(tabId) {
       activeAdminTab = tabId;
-      
-      const contents = document.querySelectorAll('.admin-tab-content');
-      contents.forEach(c => c.classList.add('hidden'));
-      const activeContent = document.getElementById('admin-tab-' + tabId);
-      if (activeContent) activeContent.classList.remove('hidden');
-
-      const btns = document.querySelectorAll('.admin-tab-btn');
-      btns.forEach(b => {
-        b.className = "admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all text-gray-500";
-      });
-
+      document.querySelectorAll('.admin-tab-content').forEach(c => c.classList.add('hidden'));
+      document.getElementById('admin-tab-' + tabId)?.classList.remove('hidden');
+      document.querySelectorAll('.admin-tab-btn').forEach(b => { b.className = "admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all text-gray-500"; });
       const activeBtn = document.getElementById('admin-' + tabId + '-tab-btn');
-      if (activeBtn) {
-        activeBtn.className = "admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all bg-white text-black dark:bg-gray-900 dark:text-amber-400 border border-gray-200 dark:border-gray-800 shadow";
-      }
-
-      if (tabId === 'stats') {
-        renderAdminStats();
-      } else if (tabId === 'artworks') {
-        renderAdminArtworksList();
-      } else if (tabId === 'messages') {
-        renderAdminMessages();
-      } else if (tabId === 'comments') {
-        renderAdminComments();
-      }
+      if (activeBtn) activeBtn.className = "admin-tab-btn px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all bg-white text-black dark:bg-gray-900 dark:text-amber-400 border border-gray-200 dark:border-gray-800 shadow";
+      if (tabId === 'stats') renderAdminStats();
+      else if (tabId === 'artworks') renderAdminArtworksList();
+      else if (tabId === 'messages') renderAdminMessages();
+      else if (tabId === 'comments') renderAdminComments();
     }
 
     function renderAdminStats() {
-      const artCount = document.getElementById('stat-artworks');
-      if (artCount) artCount.innerText = db.artworks.length;
-
-      const likesCount = document.getElementById('stat-likes');
-      if (likesCount) likesCount.innerText = db.artworks.reduce((acc, curr) => acc + (curr.likes ? curr.likes.length : 0), 0);
-
-      const msgCount = document.getElementById('stat-messages');
-      if (msgCount) msgCount.innerText = db.messages.length;
-
-      const commCount = document.getElementById('stat-comments');
-      if (commCount) commCount.innerText = db.comments.length;
+      document.getElementById('stat-artworks').innerText = db.artworks.length;
+      document.getElementById('stat-likes').innerText = db.artworks.reduce((acc, curr) => acc + (curr.likes ? curr.likes.length : 0), 0);
+      document.getElementById('stat-messages').innerText = db.messages.length;
+      document.getElementById('stat-comments').innerText = db.comments.length;
     }
 
     function renderAdminArtworksList() {
       const grid = document.getElementById('admin-artworks-list-grid');
       if (!grid) return;
       grid.innerHTML = '';
-
       db.artworks.forEach(art => {
         const item = document.createElement('div');
-        item.className = `rounded-2xl border overflow-hidden flex flex-col transition-all bg-white dark:bg-gray-950 dark:border-gray-900 ${
-          art.isHidden ? 'opacity-50 grayscale' : ''
-        }`;
-        
+        item.className = `rounded-2xl border overflow-hidden flex flex-col transition-all bg-white dark:bg-gray-950 dark:border-gray-900 ${art.isHidden ? 'opacity-50 grayscale' : ''}`;
         item.innerHTML = `
           <div class="h-48 overflow-hidden relative bg-black/10">
             <img src="${art.imageUrl}" class="w-full h-full object-cover" alt="Art Preview" />
@@ -2226,77 +1612,99 @@
           <div class="p-6 flex-1 flex flex-col">
             <h3 class="font-bold text-lg truncate">${art.title}</h3>
             <p class="text-xs text-amber-500 mt-1 mb-6 font-semibold">${art.category}</p>
-            
             <div class="flex justify-between items-center border-t border-gray-150 dark:border-gray-900 pt-4 mt-auto">
-              <span class="text-sm font-bold flex items-center gap-1"><i data-lucide="heart" class="text-red-500 fill-current w-4 h-4 text-red-500"></i> ${art.likes ? art.likes.length : 0}</span>
+              <span class="text-sm font-bold flex items-center gap-1"><i data-lucide="heart" class="text-red-500 fill-current w-4 h-4"></i> ${art.likes ? art.likes.length : 0}</span>
               <div class="flex gap-1.5">
-                <button onclick="startArtworkEdit('${art.id}')" class="p-2 rounded-xl bg-gray-100 hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-800 border dark:border-gray-850" title="Edit details">
+                <button onclick="startArtworkEdit('${art.id}')" class="p-2 rounded-xl bg-gray-100 hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-800 border dark:border-gray-850" title="Edit">
                   <i data-lucide="edit-3" class="w-4 h-4 text-amber-500"></i>
                 </button>
                 <button onclick="toggleArtworkVisibility('${art.id}')" class="p-2 rounded-xl bg-gray-100 hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-800 border dark:border-gray-850" title="${art.isHidden ? 'Unhide' : 'Hide'}">
                   <i data-lucide="${art.isHidden ? 'eye' : 'eye-off'}" class="w-4 h-4"></i>
                 </button>
-                <button onclick="deleteArtwork('${art.id}')" class="p-2 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-500 border border-red-500/10" title="Delete permanently">
+                <button onclick="deleteArtwork('${art.id}')" class="p-2 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-500 border border-red-500/10" title="Delete">
                   <i data-lucide="trash-2" class="w-4 h-4"></i>
                 </button>
               </div>
             </div>
-          </div>
-        `;
+          </div>`;
         grid.appendChild(item);
       });
-      try {
-        if (typeof lucide !== 'undefined') lucide.createIcons();
-      } catch(e) {}
+      try { if (typeof lucide !== 'undefined') lucide.createIcons(); } catch(e) {}
     }
 
+    // ============================================================
+    // FIX 1: processImageFile - Promise ga wrap cheyyadam
+    // base64 ni immediately set cheyyatam, aapaiki Firebase try
+    // ============================================================
     async function processImageFile(file) {
-      const reader = new FileReader();
-      reader.onloadend = async () => {
-        const base64Data = reader.result;
-        const prevImg = document.getElementById('upload-preview-image');
-        if (prevImg) prevImg.src = base64Data;
-        const prevCont = document.getElementById('upload-preview-container');
-        if (prevCont) prevCont.classList.remove('hidden');
-        
-        try {
-          showNotification("Uploading to cloud storage...", "info");
-          const storageRef = ref(storage, `artworks/${Date.now()}_${file.name}`);
-          await uploadString(storageRef, base64Data, 'data_url');
-          const downloadUrl = await getDownloadURL(storageRef);
-          
-          const uploadImgUrl = document.getElementById('upload-image-url');
-          if (uploadImgUrl) uploadImgUrl.value = downloadUrl;
-          showNotification("Cloud upload complete!", "success");
-        } catch (err) {
-          console.error("Storage upload failed (CORS or Restricted anonymously), falling back to client Base64 URL:", err);
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = async () => {
+          const base64Data = reader.result;
+          const prevImg = document.getElementById('upload-preview-image');
+          if (prevImg) prevImg.src = base64Data;
+          const prevCont = document.getElementById('upload-preview-container');
+          if (prevCont) prevCont.classList.remove('hidden');
+
+          // Base64 ni IMMEDIATELY set cheyyadam — form submit ki ready untundi
           const uploadImgUrl = document.getElementById('upload-image-url');
           if (uploadImgUrl) uploadImgUrl.value = base64Data;
-          showNotification("Processed successfully inside browser!", "success");
-        }
-      };
-      reader.readAsDataURL(file);
+
+          try {
+            showNotification("Uploading to cloud storage...", "info");
+            const storageRef = ref(storage, `artworks/${Date.now()}_${file.name}`);
+            await uploadString(storageRef, base64Data, 'data_url');
+            const downloadUrl = await getDownloadURL(storageRef);
+            // Firebase Storage success ayithe — permanent URL tho replace cheyyadam
+            if (uploadImgUrl) uploadImgUrl.value = downloadUrl;
+            showNotification("Cloud upload complete!", "success");
+          } catch (err) {
+            console.error("Storage upload failed, using base64 fallback:", err);
+            // base64 already set ayindi above — problem ledu
+            showNotification("Processed successfully inside browser!", "success");
+          }
+          resolve();
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
     }
 
-    function handleImageFileSelect(e) {
+    // ============================================================
+    // FIX 2: handleImageFileSelect - async + await processImageFile
+    // ============================================================
+    async function handleImageFileSelect(e) {
       const file = e.target.files[0];
       if (file) {
-        processImageFile(file);
+        await processImageFile(file);
       }
     }
 
-    function handleImageDrop(e) {
+    async function handleImageDrop(e) {
       const file = e.dataTransfer.files[0];
       if (file) {
-        processImageFile(file);
+        await processImageFile(file);
       }
     }
 
+    // ============================================================
+    // FIX 3: handleArtworkUploadOrUpdate - imageUrl empty ayithe
+    // preview image src ni fallback ga use cheyyadam
+    // ============================================================
     async function handleArtworkUploadOrUpdate(e) {
       e.preventDefault();
       const id = document.getElementById('upload-art-id').value;
       const title = document.getElementById('upload-title').value;
-      const imageUrl = document.getElementById('upload-image-url').value;
+
+      // FIX 3: imageUrl empty ayithe preview image fallback
+      let imageUrl = document.getElementById('upload-image-url').value;
+      if (!imageUrl) {
+        const prevImg = document.getElementById('upload-preview-image');
+        if (prevImg && prevImg.src && prevImg.src !== window.location.href) {
+          imageUrl = prevImg.src;
+        }
+      }
+
       const category = document.getElementById('upload-category').value;
       const description = document.getElementById('upload-description').value;
 
@@ -2307,55 +1715,36 @@
 
       try {
         if (id) {
-          const artRef = doc(db_fs, 'artifacts', appId, 'public', 'data', 'artworks', id);
-          await updateDoc(artRef, { title, imageUrl, category, description });
+          await updateDoc(doc(db_fs, 'artifacts', appId, 'public', 'data', 'artworks', id), { title, imageUrl, category, description });
         } else {
-          const colRef = collection(db_fs, 'artifacts', appId, 'public', 'data', 'artworks');
-          await addDoc(colRef, {
-            title,
-            imageUrl,
-            category,
-            description,
-            isHidden: false,
-            likes: [],
-            createdAt: Date.now()
+          await addDoc(collection(db_fs, 'artifacts', appId, 'public', 'data', 'artworks'), {
+            title, imageUrl, category, description, isHidden: false, likes: [], createdAt: Date.now()
           });
         }
         showNotification(getText('saveSuccessToast'), "success");
         await syncFromFirebase();
         cancelArtworkEdit();
         setAdminTab('artworks');
-      } catch (err) {
-        console.error("Artwork synchronization failed: ", err);
-      }
+      } catch (err) { console.error("Artwork upload failed: ", err); }
     }
 
     function startArtworkEdit(artId) {
       const art = db.artworks.find(a => a.id === artId);
       if (!art) return;
-
       document.getElementById('upload-art-id').value = art.id;
       document.getElementById('upload-title').value = art.title;
       document.getElementById('upload-image-url').value = art.imageUrl;
       document.getElementById('upload-category').value = art.category;
       document.getElementById('upload-description').value = art.description;
-      
       const prevImg = document.getElementById('upload-preview-image');
       if (prevImg) prevImg.src = art.imageUrl;
-      const prevCont = document.getElementById('upload-preview-container');
-      if (prevCont) prevCont.classList.remove('hidden');
-
-      safeSetText('upload-form-title-h2', "Artwork Details Update Mode");
-      const cancelEditBtn = document.getElementById('admin-cancel-edit-btn');
-      if (cancelEditBtn) cancelEditBtn.classList.remove('hidden');
-      
+      document.getElementById('upload-preview-container')?.classList.remove('hidden');
+      document.getElementById('upload-form-title-h2').innerText = "Artwork Details Update Mode";
+      document.getElementById('admin-cancel-edit-btn')?.classList.remove('hidden');
       const submitArtBtn = document.getElementById('btn-submit-artwork');
       if (submitArtBtn) submitArtBtn.innerHTML = `<i data-lucide="check" class="w-5 h-5"></i> ` + getText('adminUpBtnUpdate');
-
       setAdminTab('upload');
-      try {
-        if (typeof lucide !== 'undefined') lucide.createIcons();
-      } catch(e) {}
+      try { if (typeof lucide !== 'undefined') lucide.createIcons(); } catch(e) {}
     }
 
     function cancelArtworkEdit() {
@@ -2363,19 +1752,12 @@
       document.getElementById('upload-title').value = "";
       document.getElementById('upload-image-url').value = "";
       document.getElementById('upload-description').value = "";
-      const prevCont = document.getElementById('upload-preview-container');
-      if (prevCont) prevCont.classList.add('hidden');
-
-      const uploadFormTitle = document.getElementById('upload-form-title-h2');
-      if (uploadFormTitle) uploadFormTitle.innerText = getText('adminUploadTitle');
-      const cancelEditBtn = document.getElementById('admin-cancel-edit-btn');
-      if (cancelEditBtn) cancelEditBtn.classList.add('hidden');
-      
+      document.getElementById('upload-preview-container')?.classList.add('hidden');
+      document.getElementById('upload-form-title-h2').innerText = getText('adminUploadTitle');
+      document.getElementById('admin-cancel-edit-btn')?.classList.add('hidden');
       const submitArtBtn = document.getElementById('btn-submit-artwork');
       if (submitArtBtn) submitArtBtn.innerHTML = `<i data-lucide="plus" class="w-5 h-5"></i> ` + getText('adminUpBtnPublish');
-      try {
-        if (typeof lucide !== 'undefined') lucide.createIcons();
-      } catch(e) {}
+      try { if (typeof lucide !== 'undefined') lucide.createIcons(); } catch(e) {}
     }
 
     async function toggleArtworkVisibility(artId) {
@@ -2383,28 +1765,22 @@
       if (art) {
         art.isHidden = !art.isHidden;
         try {
-          const artRef = doc(db_fs, 'artifacts', appId, 'public', 'data', 'artworks', artId);
-          await updateDoc(artRef, { isHidden: art.isHidden });
+          await updateDoc(doc(db_fs, 'artifacts', appId, 'public', 'data', 'artworks', artId), { isHidden: art.isHidden });
           showNotification(art.isHidden ? getText('hiddenToast') : getText('visibleToast'), 'success');
           await syncFromFirebase();
           renderAdminArtworksList();
-        } catch (err) {
-          console.error("Visibility toggle synchronization failed: ", err);
-        }
+        } catch (err) { console.error("Visibility toggle failed: ", err); }
       }
     }
 
     async function deleteArtwork(artId) {
       showCustomConfirm(async () => {
         try {
-          const artRef = doc(db_fs, 'artifacts', appId, 'public', 'data', 'artworks', artId);
-          await deleteDoc(artRef);
+          await deleteDoc(doc(db_fs, 'artifacts', appId, 'public', 'data', 'artworks', artId));
           showNotification(getText('deletedToast'), "success");
           await syncFromFirebase();
           renderAdminArtworksList();
-        } catch (err) {
-          console.error("Artwork deletion failed: ", err);
-        }
+        } catch (err) { console.error("Delete failed: ", err); }
       });
     }
 
@@ -2412,16 +1788,10 @@
       const container = document.getElementById('admin-messages-list');
       if (!container) return;
       container.innerHTML = '';
-
-      if (db.messages.length === 0) {
-        container.innerHTML = '<p class="text-center text-gray-500 py-12">Inthavaraku custom orders raledhu.</p>';
-        return;
-      }
-
+      if (db.messages.length === 0) { container.innerHTML = '<p class="text-center text-gray-500 py-12">Inthavaraku custom orders raledhu.</p>'; return; }
       db.messages.forEach(msg => {
         const item = document.createElement('div');
         item.className = 'p-6 sm:p-8 rounded-2xl border bg-white border-gray-150 dark:bg-gray-950 dark:border-gray-900 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 animate-in fade-in';
-        
         item.innerHTML = `
           <div>
             <div class="flex items-center gap-3 mb-2">
@@ -2433,14 +1803,9 @@
             <p class="text-gray-600 dark:text-gray-400 leading-relaxed">${msg.message}</p>
           </div>
           <div class="flex md:flex-col gap-2 shrink-0 w-full md:w-auto">
-            <a href="https://wa.me/${msg.phone.replace(/\D/g, '')}" target="_blank" class="w-full px-5 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl text-sm text-center">
-              WhatsApp Reply
-            </a>
-            <button onclick="deleteMessage('${msg.id}')" class="w-full px-5 py-3 border border-red-500/20 hover:bg-red-500/10 text-red-500 rounded-xl text-sm font-bold transition-all">
-              Delete Order
-            </button>
-          </div>
-        `;
+            <a href="https://wa.me/${msg.phone.replace(/\D/g, '')}" target="_blank" class="w-full px-5 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl text-sm text-center">WhatsApp Reply</a>
+            <button onclick="deleteMessage('${msg.id}')" class="w-full px-5 py-3 border border-red-500/20 hover:bg-red-500/10 text-red-500 rounded-xl text-sm font-bold transition-all">Delete Order</button>
+          </div>`;
         container.appendChild(item);
       });
     }
@@ -2448,14 +1813,11 @@
     async function deleteMessage(id) {
       showCustomConfirm(async () => {
         try {
-          const msgRef = doc(db_fs, 'artifacts', appId, 'public', 'data', 'messages', id);
-          await deleteDoc(msgRef);
+          await deleteDoc(doc(db_fs, 'artifacts', appId, 'public', 'data', 'messages', id));
           showNotification(getText('deletedToast'), "success");
           await syncFromFirebase();
           renderAdminMessages();
-        } catch (err) {
-          console.error("Message deletion synchronization failed: ", err);
-        }
+        } catch (err) { console.error("Message delete failed: ", err); }
       });
     }
 
@@ -2463,17 +1825,11 @@
       const container = document.getElementById('admin-comments-list');
       if (!container) return;
       container.innerHTML = '';
-
-      if (db.comments.length === 0) {
-        container.innerHTML = '<p class="text-center text-gray-500 py-12">Inthavaraku custom feedback comments raledhu.</p>';
-        return;
-      }
-
+      if (db.comments.length === 0) { container.innerHTML = '<p class="text-center text-gray-500 py-12">Inthavaraku custom feedback comments raledhu.</p>'; return; }
       db.comments.forEach(c => {
         const art = db.artworks.find(a => a.id === c.artworkId);
         const item = document.createElement('div');
         item.className = 'p-6 rounded-2xl border bg-white border-gray-150 dark:bg-gray-950 dark:border-gray-900 animate-in fade-in';
-        
         item.innerHTML = `
           <div class="flex justify-between items-start gap-4 mb-4">
             <div class="flex items-center gap-4">
@@ -2486,61 +1842,39 @@
             </div>
             <button onclick="deleteComment('${c.id}')" class="p-2.5 text-red-500 hover:bg-red-500/10 rounded-xl"><i data-lucide="trash-2" class="w-4.5 h-4.5"></i></button>
           </div>
-
           <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-900 flex gap-3">
-            <input 
-              type="text" 
-              id="reply-input-${c.id}"
-              placeholder="${getText('adminCommentReplyPlt')}" 
-              class="flex-1 px-4 py-2.5 rounded-xl text-sm border focus:outline-none focus:ring-1 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-850 dark:text-white"
-            />
-            <button onclick="postAdminReply('${c.id}')" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-black text-xs font-black rounded-xl">
-              ${getText('adminCommentReplyBtn')}
-            </button>
-          </div>
-        `;
+            <input type="text" id="reply-input-${c.id}" placeholder="${getText('adminCommentReplyPlt')}" class="flex-1 px-4 py-2.5 rounded-xl text-sm border focus:outline-none focus:ring-1 focus:ring-amber-500 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-850 dark:text-white" />
+            <button onclick="postAdminReply('${c.id}')" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-black text-xs font-black rounded-xl">${getText('adminCommentReplyBtn')}</button>
+          </div>`;
         container.appendChild(item);
       });
-      try {
-        if (typeof lucide !== 'undefined') lucide.createIcons();
-      } catch(e) {}
+      try { if (typeof lucide !== 'undefined') lucide.createIcons(); } catch(e) {}
     }
 
     async function postAdminReply(commentId) {
-      const text = document.getElementById(`reply-input-${commentId}`).value;
-      if (!text.trim()) return;
-
+      const text = document.getElementById(`reply-input-${commentId}`)?.value;
+      if (!text?.trim()) return;
       const comment = db.comments.find(c => c.id === commentId);
       if (comment) {
         if (!comment.replies) comment.replies = [];
-        comment.replies.push({
-          text,
-          createdAt: Date.now()
-        });
-        
+        comment.replies.push({ text, createdAt: Date.now() });
         try {
-          const commentRef = doc(db_fs, 'artifacts', appId, 'public', 'data', 'comments', commentId);
-          await updateDoc(commentRef, { replies: comment.replies });
+          await updateDoc(doc(db_fs, 'artifacts', appId, 'public', 'data', 'comments', commentId), { replies: comment.replies });
           showNotification(getText('saveSuccessToast'), "success");
           await syncFromFirebase();
           renderAdminComments();
-        } catch (err) {
-          console.error("Admin reply synchronization failed: ", err);
-        }
+        } catch (err) { console.error("Reply failed: ", err); }
       }
     }
 
     async function deleteComment(id) {
       showCustomConfirm(async () => {
         try {
-          const commentRef = doc(db_fs, 'artifacts', appId, 'public', 'data', 'comments', id);
-          await deleteDoc(commentRef);
+          await deleteDoc(doc(db_fs, 'artifacts', appId, 'public', 'data', 'comments', id));
           showNotification(getText('deletedToast'), "success");
           await syncFromFirebase();
           renderAdminComments();
-        } catch (err) {
-          console.error("Comment deletion failed: ", err);
-        }
+        } catch (err) { console.error("Comment delete failed: ", err); }
       });
     }
 
@@ -2549,69 +1883,60 @@
       const oldPin = document.getElementById('settings-old-pin').value;
       const newPin = document.getElementById('settings-new-pin').value;
       const savedPw = localStorage.getItem('art_db_password') || 'santhosh123';
-
       if (oldPin === savedPw) {
         localStorage.setItem('art_db_password', newPin);
         showNotification(getText('pinSuccessToast'), "success");
         document.getElementById('settings-old-pin').value = '';
         document.getElementById('settings-new-pin').value = '';
-      } else {
-        showNotification(getText('pinErrorToast'), "error");
-      }
+      } else { showNotification(getText('pinErrorToast'), "error"); }
     }
 
     function showNotification(text, type = "info") {
       const container = document.getElementById('toast-container');
       if (!container) return;
       const toast = document.createElement('div');
-      toast.className = `px-6 py-3.5 rounded-2xl shadow-2xl font-bold text-sm text-white transition-all flex items-center gap-2 animate-bounce ${
-        type === 'success' ? 'bg-amber-500 text-black' : 'bg-red-600'
-      }`;
+      toast.className = `px-6 py-3.5 rounded-2xl shadow-2xl font-bold text-sm text-white transition-all flex items-center gap-2 animate-bounce ${type === 'success' ? 'bg-amber-500 text-black' : 'bg-red-600'}`;
       toast.innerText = text;
       container.appendChild(toast);
-      setTimeout(() => {
-        toast.classList.add('opacity-0');
-        setTimeout(() => toast.remove(), 400);
-      }, 3000);
+      setTimeout(() => { toast.classList.add('opacity-0'); setTimeout(() => toast.remove(), 400); }, 3000);
+    }
+
+    let pendingConfirmAction = null;
+    function showCustomConfirm(action) {
+      pendingConfirmAction = action;
+      document.getElementById('confirm-delete-modal')?.classList.remove('hidden');
+      document.getElementById('btn-confirm-delete-cancel').onclick = closeCustomConfirm;
+      document.getElementById('btn-confirm-delete-action').onclick = () => {
+        closeCustomConfirm();
+        if (pendingConfirmAction) pendingConfirmAction();
+      };
     }
 
     function closeCustomConfirm() {
-      const modal = document.getElementById('confirm-delete-modal');
-      if (modal) modal.classList.add('hidden');
+      document.getElementById('confirm-delete-modal')?.classList.add('hidden');
+      pendingConfirmAction = null;
     }
 
-    // APPLICATION ENTRY-POINT BOOTSTRAP (Adhering to Rules 1, 2, and 3)
     async function initApp() {
-      // 1. Establish Theme from Cache
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
+      } else { document.documentElement.classList.remove('dark'); }
 
-      // 2. Strict Authentication Process Before Queries (Rule 3)
       try {
         const userCredential = await signInAnonymously(auth);
         currentUser = userCredential.user;
         db.session.userId = currentUser.uid;
         saveStateToLocal();
-      } catch (authError) {
-        console.error("Anonymous authentication state unresolved: ", authError);
-      }
+      } catch (authError) { console.error("Auth failed: ", authError); }
 
-      // 3. Sync Database from Firestore (Strict Paths & Resilient Fallback)
       await syncFromFirebase();
-
-      // 4. Localization Rendering
       translateUI();
-
-      // 5. URL Hash Router Connectivity
       const initialRoute = window.location.hash.slice(1) || '/';
       navigate(initialRoute, false);
     }
 
-    // EVENT DELEGATOR - BINDING TO WINDOW OBJECT FOR INLINE HANDLERS
+    // Window bindings
     window.handleLogoClick = handleLogoClick;
     window.navigate = navigate;
     window.toggleTheme = toggleTheme;
@@ -2647,20 +1972,14 @@
     window.deleteComment = deleteComment;
     window.deleteMessage = deleteMessage;
 
-    // Hash listener
     window.addEventListener('hashchange', () => {
       const hashRoute = window.location.hash.slice(1) || '/';
-      if (currentRoute !== hashRoute) {
-        navigate(hashRoute, false);
-      }
+      if (currentRoute !== hashRoute) navigate(hashRoute, false);
     });
 
-    // Boot execution
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', initApp);
-    } else {
-      initApp();
-    }
+    } else { initApp(); }
   </script>
 </body>
 </html>
